@@ -26,3 +26,19 @@ function get_scoreboard(){
 // 		})
 // 	})
 // }
+
+
+
+// function attach_scoreboard(MAIN_WRAPPER){
+
+// 	document.removeEventListener("DOMContentLoaded", start)
+
+// 	let scoreboard = document.createElement('script')
+
+// 	scoreboard.type = 'text/javascript'
+// 	scoreboard.src = 'scoreboard.js'
+
+// 	MAIN_WRAPPER.innerHTML = ""
+// 	MAIN_WRAPPER.appendChild(scoreboard)
+
+// }
