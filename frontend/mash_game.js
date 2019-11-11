@@ -9,8 +9,11 @@ function start(){
 }
 
 function get_scoreboard(){
+
 	return fetch("http://localhost:3000/scoreboards")
+
 	.then(response => response.json())
+
 }
 
 function create_elements(MAIN_WRAPPER){
@@ -113,6 +116,7 @@ function create_key_press_counter(MAIN_WRAPPER){
 	key_press_div.append(key_press_counter)
 
 	MAIN_WRAPPER.append(key_press_div)
+
 }
 
 function create_message(MAIN_WRAPPER){
@@ -139,6 +143,7 @@ function create_message(MAIN_WRAPPER){
 }
 
 function message_listener(event){
+
 	let key_press_counter = document.querySelector(".key_press_counter")
 	let message_rank = document.querySelector(".message_rank")
 
@@ -185,6 +190,7 @@ function message_listener(event){
 	} else {
 		message_rank.textContent = "COMPLETELY CHEATING"
 	}
+
 }
 
 function create_space_bar(MAIN_WRAPPER){
@@ -248,6 +254,7 @@ function space_bar_listener_up(event) {
 }
 
 function create_submit_form(MAIN_WRAPPER, key_presses, rank){
+
 	let submit_form = document.createElement("form")
 	let submit_name = document.createElement("input")
 	let submit_button = document.createElement("button")
@@ -263,62 +270,67 @@ function create_submit_form(MAIN_WRAPPER, key_presses, rank){
 	MAIN_WRAPPER.append(submit_form)
 
 	document.addEventListener("submit", submit_form_listener)
+
 }
 
 function submit_form_listener(event){
-		let key_press_counter = document.querySelector(".key_press_counter")
-		let key_presses = key_press_counter.innerText
-		let MAIN_WRAPPER = document.querySelector(".main_wrapper")
-		event.preventDefault()
 
-		let name = event.target[0].value.trim()
+	event.preventDefault()
 
-		fetch("http://localhost:3000/players", {
+	let key_press_counter = document.querySelector(".key_press_counter")
+	let key_presses = key_press_counter.innerText
+	let MAIN_WRAPPER = document.querySelector(".main_wrapper")
+
+	let name = event.target[0].value.trim()
+
+	fetch("http://localhost:3000/players", {
+		method: "POST",
+		headers: {
+			"content-type": "application/json",
+			"accept": "application/json",
+		},
+		body: JSON.stringify({
+			name: name
+		})
+	})
+	.then(response => response.json())
+	.then((player_object) => {
+		fetch("http://localhost:3000/scoreboards", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
 				"accept": "application/json",
 			},
 			body: JSON.stringify({
-				name: name
+				player_id: player_object.id,
+				score: key_presses
 			})
 		})
 		.then(response => response.json())
-		.then((player_object) => {
-			fetch("http://localhost:3000/scoreboards", {
-				method: "POST",
-				headers: {
-					"content-type": "application/json",
-					"accept": "application/json",
-				},
-				body: JSON.stringify({
-					player_id: player_object.id,
-					score: key_presses
-				})
-			})
-			.then(response => response.json())
-			.then((response_object) => {
-				get_scoreboard()
-				.then((response_obj) => {
-					for (let i = 20; i < response_obj.data.length; i++) {
-						fetch(`http://localhost:3000/scoreboards/${response_obj.data[i].id}`, {
-							method: "DELETE"
+		.then((response_object) => {
+			get_scoreboard()
+			.then((response_obj) => {
+				for (let i = 20; i < response_obj.data.length; i++) {
+					fetch(`http://localhost:3000/scoreboards/${response_obj.data[i].id}`, {
+						method: "DELETE"
+					})
+					.then(fetch("http://localhost:3000/scoreboards")
+						.then(response => response.json())
+						.then(new_scoreboard => {
+							document.removeEventListener("DOMNodeInserted", message_listener)
+							create_scoreboard(MAIN_WRAPPER, new_scoreboard)
 						})
-						.then(fetch("http://localhost:3000/scoreboards")
-							.then(response => response.json())
-							.then(new_scoreboard => {
-								document.removeEventListener("DOMNodeInserted", message_listener)
-								create_scoreboard(MAIN_WRAPPER, new_scoreboard)
-							})
-						)
-					}
-				})
+					)
+				}
 			})
 		})
+	})
 }
 
 function create_scoreboard(MAIN_WRAPPER, new_scoreboard){
+
 	MAIN_WRAPPER.innerHTML = ""
+
 	let scoreboard_header = document.createElement("h1")
 
 	let scoreboard_table = document.createElement("table")
@@ -342,8 +354,6 @@ function create_scoreboard(MAIN_WRAPPER, new_scoreboard){
 	fetch("http://localhost:3000/scoreboards")
 	.then(response => response.json())
 	.then((new_scoreboards) => {
-		console.log(new_scoreboards.data)
-
 		new_scoreboards.data.forEach((new_scoreboard) => {
 			let scoreboard_name_td = document.createElement("td")
 			let scoreboard_score_td = document.createElement("td")
@@ -360,17 +370,17 @@ function create_scoreboard(MAIN_WRAPPER, new_scoreboard){
 
 			scoreboard_table.append(scoreboard_tr)
 		})
-
-
 	})
 
 	MAIN_WRAPPER.append(scoreboard_header)
 	MAIN_WRAPPER.append(scoreboard_table)
 
 	create_bottom_buttons(MAIN_WRAPPER)
+
 }
 
 function create_bottom_buttons(MAIN_WRAPPER){
+
 	let bottom_button_div = document.createElement("div")
 	let play_again_button = document.createElement("button")
 	let main_menu_button = document.createElement("button")
@@ -390,24 +400,26 @@ function create_bottom_buttons(MAIN_WRAPPER){
 	bottom_button_div.append(play_again_button)
 
 	MAIN_WRAPPER.append(bottom_button_div)
+
 }
 
 function play_again_button_listener(event){
 
-		let MAIN_WRAPPER = document.querySelector(".main_wrapper")
+	let MAIN_WRAPPER = document.querySelector(".main_wrapper")
 
-		MAIN_WRAPPER.innerHTML = ""
+	MAIN_WRAPPER.innerHTML = ""
 
-		create_elements(MAIN_WRAPPER)
+	create_elements(MAIN_WRAPPER)
 
 }
 
 function main_menu_button_listener(event){
-		let MAIN_WRAPPER = document.querySelector(".main_wrapper")
 
-		MAIN_WRAPPER.innerHTML = ""
+	let MAIN_WRAPPER = document.querySelector(".main_wrapper")
 
-		// INSERT LINK HERE
+	MAIN_WRAPPER.innerHTML = ""
+
+	// INSERT LINK HERE
 
 }
 
