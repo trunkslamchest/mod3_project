@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", start)
 
+start()
+
 function start(){
 
 	const MAIN_WRAPPER = document.querySelector(".main_wrapper")
@@ -59,7 +61,7 @@ function add_function_to_timer(MAIN_WRAPPER, n, timer_counter, timer_header){
 
 		timer_counter.textContent = n -= 1;
 
-	}, 1000)
+	}, 100)
 
 	timer_counter.addEventListener("DOMNodeInserted", (event) => {
 
@@ -419,23 +421,20 @@ function main_menu_button_listener(event){
 
 	MAIN_WRAPPER.innerHTML = ""
 
-	// INSERT LINK HERE
+	attach_main_menu(MAIN_WRAPPER)
 
 }
 
+function attach_main_menu(MAIN_WRAPPER){
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	document.removeEventListener("DOMContentLoaded", start)
 
-// function attach_new_function(MAIN_WRAPPER){
+	let main_menu = document.createElement('script')
 
-// 	document.removeEventListener("DOMContentLoaded", start)
+	main_menu.type = 'text/javascript'
+	main_menu.src = 'main_menu.js'
 
-// 	let scoreboard = document.createElement('script')
+	MAIN_WRAPPER.innerHTML = ""
+	MAIN_WRAPPER.appendChild(main_menu)
 
-// 	scoreboard.type = 'text/javascript'
-// 	scoreboard.src = 'scoreboard.js'
-
-// 	MAIN_WRAPPER.innerHTML = ""
-// 	MAIN_WRAPPER.appendChild(scoreboard)
-
-// }
+}
