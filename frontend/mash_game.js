@@ -56,7 +56,7 @@ function add_function_to_timer(MAIN_WRAPPER, n, timer_counter, timer_header){
 
 		timer_counter.textContent = n -= 1;
 
-	}, 100)
+	}, 1000)
 
 	timer_counter.addEventListener("DOMNodeInserted", (event) => {
 
