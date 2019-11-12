@@ -1,7 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", start_game_countdown)
 
+function start_game_countdown(){
     const body = document.querySelector('body');
-    const parent_div = document.querySelector(".container-fluid");
+    const parent_div = document.querySelector(".main_wrapper");
 
     // ================================={Add Music to page}=========================================
     function playSound() {
@@ -33,6 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
             count_down.innerHTML = "GO"
             count_down.style.color = 'yellow'
             count_down.classList.add('animated', 'rubberBand')
+			if (count_down.textContent === "GO") {
+				// count_down.addEventListener("click", start_mash_game);
+				setTimeout(function(){start_mash_game(); }, 1500);
+			}
             // ================================={Add voice to go}=========================================
             var msg = new SpeechSynthesisUtterance();
             var voices = window.speechSynthesis.getVoices();
@@ -44,4 +49,19 @@ document.addEventListener("DOMContentLoaded", () => {
             speechSynthesis.speak(msg);
         }
     }, 800);
- })
+}
+
+function start_mash_game(event){
+	const MAIN_WRAPPER = document.querySelector(".main_wrapper");
+	MAIN_WRAPPER.innerHTML = ""
+
+	let mash_game_js = document.createElement('script')
+
+	mash_game_js.type = 'text/javascript'
+	mash_game_js.src = 'mash_game.js'
+
+	MAIN_WRAPPER.append(mash_game_js)
+
+}
+
+start_game_countdown()

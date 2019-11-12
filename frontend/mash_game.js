@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", start)
+document.addEventListener("DOMContentLoaded", start_game)
 
-start()
+start_game()
 
-function start(){
+function start_game() {
 
 	const MAIN_WRAPPER = document.querySelector(".main_wrapper")
 
@@ -10,15 +10,15 @@ function start(){
 
 }
 
-function get_scoreboard(){
+function get_scoreboard() {
 
 	return fetch("http://localhost:3000/scoreboards")
 
-	.then(response => response.json())
+		.then(response => response.json())
 
 }
 
-function create_elements(MAIN_WRAPPER){
+function create_elements(MAIN_WRAPPER) {
 
 	create_timer(MAIN_WRAPPER)
 
@@ -30,11 +30,12 @@ function create_elements(MAIN_WRAPPER){
 
 }
 
-function create_timer(MAIN_WRAPPER){
+function create_timer(MAIN_WRAPPER) {
 
 	let timer_div = document.createElement("div")
 	let timer_header = document.createElement("h1")
 	let timer_counter = document.createElement("div")
+
 
 	let n = 30
 
@@ -55,9 +56,9 @@ function create_timer(MAIN_WRAPPER){
 
 }
 
-function add_function_to_timer(MAIN_WRAPPER, n, timer_counter, timer_header){
+function add_function_to_timer(MAIN_WRAPPER, n, timer_counter, timer_header) {
 
-	let timer_time = setInterval( function(){
+	let timer_time = setInterval(function () {
 
 		timer_counter.textContent = n -= 1;
 
@@ -74,14 +75,39 @@ function add_function_to_timer(MAIN_WRAPPER, n, timer_counter, timer_header){
 
 		if (event.target.textContent == 0) {
 
+			// ================================={Add voice to go}=========================================
+
+			var msg = new SpeechSynthesisUtterance();
+			var voices = window.speechSynthesis.getVoices();
+			msg.voiceURI = 'native';
+			msg.volume = 1; // 0 to 1
+			msg.rate = 0.7; // 0.1 to 10
+			msg.text = 'Game Over idiot!';
+			msg.lang = 'en-US';
+
+			speechSynthesis.speak(msg);
+
+
+
+
+			// =========================
+
+
+
+
+
+
+
 			let key_presses = key_press_counter.innerText
 			let rank = message_rank.innerText
 
 			key_press_header.innerText = "FINAL SCORE"
 
 			timer_counter.innerText = "OUTTA TIME"
-			timer_counter.style.background = "red"
-			timer_counter.style.fontSize = "50pt"
+			timer_counter.classList = "game_over_text"
+			timer_counter.classList.add('animated', 'heartBeat')
+
+
 
 			message_header.innerText = "FINAL RANK"
 
@@ -100,7 +126,7 @@ function add_function_to_timer(MAIN_WRAPPER, n, timer_counter, timer_header){
 	})
 }
 
-function create_key_press_counter(MAIN_WRAPPER){
+function create_key_press_counter(MAIN_WRAPPER) {
 
 	let key_press_div = document.createElement("div")
 	let key_press_header = document.createElement("h1")
@@ -121,7 +147,7 @@ function create_key_press_counter(MAIN_WRAPPER){
 
 }
 
-function create_message(MAIN_WRAPPER){
+function create_message(MAIN_WRAPPER) {
 
 	let message_div = document.createElement("div")
 	let message_header = document.createElement("h1")
@@ -144,7 +170,7 @@ function create_message(MAIN_WRAPPER){
 
 }
 
-function message_listener(event){
+function message_listener(event) {
 
 	let key_press_counter = document.querySelector(".key_press_counter")
 	let message_rank = document.querySelector(".message_rank")
@@ -195,12 +221,12 @@ function message_listener(event){
 
 }
 
-function create_space_bar(MAIN_WRAPPER){
+function create_space_bar(MAIN_WRAPPER) {
 
 	let key_press_counter = document.querySelector(".key_press_counter")
 
 	let space_bar_div = document.createElement("div")
-	let space_bar_button = document.createElement("button")
+	let space_bar_button = document.createElement("div")
 
 	space_bar_div.className = "space_bar_div"
 
@@ -255,7 +281,7 @@ function space_bar_listener_up(event) {
 
 }
 
-function create_submit_form(MAIN_WRAPPER, key_presses, rank){
+function create_submit_form(MAIN_WRAPPER, key_presses, rank) {
 
 	let submit_form = document.createElement("form")
 	let submit_name = document.createElement("input")
@@ -263,8 +289,10 @@ function create_submit_form(MAIN_WRAPPER, key_presses, rank){
 
 	submit_form.className = "submit_form"
 	submit_name.setAttribute("placeholder", "Enter Your Name...")
+	submit_name.className = "submit_input"
 	submit_name.setAttribute("name", "Name")
 	submit_button.innerText = "Submit Score"
+	submit_button.className = "submit_button"
 
 	submit_form.append(submit_name)
 	submit_form.append(submit_button)
@@ -275,7 +303,7 @@ function create_submit_form(MAIN_WRAPPER, key_presses, rank){
 
 }
 
-function submit_form_listener(event){
+function submit_form_listener(event) {
 
 	event.preventDefault()
 
@@ -286,50 +314,50 @@ function submit_form_listener(event){
 	let name = event.target[0].value.trim()
 
 	fetch("http://localhost:3000/players", {
-		method: "POST",
-		headers: {
-			"content-type": "application/json",
-			"accept": "application/json",
-		},
-		body: JSON.stringify({
-			name: name
-		})
-	})
-	.then(response => response.json())
-	.then((player_object) => {
-		fetch("http://localhost:3000/scoreboards", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
 				"accept": "application/json",
 			},
 			body: JSON.stringify({
-				player_id: player_object.id,
-				score: key_presses
+				name: name
 			})
 		})
 		.then(response => response.json())
-		.then((response_object) => {
-			get_scoreboard()
-			.then((response_obj) => {
-				for (let i = 20; i < response_obj.data.length; i++) {
-					fetch(`http://localhost:3000/scoreboards/${response_obj.data[i].id}`, {
-						method: "DELETE"
+		.then((player_object) => {
+			fetch("http://localhost:3000/scoreboards", {
+					method: "POST",
+					headers: {
+						"content-type": "application/json",
+						"accept": "application/json",
+					},
+					body: JSON.stringify({
+						player_id: player_object.id,
+						score: key_presses
 					})
-					.then(fetch("http://localhost:3000/scoreboards")
-						.then(response => response.json())
-						.then(new_scoreboard => {
-							document.removeEventListener("DOMNodeInserted", message_listener)
-							create_scoreboard(MAIN_WRAPPER, new_scoreboard)
+				})
+				.then(response => response.json())
+				.then((response_object) => {
+					get_scoreboard()
+						.then((response_obj) => {
+							for (let i = 20; i < response_obj.data.length; i++) {
+								fetch(`http://localhost:3000/scoreboards/${response_obj.data[i].id}`, {
+										method: "DELETE"
+									})
+									.then(fetch("http://localhost:3000/scoreboards")
+										.then(response => response.json())
+										.then(new_scoreboard => {
+											document.removeEventListener("DOMNodeInserted", message_listener)
+											create_scoreboard(MAIN_WRAPPER, new_scoreboard)
+										})
+									)
+							}
 						})
-					)
-				}
-			})
+				})
 		})
-	})
 }
 
-function create_scoreboard(MAIN_WRAPPER, new_scoreboard){
+function create_scoreboard(MAIN_WRAPPER, new_scoreboard) {
 
 	MAIN_WRAPPER.innerHTML = ""
 
@@ -341,6 +369,9 @@ function create_scoreboard(MAIN_WRAPPER, new_scoreboard){
 	let scoreboard_table_score_th = document.createElement("th")
 
 	scoreboard_header.textContent = "HIGH SCORES"
+	scoreboard_header.className = "scoreboard_header "
+	scoreboard_header.classList.add('animated', 'rubberBand')
+
 
 	scoreboard_table.className = "scoreboard_table"
 	scoreboard_table_top_row.className = "scoreboard_table_top_row"
@@ -354,25 +385,25 @@ function create_scoreboard(MAIN_WRAPPER, new_scoreboard){
 	scoreboard_table.append(scoreboard_table_top_row)
 
 	fetch("http://localhost:3000/scoreboards")
-	.then(response => response.json())
-	.then((new_scoreboards) => {
-		new_scoreboards.data.forEach((new_scoreboard) => {
-			let scoreboard_name_td = document.createElement("td")
-			let scoreboard_score_td = document.createElement("td")
+		.then(response => response.json())
+		.then((new_scoreboards) => {
+			new_scoreboards.data.forEach((new_scoreboard) => {
+				let scoreboard_name_td = document.createElement("td")
+				let scoreboard_score_td = document.createElement("td")
 
-			let scoreboard_tr = document.createElement("tr")
+				let scoreboard_tr = document.createElement("tr")
 
-			scoreboard_tr.className = "scoreboard_item"
+				scoreboard_tr.className = "scoreboard_item"
 
-			scoreboard_name_td.textContent = `${new_scoreboard.attributes.player.name}`
-			scoreboard_score_td.textContent = `${new_scoreboard.attributes.score}`
+				scoreboard_name_td.textContent = `${new_scoreboard.attributes.player.name}`
+				scoreboard_score_td.textContent = `${new_scoreboard.attributes.score}`
 
-			scoreboard_tr.append(scoreboard_name_td)
-			scoreboard_tr.append(scoreboard_score_td)
+				scoreboard_tr.append(scoreboard_name_td)
+				scoreboard_tr.append(scoreboard_score_td)
 
-			scoreboard_table.append(scoreboard_tr)
+				scoreboard_table.append(scoreboard_tr)
+			})
 		})
-	})
 
 	MAIN_WRAPPER.append(scoreboard_header)
 	MAIN_WRAPPER.append(scoreboard_table)
@@ -381,7 +412,7 @@ function create_scoreboard(MAIN_WRAPPER, new_scoreboard){
 
 }
 
-function create_bottom_buttons(MAIN_WRAPPER){
+function create_bottom_buttons(MAIN_WRAPPER) {
 
 	let bottom_button_div = document.createElement("div")
 	let play_again_button = document.createElement("button")
@@ -405,27 +436,27 @@ function create_bottom_buttons(MAIN_WRAPPER){
 
 }
 
-function play_again_button_listener(event){
+function play_again_button_listener(event) {
 
 	let MAIN_WRAPPER = document.querySelector(".main_wrapper")
 
 	MAIN_WRAPPER.innerHTML = ""
 
-	create_elements(MAIN_WRAPPER)
+	start_game_countdown(MAIN_WRAPPER)
 
 }
 
-function main_menu_button_listener(event){
+function main_menu_button_listener(event) {
 
 	let MAIN_WRAPPER = document.querySelector(".main_wrapper")
 
 	MAIN_WRAPPER.innerHTML = ""
 
-	attach_main_menu(MAIN_WRAPPER)
+	start_main_menu(MAIN_WRAPPER)
 
 }
 
-function attach_main_menu(MAIN_WRAPPER){
+function start_main_menu(MAIN_WRAPPER) {
 
 	document.removeEventListener("DOMContentLoaded", start)
 
@@ -438,3 +469,30 @@ function attach_main_menu(MAIN_WRAPPER){
 	MAIN_WRAPPER.appendChild(main_menu)
 
 }
+
+function start_game_countdown(MAIN_WRAPPER) {
+
+	document.removeEventListener("DOMContentLoaded", start)
+
+	let game_countdown = document.createElement('script')
+
+	game_countdown.type = 'text/javascript'
+	game_countdown.src = 'game_countdown.js'
+
+	MAIN_WRAPPER.innerHTML = ""
+	MAIN_WRAPPER.appendChild(game_countdown)
+
+}
+
+// function start_game_countdown(MAIN_WRAPPER){
+// 	const MAIN_WRAPPER = document.querySelector(".main_wrapper");
+// 	MAIN_WRAPPER.innerHTML = ""
+
+// 	let game_countdown_js = document.createElement('script')
+
+// 	game_countdown_js.type = 'text/javascript'
+// 	game_countdown_js.src = 'game_countdown.js'
+
+// 	MAIN_WRAPPER.append(game_countdown_js)
+
+// }

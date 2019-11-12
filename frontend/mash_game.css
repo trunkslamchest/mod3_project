@@ -1,55 +1,58 @@
-.main_container{
-	width:100%
+@import url('https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Monoton|Saira+Stencil+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Wallpoet&display=swap');
+
+.main_container {
+	width: 100%;
 }
 
-.main_wrapper{
-	width: 50%;
+.main_wrapper {
+	width: 100%;
 	height: 100vh;
 	text-align: center;
 	margin: 0 auto 0 auto;
-	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
-	-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
-	-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
 }
 
 .timer_div {
 	width: 100%;
+
 }
 
 .timer_header {
-	margin: 0 auto 0 auto;
-	padding: 0 0 0 0;
-	color: #000;
-	font-size: 50pt;
+	font-family: 'Black Ops One', cursive;
+	font-size: 7em;
+	color: white;
+	margin-top: auto;
+	text-align: center;
 }
 
 .timer_counter {
-	width: 50%;
-	margin: 0 auto 0.25em auto;
-	padding: 0 0 0 0;
-	color: #FFF;
-	font-size: 75pt;
-	background: #000;
+	font-family: 'Black Ops One', cursive;
+	font-size: 17em;
+	color: white;
+	margin-top: auto;
+	text-align: center;
 }
 
 .key_press_div {
 	width: 100%;
+	font-family: 'Wallpoet', cursive;
 }
 
 .key_press_header {
 	margin: 0 auto 0 auto;
 	padding: 0 0 0 0;
-	color: #000;
+	color: white;
 	font-size: 25pt;
 }
 
 .key_press_counter {
-	width: 50%;
+	font-family: 'Black Ops One', cursive;
+	color: yellow;
 	margin: 0 auto 0.5em auto;
 	padding: 0 0 0 0;
-	color: #FFF;
-	font-size: 25pt;
-	background: #000;
+	font-size: 60pt;
+	text-align: center;
 }
 
 .message_div {
@@ -57,55 +60,65 @@
 }
 
 .message_header {
+	font-family: 'Wallpoet', cursive;
 	margin: 0 auto 0 auto;
 	padding: 0 0 0 0;
-	color: #000;
+	color: white;
 	font-size: 25pt;
 }
 
 .message_rank {
+	font-family: 'Wallpoet', cursive;
 	width: 75%;
+	height: 50px;
+	border-radius: 30px;
 	margin: 0 auto 0.5em auto;
 	padding: 0 0 0 0;
-	color: #FFF;
+	color: yellow;
 	font-size: 20pt;
+	text-align: center;
 	background: #000;
+	opacity: 0.6;
 }
 
 .space_bar_div {
+	border-radius: 15px;
+	width: 50%;
+	height: 10%;
+	margin: 0 auto;
+}
+
+.space_bar_button {
 	width: 100%;
+	height: 100%;
+	font-family: 'Black Ops One', cursive;
+	font-size: 40pt;
+	border-radius: 15px;
+	background-color: lightgrey;
+	text-align: center;
 }
 
-.space_bar_button {
-	width: 90%;
-	height: 3em;
-}
-
-.space_bar_button {
-	width: 90%;
-	height: 3em;
-}
 
 .scoreboard_table {
-	width: 100%;
+	width: 90%;
 }
 
 .scoreboard_table_top_row th {
 	text-align: center;
-	width: 50%;
+	width: 90%;
 }
 
 .scoreboard_item tr {
-	width: 100%;
+	width: 90%;
 }
 
 .scoreboard_item td {
 	text-align: center;
-	width: 50%;
+	width: 90%;
 }
 
 .bottom_button_div {
-	width: 100%;
+	width: 90%;
 }
 
 .main_menu_button {
@@ -116,4 +129,55 @@
 .play_again_button {
 	width: 40%;
 	height: 3em;
+}
+
+.submit_input {
+	font-family: 'Wallpoet', cursive;
+	font-size: 20pt;
+	width: 40%;
+	height: 2em;
+	color: orangered;
+	opacity: 0.5;
+	margin: 0 auto;
+}
+
+.submit_button {
+	margin: auto;
+	font-family: 'Wallpoet', cursive;
+	font-size: 20pt;
+	width: 30%;
+	height: 2em;
+	border-radius: 5px;
+}
+
+.submit_button:hover {
+	color: orangered;
+}
+
+.submit_form {
+	width: 60%;
+	margin: auto;
+}
+
+
+.game_over_text {
+	font-family: 'Black Ops One', cursive;
+	animation-duration: 3s;
+	animation-delay: 500ms;
+	animation-iteration-count: infinite;
+	color: red;
+	font-size: 90pt;
+}
+
+input:focus {
+	background-color: yellow;
+}
+
+.scoreboard_header {
+	font-family: 'Black Ops One', cursive;
+	animation-duration: 3s;
+	animation-delay: 500ms;
+	animation-iteration-count: infinite;
+	color: white;
+	font-size: 40pt;
 }

@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Monoton|Saira+Stencil+One&display=swap');
+
 body {
   /* https://i.imgur.com/LXQmFrd.jpg */
-  background-image: url("http://www.100hdwallpapers.com/wallpapers/1920x1080/aiden_pearce_in_watch_dogs-hd_wallpapers.jpg");
+  /* http://www.100hdwallpapers.com/wallpapers/1920x1080/aiden_pearce_in_watch_dogs-hd_wallpapers.jpg */
+  /* https://media2.giphy.com/media/P35o7CmbP76V2/giphy.gif */
+  background-image: url("https://ak8.picdn.net/shutterstock/videos/1032811178/thumb/10.jpg");
   background-color: #cccccc;
   height: 400px;
   background-attachment: fixed;
@@ -12,12 +15,13 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 #first-start-button {
   font-family: 'Black Ops One', cursive;
   border: 1px solid white;
   position: fixed;
   margin: 10px auto;
-  padding: 20px ;
+  padding: 20px;
   color: white;
   font-size: 3em;
   text-align: center;
@@ -29,24 +33,29 @@ body {
   border: 2px solid white;
   border-radius: 15px 40px;
   animation: blinker 10s linear;
-  
+  width: 20%;
+  height: 15%;
 }
+
 @keyframes blinker {
   50% {
     opacity: 0;
   }
 }
-#first-start-button:hover{
-    color: orangered;
-    background-color: black;
-    opacity: 0.7;
-    
+
+#first-start-button:hover {
+  color: orangered;
+  background-color: black;
+  opacity: 0.7;
+
 }
+
 #start-game {
   height: 10em;
   display: flex;
   align-items: center;
 }
+
 #block-div {
   background-color: black;
   margin-top: 150px;
@@ -59,14 +68,17 @@ body {
   max-width: 150%;
   max-height: 150%;
 }
+
 #block-div {
   animation: blinker 5s linear infinite;
 }
+
 @keyframes blinker {
   50% {
     opacity: 0;
   }
 }
+
 #countdown {
   font-family: 'Black Ops One', cursive;
   font-size: 15em;
@@ -74,6 +86,7 @@ body {
   margin-top: auto;
   text-align: center;
 }
+
 #game-title {
   font-family: 'Saira Stencil One', cursive;
   font-size: 3em;
@@ -81,15 +94,17 @@ body {
   font-size: 40px;
   color: #fff;
   text-align: center;
-  animation-duration: 3s;
+  animation-duration: 100ms;
   animation-delay: 500ms;
   animation-iteration-count: infinite;
 }
-#cartoons{
+
+#cartoons {
   width: 30px;
   height: 10px;
 }
-#column{
+
+#column {
   float: left;
   width: 33.33%;
   padding: 5px;
