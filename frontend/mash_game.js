@@ -483,16 +483,3 @@ function start_game_countdown(MAIN_WRAPPER) {
 	MAIN_WRAPPER.appendChild(game_countdown)
 
 }
-
-// function start_game_countdown(MAIN_WRAPPER){
-// 	const MAIN_WRAPPER = document.querySelector(".main_wrapper");
-// 	MAIN_WRAPPER.innerHTML = ""
-
-// 	let game_countdown_js = document.createElement('script')
-
-// 	game_countdown_js.type = 'text/javascript'
-// 	game_countdown_js.src = 'game_countdown.js'
-
-// 	MAIN_WRAPPER.append(game_countdown_js)
-
-// }
