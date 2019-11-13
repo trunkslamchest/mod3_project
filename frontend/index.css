@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Monoton|Saira+Stencil+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Wallpoet&display=swap');
 
 body {
   /* https://i.imgur.com/LXQmFrd.jpg */
@@ -99,7 +100,19 @@ body {
   font-size: 40px;
   color: #fff;
   text-align: center;
-  animation-duration: 100ms;
+  animation-duration: 750ms;
+  animation-delay: 500ms;
+  animation-iteration-count: 1;
+}
+
+#countdown-title {
+  font-family: 'Saira Stencil One', cursive;
+  font-size: 3em;
+  margin-top: 10px;
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
+  animation-duration: 750ms;
   animation-delay: 500ms;
   animation-iteration-count: infinite;
 }

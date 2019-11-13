@@ -12,18 +12,18 @@ function start_game_countdown(){
     document.addEventListener('click', playSound, true);
 
     // ======================================{After Game start}====================================
-    let game_title = document.createElement('h1');
-    game_title.innerText = 'J~austin Game';
-    game_title.id = 'game-title';
-    game_title.classList.add('animated', 'heartBeat');
-    parent_div.append(game_title);
-    let game_title_div = document.createElement('div');
-    game_title_div.id = "block-div";
-    parent_div.append(game_title_div);
+    let countdown_title = document.createElement('h1');
+    countdown_title.innerText = 'GET READY!';
+    countdown_title.id = 'countdown-title';
+    countdown_title.classList.add('animated', 'heartBeat');
+    parent_div.append(countdown_title);
+    let countdown_title_div = document.createElement('div');
+    countdown_title_div.id = "block-div";
+    parent_div.append(countdown_title_div);
     let count_down = document.createElement('h1');
     count_down.id = "countdown";
     count_down.className = "container"
-    game_title_div.append(count_down)
+    countdown_title_div.append(count_down)
     // ================================={Add the countdown timer}====================================
     let time_left = 5;
     let timer_function = setInterval(function () {
@@ -35,7 +35,6 @@ function start_game_countdown(){
             count_down.style.color = 'yellow'
             count_down.classList.add('animated', 'rubberBand')
 			if (count_down.textContent === "GO") {
-				// count_down.addEventListener("click", start_mash_game);
 				setTimeout(function(){start_mash_game(); }, 1500);
 			}
             // ================================={Add voice to go}=========================================

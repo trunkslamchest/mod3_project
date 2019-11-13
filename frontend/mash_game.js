@@ -384,7 +384,7 @@ function submit_form_listener(event) {
 		})
 }
 
-function create_scoreboard(MAIN_WRAPPER, new_scoreboard, created_player) {
+function create_scoreboard(MAIN_WRAPPER, created_player) {
 
 	MAIN_WRAPPER.innerHTML = ""
 
@@ -495,7 +495,7 @@ function main_menu_button_listener(event) {
 
 function start_main_menu(MAIN_WRAPPER) {
 
-	document.removeEventListener("DOMContentLoaded", start)
+	document.removeEventListener("DOMContentLoaded", start_button)
 
 	let main_menu = document.createElement('script')
 
@@ -509,7 +509,7 @@ function start_main_menu(MAIN_WRAPPER) {
 
 function start_game_countdown(MAIN_WRAPPER) {
 
-	document.removeEventListener("DOMContentLoaded", start)
+	document.removeEventListener("DOMContentLoaded", start_button)
 
 	let game_countdown = document.createElement('script')
 
