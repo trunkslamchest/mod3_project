@@ -315,6 +315,9 @@ function submit_form_listener(event) {
 
 	let name = event.target[0].value.trim()
 
+	if (name == "") {
+		alert("Enter Your Name, Bromato")
+	} else {
 	fetch("http://localhost:3000/players", {
 			method: "POST",
 			headers: {
@@ -340,9 +343,7 @@ function submit_form_listener(event) {
 				})
 				.then(response => response.json())
 				.then((response_object) => {
-
 					let created_player = response_object.data.attributes.player.name
-
 					get_scoreboard()
 					.then((response_obj) => {
 						if (response_obj.data.length < 21) {
@@ -356,7 +357,7 @@ function submit_form_listener(event) {
 
 									document.removeEventListener("submit", submit_form_listener)
 
-									create_scoreboard(MAIN_WRAPPER, new_scoreboard, created_player)
+									create_scoreboard(MAIN_WRAPPER, created_player)
 								})
 							)
 						} else {
@@ -374,7 +375,7 @@ function submit_form_listener(event) {
 
 											document.removeEventListener("submit", submit_form_listener)
 
-											create_scoreboard(MAIN_WRAPPER, new_scoreboard, created_player)
+											create_scoreboard(MAIN_WRAPPER, created_player)
 										})
 									)
 							}
@@ -382,10 +383,11 @@ function submit_form_listener(event) {
 					})
 				})
 		})
+	}
 }
 
 function create_scoreboard(MAIN_WRAPPER, created_player) {
-
+	console.log(created_player)
 	MAIN_WRAPPER.innerHTML = ""
 
 	let scoreboard_header = document.createElement("h1")
@@ -398,6 +400,7 @@ function create_scoreboard(MAIN_WRAPPER, created_player) {
 	scoreboard_header.textContent = "HIGH SCORES"
 	scoreboard_header.className = "scoreboard_header "
 	scoreboard_header.classList.add('animated', 'rubberBand')
+
 
 	scoreboard_table.className = "scoreboard_table"
 	scoreboard_table_top_row.className = "scoreboard_table_top_row"
