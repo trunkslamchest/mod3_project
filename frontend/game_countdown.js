@@ -4,38 +4,57 @@ function start_game_countdown(){
     const body = document.querySelector('body');
     const parent_div = document.querySelector(".main_wrapper");
 
-    // ================================={Add Music to page}=========================================
-    function playSound() {
-        let audio = new Audio('http://soundimage.org/wp-content/uploads/2016/01/Light-Years_V001_Looping.mp3');
-        audio.play()
-    }
     document.addEventListener('click', playSound, true);
 
-    // ======================================{After Game start}====================================
-    let countdown_title = document.createElement('h1');
-    countdown_title.innerText = 'GET READY!';
-    countdown_title.id = 'countdown-title';
-    countdown_title.classList.add('animated', 'heartBeat');
-    parent_div.append(countdown_title);
-    let countdown_title_div = document.createElement('div');
-    countdown_title_div.id = "block-div";
-    parent_div.append(countdown_title_div);
-    let count_down = document.createElement('h1');
-    count_down.id = "countdown";
-    count_down.className = "container"
-    countdown_title_div.append(count_down)
-    // ================================={Add the countdown timer}====================================
+    create_countdown_header(parent_div)
+
+    create_countdown_timer(parent_div)
+
+    create_description_text(parent_div)
+
+
+}
+
+function create_countdown_header(parent_div) {
+    let countdown_header = document.createElement('h1');
+    let countdown_header_div = document.createElement('div');
+
+    countdown_header.id = 'countdown_header';
+    countdown_header.innerText = 'GET READY!';
+    countdown_header.classList.add('animated', 'heartBeat');
+
+    countdown_header_div.id = "countdown_header_div";
+
+    countdown_header_div.append(countdown_header);
+    parent_div.append(countdown_header_div);
+}
+
+function create_countdown_timer(parent_div){
+
+    let countdown_text = document.createElement('h1');
+    let countdown_div = document.createElement('div');
+
     let time_left = 5;
+
+    countdown_text.id = "countdown_text"
+    countdown_text.innerText = time_left
+
+    countdown_div.id = "countdown_div";
+    // countdown_div.className = "container"
+    countdown_div.classList.add('animated', 'slideInDown')
+    countdown_div.append(countdown_text)
+    parent_div.append(countdown_div)
+    // ================================={Add the countdown timer}====================================
     let timer_function = setInterval(function () {
-        count_down.innerHTML = time_left;
         time_left -= 1;
+        countdown_text.innerText = time_left;
         if (time_left <= 0) {
+            countdown_text.innerHTML = "GO"
+            countdown_text.style.color = 'yellow'
+            countdown_text.classList.add('animated', 'rubberBand')
             clearInterval(timer_function);
-            count_down.innerHTML = "GO"
-            count_down.style.color = 'yellow'
-            count_down.classList.add('animated', 'rubberBand')
-			if (count_down.textContent === "GO") {
-				setTimeout(function(){start_mash_game(); }, 1500);
+			if (countdown_text.textContent === "GO") {
+				setTimeout(function(){start_mash_game()}, 1500);
 			}
             // ================================={Add voice to go}=========================================
             var msg = new SpeechSynthesisUtterance();
@@ -50,6 +69,21 @@ function start_game_countdown(){
     }, 1000);
 }
 
+function create_description_text(parent_div){
+
+	let tutorial_div = document.createElement("div")
+	let tutorial_text = document.createElement("h3")
+
+    tutorial_div.className = "tutorial_div"
+    tutorial_div.classList.add('animated', 'slideInUp');
+
+    tutorial_text.className = "tutorial_text"
+	tutorial_text.innerText = "Press the Spacebar as many times as you can within 30 seconds!"
+
+	tutorial_div.append(tutorial_text)
+	parent_div.append(tutorial_div)
+}
+
 function start_mash_game(event){
 	const MAIN_WRAPPER = document.querySelector(".main_wrapper");
 	MAIN_WRAPPER.innerHTML = ""
@@ -60,6 +94,14 @@ function start_mash_game(event){
 	mash_game_js.src = 'mash_game.js'
 
 	MAIN_WRAPPER.append(mash_game_js)
+
+}
+
+function playSound() {
+
+    let audio = new Audio('http://soundimage.org/wp-content/uploads/2016/01/Light-Years_V001_Looping.mp3');
+
+    audio.play()
 
 }
 

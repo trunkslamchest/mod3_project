@@ -15,28 +15,34 @@ body {
   background-size: cover;
   position: relative;
   overflow: hidden;
+  zoom: 80%;
 }
 
 #first-start-button {
   font-family: 'Black Ops One', cursive;
   border: 1px solid white;
-  position: fixed;
-  margin: 10px auto;
-  padding: 20px;
+  /* position: fixed; */
+  margin: 10px auto 0px auto;
+  padding: 10px;
   color: white;
   font-size: 4em;
   text-align: center;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 150%;
+  /* left: 50%; */
+  /* top: 25%; */
+  /* transform: translate(-50%, -50%); */
+  max-width: 100%;
   max-height: 100%;
   border: 2px solid white;
   border-radius: 15px 30px;
   box-shadow: 20px 10px 30px rgba(6, 200, 200, 0.842);
-  animation: blinker 10s linear;
+  /* animation: blinker 10s linear; */
   width: 30%;
   height: 15%;
+	background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0880ac72-06f9-4594-a7b3-84c5ebb4048a/dbzf8aw-6b58766b-eb9d-4789-93c8-e628a1cfc0de.jpg/v1/fill/w_1024,h_958,q_75,strp/carbon_fiber_texture_8k_by_granularity_dbzf8aw-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTU4IiwicGF0aCI6IlwvZlwvMDg4MGFjNzItMDZmOS00NTk0LWE3YjMtODRjNWViYjQwNDhhXC9kYnpmOGF3LTZiNTg3NjZiLWViOWQtNDc4OS05M2M4LWU2MjhhMWNmYzBkZS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.sMSRy-lfO5LrdSdWuxQJO_Z5UfCT7M3BfyFod3saP5o");
+  background-repeat:no-repeat;
+	background-position: center center;
+	background-attachment:fixed;
+	background-size: cover;
 }
 
 @keyframes blinker {
@@ -58,46 +64,53 @@ body {
   align-items: center;
 }
 
-#block-div {
-  background-color: black;
-  margin-top: 150px;
-  opacity: 0.8;
+#countdown_div {
+  font-family: 'Black Ops One', cursive;
+  color: white;
+  margin-top: auto;
+  text-align: center;
+	background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0880ac72-06f9-4594-a7b3-84c5ebb4048a/dbzf8aw-6b58766b-eb9d-4789-93c8-e628a1cfc0de.jpg/v1/fill/w_1024,h_958,q_75,strp/carbon_fiber_texture_8k_by_granularity_dbzf8aw-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTU4IiwicGF0aCI6IlwvZlwvMDg4MGFjNzItMDZmOS00NTk0LWE3YjMtODRjNWViYjQwNDhhXC9kYnpmOGF3LTZiNTg3NjZiLWViOWQtNDc4OS05M2M4LWU2MjhhMWNmYzBkZS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.sMSRy-lfO5LrdSdWuxQJO_Z5UfCT7M3BfyFod3saP5o");
+  background-repeat:no-repeat;
+	background-position: center center;
+	background-attachment:fixed;
+	background-size: cover;
+  /* opacity: 0.8; */
   display: inline-block;
   border-radius: 15px;
   width:50%;
-  height:30em;
-  text-align: center;
+  height:25%;
   border: 1.5px solid white;
   box-shadow: 10px 10px 40px rgba(6, 200, 200, 0.842);
   background-attachment: fixed;
-  max-width: 150%;
-  max-height: 150%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
-#block-div {
-  animation: blinker 5s linear infinite;
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}
-
-#countdown {
+#countdown_text {
   font-family: 'Black Ops One', cursive;
   font-size: 15em;
   color: white;
   margin-top: auto;
-  padding-top: 70px;
   text-align: center;
 }
 
-#game-title {
-  font-family: 'Saira Stencil One', cursive;
+#game_title_div {
+  /* font-family: 'Saira Stencil One', cursive;
   font-size: 3em;
+  margin-top: 10px; */
+  /* font-size: 40px; */
+  color: #fff;
+  text-align: center;
+  /* animation-duration: 750ms;
+  animation-delay: 500ms;
+  animation-iteration-count: 1; */
+}
+
+#game_header {
+  font-family: 'Saira Stencil One', cursive;
+  font-size: 4em;
   margin-top: 10px;
-  font-size: 40px;
+  /* font-size: 40px; */
   color: #fff;
   text-align: center;
   animation-duration: 750ms;
@@ -105,7 +118,19 @@ body {
   animation-iteration-count: 1;
 }
 
-#countdown-title {
+#game_tagline {
+  font-family: 'Saira Stencil One', cursive;
+  font-size: 2em;
+  margin-top: 10px;
+  /* font-size: 40px; */
+  color: #fff;
+  text-align: center;
+  animation-duration: 750ms;
+  animation-delay: 1000ms;
+  animation-iteration-count: 1;
+}
+
+#countdown_header {
   font-family: 'Saira Stencil One', cursive;
   font-size: 3em;
   margin-top: 10px;
@@ -115,6 +140,23 @@ body {
   animation-duration: 750ms;
   animation-delay: 500ms;
   animation-iteration-count: infinite;
+
+}
+
+#countdown_header_div {
+  font-family: 'Black Ops One', cursive;
+  font-size: 15em;
+  color: white;
+  margin-top: auto;
+  padding-top: 70px;
+  text-align: center;
+  animation: blinker 2.5s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 
 #cartoons {

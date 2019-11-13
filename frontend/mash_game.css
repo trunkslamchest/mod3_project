@@ -97,11 +97,10 @@
 	background-color: lightgrey;
 	text-align: center;
 }
-
 .scoreboard_table {
 	padding-left: 0px;
 	margin-left: 0px;
-	font-size: 1.5em;
+	font-size: 2em;
 	color: white;
 	width: 50%;
 	margin: 10px auto;
@@ -124,22 +123,58 @@
 	color: white;
 	text-align: left;
 	width: 90%;
+
 }
 
 .bottom_button_div {
+	display: inline-block;
+	margin-right: 5px;
 	width: 90%;
 }
 
+/* ------------------------------------------- */
 .main_menu_button {
-	width: 40%;
-	height: 3em;
+	border: 1px double white;
+	font-family: 'Wallpoet', cursive;
+	color: yellow;
+	display: inline-block;
+	text-align: center;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	width: 30%;
+	height: 2em;
+	font-size: 4em;
+	background-color: transparent;
+
+}
+
+.main_menu_button:hover {
+	box-shadow: 20px 10px 30px rgba(6, 200, 200, 0.842);
+	background-color: black;
+	/* color: white; */
 }
 
 .play_again_button {
-	width: 40%;
-	height: 3em;
+	border: 1px double white;
+	font-family: 'Wallpoet', cursive;
+	color: yellow;
+	display: inline-block;
+	text-align: center;
+	margin-right: 5px;
+	width: 30%;
+	height: 2em;
+	font-size: 4em;
+	background-color: transparent;
 }
 
+
+.play_again_button:hover {
+	box-shadow: 20px 10px 30px rgba(6, 200, 200, 0.842);
+	background-color: black;
+	/* color: white; */
+}
+
+/* -------------------------------------------------- */
 .submit_input {
 	font-family: 'Wallpoet', cursive;
 	font-size: 20pt;
@@ -168,6 +203,7 @@
 	margin: auto;
 }
 
+
 .game_over_text {
 	font-family: 'Black Ops One', cursive;
 	animation-duration: 3s;
@@ -189,3 +225,4 @@ input:focus {
 	color: white;
 	font-size: 40pt;
 }
+
