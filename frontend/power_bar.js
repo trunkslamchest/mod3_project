@@ -54,8 +54,7 @@ function power_bar_down(){
 
 		let power_bar = document.querySelector(".power_bar")
 
-		power_bar.value += 0.02
-		console.log(power_bar.value)
+		power_bar.value += 0.03
 
 		stop_power_timer()
 

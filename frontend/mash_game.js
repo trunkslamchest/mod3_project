@@ -13,8 +13,7 @@ function start_game() {
 function get_scoreboard() {
 
 	return fetch("http://localhost:3000/scoreboards")
-
-		.then(response => response.json())
+	.then(response => response.json())
 
 }
 
@@ -37,7 +36,6 @@ function create_timer(MAIN_WRAPPER) {
 	let timer_div = document.createElement("div")
 	let timer_header = document.createElement("h1")
 	let timer_counter = document.createElement("div")
-
 
 	let n = 30
 
@@ -89,16 +87,7 @@ function add_function_to_timer(MAIN_WRAPPER, n, timer_counter, timer_header) {
 
 			speechSynthesis.speak(msg);
 
-
-
-
 			// =========================
-
-
-
-
-
-
 
 			let key_presses = key_press_counter.innerText
 			let rank = message_rank.innerText
@@ -108,8 +97,6 @@ function add_function_to_timer(MAIN_WRAPPER, n, timer_counter, timer_header) {
 			timer_counter.innerText = "OUTTA TIME"
 			timer_counter.classList = "game_over_text"
 			timer_counter.classList.add('animated', 'heartBeat')
-
-
 
 			message_header.innerText = "FINAL RANK"
 
@@ -387,7 +374,7 @@ function submit_form_listener(event) {
 }
 
 function create_scoreboard(MAIN_WRAPPER, created_player) {
-	console.log(created_player)
+
 	MAIN_WRAPPER.innerHTML = ""
 
 	let scoreboard_header = document.createElement("h1")
@@ -400,7 +387,6 @@ function create_scoreboard(MAIN_WRAPPER, created_player) {
 	scoreboard_header.textContent = "HIGH SCORES"
 	scoreboard_header.className = "scoreboard_header "
 	scoreboard_header.classList.add('animated', 'rubberBand')
-
 
 	scoreboard_table.className = "scoreboard_table"
 	scoreboard_table_top_row.className = "scoreboard_table_top_row"
