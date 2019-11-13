@@ -15,7 +15,7 @@ class ScoreboardsController < ApplicationController
 		@scoreboard = Scoreboard.create(create_scoreboard_params)
 
 		if @scoreboard.valid?
-			render json: @scoreboard, status: 201
+			render json: ScoreboardSerializer.new(@scoreboard).serialized_json, status: 201, include: "**"
 		else
 			render json: {errors: @scoreboard.errors.full_messages}, status: 401
 		end
@@ -25,13 +25,13 @@ class ScoreboardsController < ApplicationController
 		@score = Scoreboard.find(params[:id])
 		@score.destroy
 
-		render json: @score, status: 201
+		render json: ScoreboardSerializer.new(@score).serialized_json, status: 201, include: "**"
 	end
 
 private
 
 	def create_scoreboard_params
-		params.permit(:player_id, :score)
+		params.permit(:player_id, :score, :player)
 	end
 
 end

@@ -25,7 +25,7 @@ function start_game_countdown(){
     count_down.className = "container"
     game_title_div.append(count_down)
     // ================================={Add the countdown timer}====================================
-    let time_left = 10;
+    let time_left = 5;
     let timer_function = setInterval(function () {
         count_down.innerHTML = time_left;
         time_left -= 1;
@@ -48,7 +48,7 @@ function start_game_countdown(){
             msg.lang = 'en-US';
             speechSynthesis.speak(msg);
         }
-    }, 800);
+    }, 1000);
 }
 
 function start_mash_game(event){

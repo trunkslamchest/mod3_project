@@ -1,0 +1,21 @@
+.power_div {
+	width: 75%;
+	padding: 0 0 1em 0;
+	margin: 0 auto 0 auto;
+
+}
+
+.power_bar {
+	width: 100%;
+	height: 35px;
+	padding: 0 0 1em 0;
+
+}
+
+.power_header {
+	font-family: 'Wallpoet', cursive;
+	margin: 0 auto 0 auto;
+	padding: 0 0 0 0;
+	color: white;
+	font-size: 25pt;
+}

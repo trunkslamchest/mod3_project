@@ -98,31 +98,22 @@
 	text-align: center;
 }
 
+
 .scoreboard_table {
-	padding-left: 0px;
-	margin-left: 0px;
-	font-size: 1.5em;
-	color: white;
-	width: 50%;
-	margin: 10px auto;
-	padding-left: 10px;
+	width: 90%;
 }
 
 .scoreboard_table_top_row th {
-	color: white;
-	text-align: left;
+	text-align: center;
 	width: 90%;
 }
 
 .scoreboard_item tr {
-	color: white;
 	width: 90%;
-	text-align: left;
 }
 
 .scoreboard_item td {
-	color: white;
-	text-align: left;
+	text-align: center;
 	width: 90%;
 }
 
@@ -167,6 +158,7 @@
 	width: 60%;
 	margin: auto;
 }
+
 
 .game_over_text {
 	font-family: 'Black Ops One', cursive;

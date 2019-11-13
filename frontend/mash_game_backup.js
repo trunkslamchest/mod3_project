@@ -340,51 +340,36 @@ function submit_form_listener(event) {
 				})
 				.then(response => response.json())
 				.then((response_object) => {
-
-					let created_player = response_object.data.attributes.player.name
-
 					get_scoreboard()
-					.then((response_obj) => {
-						if (response_obj.data.length < 21) {
-							(fetch("http://localhost:3000/scoreboards")
-								.then(response => response.json())
-								.then(new_scoreboard => {
-
-									document.removeEventListener("DOMNodeInserted", message_listener)
-									document.removeEventListener("keydown", power_bar_down)
-									document.removeEventListener("keyup", power_bar_up)
-
-									document.removeEventListener("submit", submit_form_listener)
-
-									create_scoreboard(MAIN_WRAPPER, new_scoreboard, created_player)
-								})
-							)
-						} else {
-							for (let i = 20; i < response_obj.data.length; i++) {
-								fetch(`http://localhost:3000/scoreboards/${response_obj.data[i].id}`, {
-										method: "DELETE"
+						.then((response_obj) => {
+							if (response_obj.data.length < 21) {
+								(fetch("http://localhost:3000/scoreboards")
+									.then(response => response.json())
+									.then(new_scoreboard => {
+										document.removeEventListener("DOMNodeInserted", message_listener)
+										create_scoreboard(MAIN_WRAPPER, new_scoreboard)
 									})
-									.then(fetch("http://localhost:3000/scoreboards")
-										.then(response => response.json())
-										.then(new_scoreboard => {
-
-											document.removeEventListener("DOMNodeInserted", message_listener)
-											document.removeEventListener("keydown", power_bar_down)
-											document.removeEventListener("keyup", power_bar_up)
-
-											document.removeEventListener("submit", submit_form_listener)
-
-											create_scoreboard(MAIN_WRAPPER, new_scoreboard, created_player)
+								)
+							} else {
+								for (let i = 20; i < response_obj.data.length; i++) {
+									fetch(`http://localhost:3000/scoreboards/${response_obj.data[i].id}`, {
+											method: "DELETE"
 										})
-									)
+										.then(fetch("http://localhost:3000/scoreboards")
+											.then(response => response.json())
+											.then(new_scoreboard => {
+												document.removeEventListener("DOMNodeInserted", message_listener)
+												create_scoreboard(MAIN_WRAPPER, new_scoreboard)
+											})
+										)
+								}
 							}
-						}
-					})
+						})
 				})
 		})
 }
 
-function create_scoreboard(MAIN_WRAPPER, new_scoreboard, created_player) {
+function create_scoreboard(MAIN_WRAPPER, new_scoreboard) {
 
 	MAIN_WRAPPER.innerHTML = ""
 
@@ -398,6 +383,7 @@ function create_scoreboard(MAIN_WRAPPER, new_scoreboard, created_player) {
 	scoreboard_header.textContent = "HIGH SCORES"
 	scoreboard_header.className = "scoreboard_header "
 	scoreboard_header.classList.add('animated', 'rubberBand')
+
 
 	scoreboard_table.className = "scoreboard_table"
 	scoreboard_table_top_row.className = "scoreboard_table_top_row"
@@ -413,7 +399,6 @@ function create_scoreboard(MAIN_WRAPPER, new_scoreboard, created_player) {
 	fetch("http://localhost:3000/scoreboards")
 		.then(response => response.json())
 		.then((new_scoreboards) => {
-			let i = 1
 			new_scoreboards.data.forEach((new_scoreboard) => {
 				let scoreboard_name_td = document.createElement("td")
 				let scoreboard_score_td = document.createElement("td")
@@ -422,23 +407,13 @@ function create_scoreboard(MAIN_WRAPPER, new_scoreboard, created_player) {
 
 				scoreboard_tr.className = "scoreboard_item"
 
-				if (new_scoreboard.attributes.player.name == created_player) {
-					scoreboard_name_td.style.color = "#fcba03"
-					scoreboard_score_td.style.color = "#fcba03"
-				} else {
-					scoreboard_name_td.style.color = "#fff"
-					scoreboard_score_td.style.color = "#fff"
-				}
-
-				scoreboard_name_td.textContent = `${i}) ${new_scoreboard.attributes.player.name}`
+				scoreboard_name_td.textContent = `${new_scoreboard.attributes.player.name}`
 				scoreboard_score_td.textContent = `${new_scoreboard.attributes.score}`
 
 				scoreboard_tr.append(scoreboard_name_td)
 				scoreboard_tr.append(scoreboard_score_td)
 
 				scoreboard_table.append(scoreboard_tr)
-
-				i++
 			})
 		})
 
