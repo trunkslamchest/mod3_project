@@ -1,60 +1,192 @@
-#first-start-button {
-	font-family: 'Black Ops One', cursive;
-	/* position: fixed; */
-	margin: 10px auto 0px auto;
-	padding: 10px;
-	color: white;
-	font-size: 4em;
+#game_title_div {
+	color: #fff;
 	text-align: center;
-	/* left: 50%; */
-	/* top: 25%; */
-	/* transform: translate(-50%, -50%); */
-	max-width: 100%;
-	max-height: 100%;
-	border: 2px solid white;
+	position:relative;
+	top: 0px;
+	left: 2%;
+	width: 100%;
+	margin: 0px auto 0 auto;
+	padding: 0 0 0 0;
+ 	/* background-color: rgba(0,0,0,.6); */
+  	background-image: linear-gradient( rgb(50, 50, 50, 0.75) 10%,rgb(0, 0, 0, 0.75) 90%);
 	border-radius: 15px 30px;
-	box-shadow: 20px 10px 30px rgba(6, 200, 200, 0.842);
-	/* animation: blinker 10s linear; */
-	width: 30%;
-	height: 15%;
-	background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0880ac72-06f9-4594-a7b3-84c5ebb4048a/dbzf8aw-6b58766b-eb9d-4789-93c8-e628a1cfc0de.jpg/v1/fill/w_1024,h_958,q_75,strp/carbon_fiber_texture_8k_by_granularity_dbzf8aw-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTU4IiwicGF0aCI6IlwvZlwvMDg4MGFjNzItMDZmOS00NTk0LWE3YjMtODRjNWViYjQwNDhhXC9kYnpmOGF3LTZiNTg3NjZiLWViOWQtNDc4OS05M2M4LWU2MjhhMWNmYzBkZS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.sMSRy-lfO5LrdSdWuxQJO_Z5UfCT7M3BfyFod3saP5o");
-	background-repeat:no-repeat;
-	background-position: center center;
-	background-attachment:fixed;
-	background-size: cover;
-	/* animation:slide_up 1s;
-	-moz-animation:slide_up 1s;
-	-webkit-animation:slide_up 1s; */
-	animation-duration: 2s;
-	animation-delay: 0ms;
+	border: 2px solid white;
+    transform: matrix3d(
+      1,0,0,0.00025,
+      0,1,0,0,
+      0,0,1,0,
+      0,0,0,1
+    );
+	animation: slide_down_title .25s ease-in-out 1;
+}
+
+@keyframes slide_down_title
+{
+	0%   {left: -100%; width: 0%}
+	100% {left: 2%; width: 100%}
+}
+
+#game_title_text {
+	font-family: 'Saira Stencil One', cursive;
+	font-size: 10em;
+	margin: 0 auto 0 auto;
+	padding: 0 0 0 0;
+	color: yellow;
+	text-align: center;
+ 	text-shadow: 1px 1px 2px #000;
+	animation-duration: 750ms;
+	animation-delay: 500ms;
 	animation-iteration-count: 1;
 }
 
-@keyframes slide_up
-{
-	0%   {top:500px; opacity: 0;}
-	100% {top:225px; opacity: 1;}
+#game_tagline {
+	font-family: 'Saira Stencil One', cursive;
+	font-size: 4em;
+	padding: 0 0 0 0;
+	margin: 0 auto 0 auto;
+	color: red;
+	text-align: center;
+ 	text-shadow: 1px 1px 2px #000;
+	animation-duration: 750ms;
+	animation-delay: 1000ms;
+	animation-iteration-count: 1;
 }
+
+#first-start-button {
+	font-family: 'Black Ops One', cursive;
+	width: 30%;
+	margin: 0 auto 0 auto;
+	padding: 10px;
+	color: white;
+ 	text-shadow: 1px 1px 2px #000;
+	font-size: 4em;
+	text-align: center;
+	position:fixed;
+	top: 190px;
+	left: 35%;
+	border: 2px solid white;
+	border-radius: 15px 30px;
+	box-shadow: 20px 10px 30px rgba(6, 200, 200, 0.842);
+    transform: matrix3d(
+      1,0,0,0.0005,
+      0,1,0,0,
+      0,0,1,0,
+      0,0,0,1
+    );
+	animation: slide_down 1s ease-in-out 1, blinker 2s ease-in-out infinite;
+}
+
+@keyframes slide_down
+{
+	0%   {top:-500px}
+	100% {top:190px}
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.25;
+    transform: matrix3d(
+      1,0,0,-0.0005,
+      0,1,0,0,
+      0,0,1,0,
+      0,0,0,1
+    );
+  }
+}
+
 
 
 #first-start-button:hover {
 	color: orangered;
 	background-color: black;
-	opacity: 0.7;
-	transition-property: color, background, opacity;
-	transition-duration: .1s;
-	transition-timing-function: ease-in-out;
-
+	opacity: 1;
+    transform: matrix3d(
+      1,0,0,0,
+      0,1,0,0,
+      0,0,1,0,
+      0,0,0,1
+    );
+	animation: blinker_hover .1s ease-in-out 1;
 }
 
-/* #start-game {
-  height: 10em;
-  display: flex;
-  align-items: center;
-} */
+@keyframes blinker_hover {
+  50% {
+    transform: matrix3d(
+      1,0,0,-0.0005,
+      0,1,0,0,
+      0,0,1,0,
+      0,0,0,1
+    );
+	transition: all 10s ease-in-out 10s;
+  }
+}
+
+#first-start-button_hovered {
+	font-family: 'Black Ops One', cursive;
+	margin: 0 auto 0 auto;
+	padding: 10px;
+	color: white;
+	font-size: 4em;
+	text-align: center;
+	position:fixed;
+	top: 190px;
+	left: 35%;
+	border: 2px solid white;
+	border-radius: 15px 30px;
+	box-shadow: 20px 10px 30px rgba(6, 200, 200, 0.842);
+	width: 30%;
+	background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0880ac72-06f9-4594-a7b3-84c5ebb4048a/dbzf8aw-6b58766b-eb9d-4789-93c8-e628a1cfc0de.jpg/v1/fill/w_1024,h_958,q_75,strp/carbon_fiber_texture_8k_by_granularity_dbzf8aw-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTU4IiwicGF0aCI6IlwvZlwvMDg4MGFjNzItMDZmOS00NTk0LWE3YjMtODRjNWViYjQwNDhhXC9kYnpmOGF3LTZiNTg3NjZiLWViOWQtNDc4OS05M2M4LWU2MjhhMWNmYzBkZS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.sMSRy-lfO5LrdSdWuxQJO_Z5UfCT7M3BfyFod3saP5o");
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size: cover;
+    transform: matrix3d(
+      1,0,0,0.0005,
+      0,1,0,0,
+      0,0,1,0,
+      0,0,0,1
+    );
+	animation: blinker_hovered 2s ease-in-out infinite;
+}
+
+@keyframes blinker_hovered {
+  50% {
+    opacity: 0.25;
+    transform: matrix3d(
+      1,0,0,-0.0005,
+      0,1,0,0,
+      0,0,1,0,
+      0,0,0,1
+    );
+  }
+}
+
+#first-start-button_hovered:hover {
+	color: orangered;
+	background-color: black;
+	opacity: 1;
+    transform: matrix3d(
+      1,0,0,0,
+      0,1,0,0,
+      0,0,1,0,
+      0,0,0,1
+    );
+	animation: blinker_hovered_hover .2s ease-in-out 1;
+}
+
+@keyframes blinker_hovered_hover {
+  50% {
+    opacity: 0.25;
+    transform: matrix3d(
+      1,0,0,-0.0005,
+      0,1,0,0,
+      0,0,1,0,
+      0,0,0,1
+    );
+  }
+}
 
 #fine_text_div {
-  font-family: 'Black Ops One', cursive;
+	font-family: 'Black Ops One', cursive;
 	margin: 10px auto 0 auto;
 	font-size: 1.25em;
 	color: white;
@@ -66,7 +198,8 @@
 	animation-delay: 750ms;
 	animation-iteration-count: 1;
 }
-/* 
+
+/*
 .fine_text {
   font-family: 'Black Ops One', cursive;
   font-size: 4em;

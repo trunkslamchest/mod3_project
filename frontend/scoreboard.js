@@ -17,11 +17,9 @@ function show_scoreboard() {
 	let scoreboard_table_score_th = document.createElement("th")
 
 	scoreboard_div.id = "scoreboard_div"
-	// scoreboard_div.classList.add('animated', 'slideInUp')
 
 	scoreboard_header.textContent = "HIGH SCORES"
 	scoreboard_header.className = "scoreboard_menu_header "
-	// scoreboard_header.classList.add('animated', 'pulse')
 
 	scoreboard_table.className = "scoreboard_menu_table"
 	scoreboard_table_top_row.className = "scoreboard_menu_table_top_row"
@@ -36,6 +34,7 @@ function show_scoreboard() {
 
 	get_scoreboard()
 	.then((new_scoreboards) => {
+		let i = 1
 		new_scoreboards.data.forEach((new_scoreboard) => {
 			let scoreboard_name_td = document.createElement("td")
 			let scoreboard_score_td = document.createElement("td")
@@ -44,13 +43,15 @@ function show_scoreboard() {
 
 			scoreboard_tr.className = "scoreboard_menu_item"
 
-			scoreboard_name_td.textContent = `${new_scoreboard.attributes.player.name}`
+			scoreboard_name_td.textContent = `${i}) ${new_scoreboard.attributes.player.name}`
 			scoreboard_score_td.textContent = `${new_scoreboard.attributes.score}`
 
 			scoreboard_tr.append(scoreboard_name_td)
 			scoreboard_tr.append(scoreboard_score_td)
 
 			scoreboard_table.append(scoreboard_tr)
+
+			i++
 		})
 	})
 

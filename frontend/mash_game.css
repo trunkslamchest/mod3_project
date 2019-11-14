@@ -15,7 +15,6 @@
 
 .timer_div {
 	width: 100%;
-
 }
 
 .timer_header {
@@ -98,7 +97,6 @@
 	text-align: center;
 }
 .scoreboard_table {
-	padding-left: 0px;
 	margin-left: 0px;
 	font-size: 2em;
 	color: white;
@@ -132,7 +130,6 @@
 	width: 90%;
 }
 
-/* ------------------------------------------- */
 .main_menu_button {
 	border: 1px double white;
 	font-family: 'Wallpoet', cursive;
@@ -151,7 +148,6 @@
 .main_menu_button:hover {
 	box-shadow: 20px 10px 30px rgba(6, 200, 200, 0.842);
 	background-color: black;
-	/* color: white; */
 }
 
 .play_again_button {
@@ -167,14 +163,12 @@
 	background-color: transparent;
 }
 
-
 .play_again_button:hover {
 	box-shadow: 20px 10px 30px rgba(6, 200, 200, 0.842);
 	background-color: black;
 	/* color: white; */
 }
 
-/* -------------------------------------------------- */
 .submit_input {
 	font-family: 'Wallpoet', cursive;
 	font-size: 20pt;

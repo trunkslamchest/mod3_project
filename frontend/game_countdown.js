@@ -16,16 +16,16 @@ function start_game_countdown(){
 }
 
 function create_countdown_header(parent_div) {
-    let countdown_header = document.createElement('h1');
+    let countdown_header_text = document.createElement('h1');
     let countdown_header_div = document.createElement('div');
 
-    countdown_header.id = 'countdown_header';
-    countdown_header.innerText = 'GET READY!';
-    countdown_header.classList.add('animated', 'heartBeat');
+    countdown_header_text.id = 'countdown_header_text';
+    countdown_header_text.innerText = 'PREPARE TO GET SMASHED...';
+    countdown_header_text.classList.add('animated', 'heartBeat');
 
     countdown_header_div.id = "countdown_header_div";
 
-    countdown_header_div.append(countdown_header);
+    countdown_header_div.append(countdown_header_text);
     parent_div.append(countdown_header_div);
 }
 
