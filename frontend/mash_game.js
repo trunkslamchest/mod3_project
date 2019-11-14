@@ -484,7 +484,7 @@ function main_menu_button_listener(event) {
 
 function start_main_menu(MAIN_WRAPPER) {
 
-	document.removeEventListener("DOMContentLoaded", start_button)
+	document.removeEventListener("DOMContentLoaded", start)
 
 	let main_menu = document.createElement('script')
 
@@ -498,7 +498,7 @@ function start_main_menu(MAIN_WRAPPER) {
 
 function start_game_countdown(MAIN_WRAPPER) {
 
-	document.removeEventListener("DOMContentLoaded", start_button)
+	document.removeEventListener("DOMContentLoaded", start)
 
 	let game_countdown = document.createElement('script')
 

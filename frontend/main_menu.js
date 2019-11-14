@@ -1,4 +1,30 @@
-document.addEventListener("DOMContentLoaded", start_button)
+document.addEventListener("DOMContentLoaded", start)
+
+function start(){
+
+	// ================================={ HTML DOM selection }=========================================
+
+    const parent_div = document.querySelector(".main_wrapper");
+
+    parent_div.innerHTML = ""
+
+    // ================================={Add Game Header}=========================================
+
+    game_title()
+
+    // ================================={Add Play Button}=========================================
+
+    play_button()
+
+    // ================================={Add Scoreboard}=========================================
+
+    show_scoreboard()
+
+    // ================================={Add Scoreboard}=========================================
+
+    fine_text()
+
+}
 
 function game_title(){
 
@@ -24,21 +50,37 @@ function game_title(){
     parent_div.append(game_title_div);
 }
 
-function start_button(){
-	// ================================={Html DOM selection }=========================================
+function play_button(){
+
     const parent_div = document.querySelector(".main_wrapper");
 
-    // ================================={Add Play Button}=========================================
     let game_start_div = document.createElement('div');
+
     game_start_div.id = "first-start-button";
     game_start_div.innerText = 'Game Start';
+
+	game_start_div.classList.add('animated', 'fadeInUp');
 	game_start_div.classList.add('animated', 'pulse');
-	game_start_div.addEventListener("click", start_game_countdown);
+
+	game_start_div.addEventListener("click", attach_game_countdown);
+
     parent_div.append(game_start_div);
-	// playSound()
+
 }
 
-function start_game_countdown(event){
+function fine_text(){
+    const MAIN_WRAPPER = document.querySelector(".main_wrapper");
+
+    let fine_text_div = document.createElement('div');
+
+    fine_text_div.id = "fine_text_div";
+    fine_text_div.innerText = 'Created by Jamal Farah and Austin Smith';
+	fine_text_div.classList.add('animated', 'fadeInUp');
+
+    MAIN_WRAPPER.append(fine_text_div);
+}
+
+function attach_game_countdown(){
 
 	const MAIN_WRAPPER = document.querySelector(".main_wrapper");
 
@@ -53,11 +95,7 @@ function start_game_countdown(event){
 
 }
 
-game_title()
-
-start_button()
-
-show_scoreboard()
+start()
 
 // document.addEventListener('click', playSound, true);
 
@@ -67,3 +105,5 @@ show_scoreboard()
 //     audio.play();
 //     // audio.pause();
 // }
+
+// playSound()

@@ -17,7 +17,7 @@ function show_scoreboard() {
 	let scoreboard_table_score_th = document.createElement("th")
 
 	scoreboard_div.id = "scoreboard_div"
-	scoreboard_div.classList.add('animated', 'slideInUp')
+	// scoreboard_div.classList.add('animated', 'slideInUp')
 
 	scoreboard_header.textContent = "HIGH SCORES"
 	scoreboard_header.className = "scoreboard_menu_header "

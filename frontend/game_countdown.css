@@ -1,0 +1,26 @@
+.tutorial_div {
+  font-family: 'Black Ops One', cursive;
+	margin: 10px auto 0 auto;
+	font-size: 1.25em;
+	color: white;
+	width: 50%;
+	background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0880ac72-06f9-4594-a7b3-84c5ebb4048a/dbzf8aw-6b58766b-eb9d-4789-93c8-e628a1cfc0de.jpg/v1/fill/w_1024,h_958,q_75,strp/carbon_fiber_texture_8k_by_granularity_dbzf8aw-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTU4IiwicGF0aCI6IlwvZlwvMDg4MGFjNzItMDZmOS00NTk0LWE3YjMtODRjNWViYjQwNDhhXC9kYnpmOGF3LTZiNTg3NjZiLWViOWQtNDc4OS05M2M4LWU2MjhhMWNmYzBkZS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.sMSRy-lfO5LrdSdWuxQJO_Z5UfCT7M3BfyFod3saP5o");
+  	background-repeat:no-repeat;
+	background-position: center center;
+	background-attachment:fixed;
+	background-size: cover;
+	border-radius: 15px 30px;
+	border: 2px solid white;
+  	box-shadow: 20px 10px 30px rgba(6, 200, 200, 0.842);
+	animation-duration: 2s;
+	animation-delay: 0ms;
+	animation-iteration-count: 1;
+}
+
+.tutorial_text {
+  font-family: 'Black Ops One', cursive;
+  font-size: 4em;
+  color: white;
+  margin-top: auto;
+  text-align: center;
+}
