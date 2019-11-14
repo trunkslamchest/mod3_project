@@ -33,11 +33,11 @@ function create_power_bar() {
 	power_bar.setAttribute("optimum", 0.5)
 	power_bar.setAttribute("high", 0.75)
 
-	power_header.textContent = "Power Level"
+	power_header.textContent = "POWER LEVEL"
 
 	document.addEventListener("keydown", power_bar_down)
 	document.addEventListener("keyup", power_bar_up)
-	// document.addEventListener("keyup", power_bar_up)
+
 	document.addEventListener("DOMNodeInserted", clear_listeners)
 
 	power_div.append(power_header)
@@ -54,7 +54,7 @@ function power_bar_down(){
 
 		let power_bar = document.querySelector(".power_bar")
 
-		power_bar.value += 0.03
+		power_bar.value += 0.02
 
 		stop_power_timer()
 

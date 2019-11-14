@@ -3,10 +3,23 @@
 @import url('https://fonts.googleapis.com/css?family=Wallpoet&display=swap');
 
 .power_div {
-	width: 75%;
-	padding: 0 0 1em 0;
-	margin: 0 auto 0 auto;
+	position:relative;
+	left: 0px;
+	bottom: 0px;
+	text-align: center;
+	margin: auto auto 1% auto;
+	padding: 0 0 0 0;
+	width: 30%;
+	background-image: linear-gradient( rgb(50, 50, 50, 0.75) 10%,rgb(0, 0, 0, 0.75) 90%);
+	border-radius: 0px 0px 30px 30px;
+	border: 2px solid white;
+	animation:slide_in_from_bottom .25s 1, shadow_blink 1.1s infinite;
+}
 
+@keyframes slide_in_from_bottom
+{
+	0%   {bottom: -250px; opacity: 0;}
+	100% {bottom: 0px; opacity: 1;}
 }
 
 .power_bar {
@@ -24,7 +37,7 @@ meter::-webkit-meter-bar {
 
 
 .power_header {
-	font-family: 'Wallpoet', cursive;
+	font-family: 'Black Ops One';
 	margin: 0 auto 0 auto;
 	padding: 0 0 0 0;
 	color: white;

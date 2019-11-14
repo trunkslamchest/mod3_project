@@ -63,3 +63,66 @@
   	text-shadow: 1px 1px 2px #000;
 	padding-left: 20%;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#scoreboard_div2 {
+	margin: 50px auto 0 auto;
+	font-size: 2.0em;
+	color: white;
+	position:relative;
+	top: 0px;
+	left: 0px;
+	width: 50%;
+  	background-image: linear-gradient( rgb(50, 50, 50, 0.75) 10%,rgb(0, 0, 0, 0.75) 90%);
+	border-radius: 30px 30px 0px 0px;
+	border: 2px solid white;
+  	box-shadow: 0px 0px 50px rgba(6, 200, 200, 0.842);
+	animation:slide_down9 1s 1, shadow_blink9 1.1s infinite;
+}
+
+@keyframes slide_down9
+{
+	0%   {top: -500px; opacity: 0;}
+	100% {top: 0px; opacity: 1;}
+}
+
+@keyframes shadow_blink9 {
+  50% {
+  	box-shadow: 0px 0px 50px rgba(6, 200, 200, 0.0);
+  }
+}
+
+.scoreboard_menu_header2 {
+	font-family: 'Black Ops One', cursive;
+	color: white;
+	font-size: 50pt;
+	padding: auto 0 auto 0;
+}
+
+.scoreboard_menu_table2 {
+	width: 100%;
+	padding-left: 10px;
+}
+
+.scoreboard_menu_table_top_row2 th {
+	font-family: 'Saira Stencil One', cursive;
+	color: white;
+	width: 50%;
+	text-align: left;
+  	text-shadow: 1px 1px 2px #000;
+	padding-left: 20%;
+}
+
+.scoreboard_menu_item2 tr {
+	width: 100%;
+}
+
+.scoreboard_menu_item2 td {
+	font-family: 'Audiowide', cursive;
+	color: white;
+	width: 50%;
+	text-align: left;
+  	text-shadow: 1px 1px 2px #000;
+	padding-left: 20%;
+}

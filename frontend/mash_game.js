@@ -39,7 +39,7 @@ function create_timer(MAIN_WRAPPER) {
 
 	let n = 30
 
-	timer_div.className = "counter_div"
+	timer_div.className = "timer_div"
 
 	timer_header.className = "timer_header"
 	timer_header.innerText = "TIME LEFT"
@@ -62,7 +62,7 @@ function add_function_to_timer(MAIN_WRAPPER, n, timer_counter, timer_header) {
 
 		timer_counter.textContent = n -= 1;
 
-	}, 100)
+	}, 1000)
 
 	timer_counter.addEventListener("DOMNodeInserted", (event) => {
 
@@ -304,6 +304,8 @@ function submit_form_listener(event) {
 
 	if (name == "") {
 		alert("Enter Your Name, Bromato")
+	// } else if (name == "Ali" || name.downcase == "ali" ) {
+	// 	alert("Nice try, Ali...but No Thank You")
 	} else {
 	fetch("http://localhost:3000/players", {
 			method: "POST",
@@ -377,19 +379,20 @@ function create_scoreboard(MAIN_WRAPPER, created_player) {
 
 	MAIN_WRAPPER.innerHTML = ""
 
+	let scoreboard_div = document.createElement("div")
 	let scoreboard_header = document.createElement("h1")
-
 	let scoreboard_table = document.createElement("table")
 	let scoreboard_table_top_row = document.createElement("tr")
 	let scoreboard_table_name_th = document.createElement("th")
 	let scoreboard_table_score_th = document.createElement("th")
 
-	scoreboard_header.textContent = "HIGH SCORES"
-	scoreboard_header.className = "scoreboard_header "
-	scoreboard_header.classList.add('animated', 'rubberBand')
+	scoreboard_div.id = "scoreboard_div2"
 
-	scoreboard_table.className = "scoreboard_table"
-	scoreboard_table_top_row.className = "scoreboard_table_top_row"
+	scoreboard_header.textContent = "HIGH SCORES"
+	scoreboard_header.className = "scoreboard_menu_header2"
+
+	scoreboard_table.className = "scoreboard_menu_table2"
+	scoreboard_table_top_row.className = "scoreboard_menu_table_top_row2"
 
 	scoreboard_table_name_th.textContent = "NAME"
 	scoreboard_table_score_th.textContent = "SCORE"
@@ -409,7 +412,7 @@ function create_scoreboard(MAIN_WRAPPER, created_player) {
 
 				let scoreboard_tr = document.createElement("tr")
 
-				scoreboard_tr.className = "scoreboard_item"
+				scoreboard_tr.className = "scoreboard_menu_item2"
 
 				if (new_scoreboard.attributes.player.name == created_player) {
 					scoreboard_name_td.style.color = "#fcba03"
@@ -431,8 +434,10 @@ function create_scoreboard(MAIN_WRAPPER, created_player) {
 			})
 		})
 
-	MAIN_WRAPPER.append(scoreboard_header)
-	MAIN_WRAPPER.append(scoreboard_table)
+	scoreboard_div.append(scoreboard_header)
+	scoreboard_div.append(scoreboard_table)
+
+	MAIN_WRAPPER.append(scoreboard_div)
 
 	create_bottom_buttons(MAIN_WRAPPER)
 
