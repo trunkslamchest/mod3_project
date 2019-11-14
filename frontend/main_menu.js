@@ -8,6 +8,9 @@ function start(){
 
     parent_div.innerHTML = ""
 
+
+    // loadHandler()
+
     // ================================={Add Game Header}=========================================
 
     game_title()
@@ -117,3 +120,13 @@ start()
 // }
 
 // playSound()
+
+// createjs.Sound.alternateExtensions = ["mp3"];
+// createjs.Sound.on("fileload", this.loadHandler, this);
+// createjs.Sound.registerSound("http://soundimage.org/wp-content/uploads/2016/01/Light-Years_V001_Looping.mp3", "sound");
+// function loadHandler(event) {
+//     // This is fired for each sound that is registered.
+//     var instance = createjs.Sound.play("sound");  // play using id.  Could also use full sourcepath or event.src.
+//     instance.on("complete", this.handleComplete, this);
+//     instance.volume = 0.5;
+// }
