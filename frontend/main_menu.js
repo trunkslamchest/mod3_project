@@ -60,7 +60,7 @@ function play_button(){
     let game_start_div = document.createElement('div');
 
     game_start_div.id = "first-start-button";
-    game_start_div.innerText = 'Game Start';
+    game_start_div.innerText = 'Press Enter';
 
 	game_start_div.addEventListener("click", attach_game_countdown);
 
@@ -68,6 +68,7 @@ function play_button(){
 
     game_start_div.addEventListener("mouseover", play_button_change_class)
 
+    document.addEventListener("keydown", start_game_with_enter)
 }
 
 function fine_text(){
@@ -103,9 +104,16 @@ function play_button_change_class(){
     const scoreboard = document.querySelector("#scoreboard_div")
 
     play_button.id = "first-start-button_hovered"
-    play_button.innerText = 'Game Start';
+    play_button.innerText = 'Press Enter';
 
     parent_div.insertBefore(play_button, parent_div.childNodes[1])
+}
+
+function start_game_with_enter(){
+    if (event.which == 13) {
+        document.removeEventListener("keydown", start_game_with_enter)
+        attach_game_countdown()
+    }
 }
 
 start()

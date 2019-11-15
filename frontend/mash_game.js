@@ -82,7 +82,7 @@ function add_function_to_timer(MAIN_WRAPPER, n, timer_counter, timer_header) {
 			msg.voiceURI = 'native';
 			msg.volume = 1; // 0 to 1
 			msg.rate = 0.7; // 0.1 to 10
-			msg.text = 'Game Over idiot!';
+			msg.text = 'Game Over!';
 			msg.lang = 'en-US';
 
 			speechSynthesis.speak(msg);
@@ -171,23 +171,23 @@ function message_listener(event) {
 	} else if (key_press_counter.textContent >= 50 && key_press_counter.textContent < 75) {
 		message_rank.textContent = "CEMENT WRISTS"
 	} else if (key_press_counter.textContent >= 75 && key_press_counter.textContent < 100) {
-		message_rank.textContent = "HAIRY KNUCKLES"
+		message_rank.textContent = "BIG MEATY CLAWS"
 	} else if (key_press_counter.textContent >= 100 && key_press_counter.textContent < 125) {
-		message_rank.textContent = "EDWARD SCISSOR HANDS"
+		message_rank.textContent = "HAIRY KNUCKLES"
 	} else if (key_press_counter.textContent >= 125 && key_press_counter.textContent < 150) {
-		message_rank.textContent = "WASTED TALENT"
+		message_rank.textContent = "EDWARD SCISSOR HANDS"
 	} else if (key_press_counter.textContent >= 150 && key_press_counter.textContent < 175) {
-		message_rank.textContent = "TYPO BOT 9000"
+		message_rank.textContent = "UNTRUSTABLE ALI"
 	} else if (key_press_counter.textContent >= 175 && key_press_counter.textContent < 200) {
-		message_rank.textContent = "JACKY FENG"
+		message_rank.textContent = "FURIOUS TIGER"
 	} else if (key_press_counter.textContent >= 200 && key_press_counter.textContent < 225) {
-		message_rank.textContent = "RUSSIAN SPY"
+		message_rank.textContent = "JACKY FENG"
 	} else if (key_press_counter.textContent >= 225 && key_press_counter.textContent < 250) {
-		message_rank.textContent = "FROG"
+		message_rank.textContent = "RUSSIAN SPY"
 	} else if (key_press_counter.textContent >= 250 && key_press_counter.textContent < 275) {
-		message_rank.textContent = "SUPER FROG"
+		message_rank.textContent = "FROG"
 	} else if (key_press_counter.textContent >= 275 && key_press_counter.textContent < 300) {
-		message_rank.textContent = "GRAMMER NAZI"
+		message_rank.textContent = "SUPER FROG"
 	} else if (key_press_counter.textContent >= 300 && key_press_counter.textContent < 325) {
 		message_rank.textContent = "KEYBOARD JESUS"
 	} else if (key_press_counter.textContent >= 325 && key_press_counter.textContent < 350) {
@@ -195,9 +195,9 @@ function message_listener(event) {
 	} else if (key_press_counter.textContent >= 350 && key_press_counter.textContent < 375) {
 		message_rank.textContent = "ANDROID ROBOT"
 	} else if (key_press_counter.textContent >= 375 && key_press_counter.textContent < 400) {
-		message_rank.textContent = "ON CLICK SCRIPTER"
+		message_rank.textContent = "NIGHTMARE FUEL"
 	} else if (key_press_counter.textContent >= 400 && key_press_counter.textContent < 425) {
-		message_rank.textContent = "POTENTIALLY CHEATING"
+		message_rank.textContent = "TYPO BOT 9000"
 	} else if (key_press_counter.textContent >= 425 && key_press_counter.textContent < 450) {
 		message_rank.textContent = "PROBABLY CHEATING"
 	} else if (key_press_counter.textContent >= 450 && key_press_counter.textContent < 475) {
@@ -277,11 +277,14 @@ function create_submit_form(MAIN_WRAPPER, key_presses, rank) {
 	let submit_button = document.createElement("button")
 
 	submit_form.className = "submit_form"
-	submit_name.setAttribute("placeholder", "Enter Your Name...")
 	submit_name.className = "submit_input"
-	submit_name.setAttribute("name", "Name")
-	submit_button.innerText = "Submit Score"
 	submit_button.className = "submit_button"
+
+	submit_name.setAttribute("placeholder", "Enter Your Name...")
+	submit_name.setAttribute("name", "Name")
+	submit_name.setAttribute("maxlength", "15")
+	submit_name.setAttribute("autofocus", "autofocus")
+	submit_button.innerText = "Submit Score"
 
 	submit_form.append(submit_name)
 	submit_form.append(submit_button)
@@ -296,6 +299,31 @@ function submit_form_listener(event) {
 
 	event.preventDefault()
 
+	let bro_array =	[
+		"Bromato",
+		"Bronado",
+		"Brostrodamus",
+		"Brozo the Clown",
+		"Angelina Brolie",
+		"Marco Brolo",
+		"Vincent Van Brogh",
+		"Brosef Stalin",
+		"Brometheus",
+		"Fidel Castbro",
+		"Brolden Caulfield",
+		"Edgar Allen Bro",
+		"Brofessor X",
+		"Bromer Simpson",
+		"Zambroni",
+		"Mr. Brojangles",
+		"Brohammed",
+		"G.I. Bro",
+		"Ringbro Starr",
+		"Shaquille Bro’Neal"
+	]
+
+	let random_bro_name = bro_array[Math.floor(Math.random() * bro_array.length)]
+
 	let key_press_counter = document.querySelector(".key_press_counter")
 	let key_presses = key_press_counter.innerText
 	let MAIN_WRAPPER = document.querySelector(".main_wrapper")
@@ -303,9 +331,9 @@ function submit_form_listener(event) {
 	let name = event.target[0].value.trim()
 
 	if (name == "") {
-		alert("Enter Your Name, Bromato")
-	// } else if (name == "Ali" || name.downcase == "ali" ) {
-	// 	alert("Nice try, Ali...but No Thank You")
+		alert(`Enter Your Name, ${random_bro_name}`)
+	// } else if (name.includes('ali') || name.includes('ALI') || name.includes('Ali') || name.includes('aLi') || name.includes('alI') || name.includes('AlI') || name.includes('ALi') || name.includes('aLI')) {
+	// 	alert("Nice try, Ali...but I don't trust you.")
 	} else {
 	fetch("http://localhost:3000/players", {
 			method: "POST",

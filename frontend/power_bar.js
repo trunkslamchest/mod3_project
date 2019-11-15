@@ -4,7 +4,7 @@ function start_power_timer(){
 	power_timer = setInterval( function() {
 		let power_bar = document.querySelector(".power_bar")
 
-		power_bar.value -= 0.004
+		power_bar.value -= 0.00225
 
 		console.log(power_bar.value)
   	}, 10);
