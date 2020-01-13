@@ -1,5 +1,5 @@
 .scoreboard_table {
-	width: 50%;
+	width: 90%;
 	margin: 0 auto 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -30,7 +30,7 @@
 }
 
 .scoreboard_head_row th {
-	width: 50%;
+	width: 30%;
 }
 
 .scoreboard_sub_row {
@@ -45,5 +45,34 @@
 
 .scoreboard_sub_row td {
 	text-align:center;
-	width: 50%;
+	width: 30%;
 }
+
+.highlighted {
+	width: 100%;
+	background: red;
+	color: #fff;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.highlighted td {
+	text-align:center;
+	width: 30%;
+}
+
+.scoreboard_power {
+	background-color: transparent;
+	width: 50%;
+	padding: 0 0 0 0;
+	display: block;
+	margin: 0 auto 0 auto;
+	background: #FFF;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+

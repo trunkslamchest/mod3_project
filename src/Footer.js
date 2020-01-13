@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 
 import './css/Footer.css'
 
@@ -40,19 +39,6 @@ export default class Footer extends React.Component {
 	}
 
 	render(){
-
-	const home_link = [
-		<NavLink
-			exact to="/"
-			key={"f_home_link"}
-			name="footer_home_button"
-			interaction="click"
-			className="default_header_link"
-			onClick={this.onClickHomeFunctions }
-		>
-			Home
-		</NavLink>
-	]
 
 	const footer_logos = [
 		<a
@@ -118,20 +104,17 @@ export default class Footer extends React.Component {
 
 	]
 
-	const fine_print = <> © 2019 Created by Austin Smith. All StockReactRails logos and marks depicted herein are the property of StockReactRails Enterprises and the respective employees and may not be reproduced without the prior written consent of StockReactRails Enterprises, L.P. © StockReactRails 2019. All Rights Reserved. The Zamboni word mark and configuration of the Zamboni ice resurfacing machine are registered trademarks of Frank J. Zamboni & Co., Inc.© Frank J. Zamboni & Co., Inc. 2019.All Rights Reserved. Any other third party trademarks or copyrights are the property of their respective owners. All rights reserved. </>
+	const fine_print = <> © 2019 Created by Jamal Farah & Austin Smith. All Spacebar Smasher logos and marks depicted herein are the property of Spacebar Smasher Enterprises and the respective employees and may not be reproduced without the prior written consent of Spacebar Smasher Enterprises, L.P. © Spacebar Smasher 2019. All Rights Reserved. The Zamboni word mark and configuration of the Zamboni ice resurfacing machine are registered trademarks of Frank J. Zamboni & Co., Inc.© Frank J. Zamboni & Co., Inc. 2019.All Rights Reserved. Any other third party trademarks or copyrights are the property of their respective owners. All rights reserved. </>
 
 		return(
 			<>
-				<div className="footer_left">
+				<div className="footer_wrapper">
 					<div className="logos">
 						<>{ footer_logos }</>
 					</div>
 					<div className="fine_print">
 						{ fine_print }
 					</div>
-				</div>
-				<div className="footer_right">
-					{ home_link }
 				</div>
 			</>
 		)

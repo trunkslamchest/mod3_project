@@ -2,19 +2,20 @@
 	background-image: linear-gradient( rgba(0, 0, 51, 1), rgba(0, 0, 102, 1) );
 	font-size: 15pt;
 	bottom: 0px;
-	padding: 15px;
+	padding: 5px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	align-content: center;
 	color: white;
-	min-height: 150px;
-	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	min-height: 100px;
 	z-index: 0;
 }
 
-.footer_left {
-	max-width: 75%;
+.footer_wrapper {
+	max-width: 80%;
+	margin: 0 auto 0 auto;
 }
 
 .links{

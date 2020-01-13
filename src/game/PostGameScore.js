@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class Score extends React.Component {
+export default class PostGameScore extends React.Component {
 
 	state = {
 		mounted: false

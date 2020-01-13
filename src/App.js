@@ -1,10 +1,10 @@
 import React from 'react'
 
-// import Header from './Header'
 import Footer from './Footer'
 
 import Home from './index/Home'
 import Countdown from './game/Countdown'
+import PostGameScoreContainer from './game/PostGameScoreContainer'
 
 import LogIn from './user/LogIn'
 import SignUp from './user/SignUp'
@@ -64,7 +64,9 @@ export default class App extends React.Component {
 		join_month: null,
 		join_year: null,
 		// ~~~~~~~~~~~~~~~~~~~~
-		backroom_display: null
+		backroom_display: null,
+		// ~~~~~~~~~~~~~~~~~~~~
+		player_id: null
 	}
 
 	componentDidMount(){
@@ -211,6 +213,12 @@ export default class App extends React.Component {
 		})
 	}
 
+	getPlayerID = (player_id) => {
+		this.setState({
+			player_id: player_id
+		})
+	}
+
 	update_traffic_data = (res_obj) => {
 		fetch("http://localhost:3001/traffics", {
 			method: "POST",
@@ -240,19 +248,6 @@ export default class App extends React.Component {
 
 	render(){
 
-		// const showHeader =
-		// 	<Header
-		// 		update_traffic_data={ this.update_traffic_data }
-		// 		// ~~~~~~~~~~~~~~~~~~~~
-		// 		token={ this.state.token }
-		// 		user_id={ this.state.user_id }
-		// 		user_name={ this.state.user_name }
-		// 		access={ this.state.access }
-		// 		logOut={ this.logOut }
-		// 		update_backroom_from_header={ this.update_backroom_from_header }
-		// 		// ~~~~~~~~~~~~~~~~~~~~
-		// 	/>
-
 		const showFooter =
 			<Footer
 				update_traffic_data={ this.update_traffic_data }
@@ -261,9 +256,6 @@ export default class App extends React.Component {
 
 		return (
 			<>
-				{/* <div className="header">
-					{ showHeader }
-				</div> */}
 				<div className="main_container">
 					<Switch>
 						<Route exact path='/'>
@@ -276,6 +268,15 @@ export default class App extends React.Component {
 							<Countdown
 								update_traffic_data={ this.update_traffic_data }
 								update_page_data={ this.update_page_data }
+								getPlayerID={ this.getPlayerID }
+							/>
+						</Route>
+						<Route exact path='/scoreboard'>
+							<PostGameScoreContainer
+								update_traffic_data={ this.update_traffic_data }
+								update_page_data={ this.update_page_data }
+								// ~~~~~~~~~~~~~~~~~~~~
+								player_id={ this.state.player_id }
 							/>
 						</Route>
 						<Route exact path='/log_in'>

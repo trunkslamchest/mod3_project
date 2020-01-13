@@ -23,9 +23,6 @@ export default class Home extends React.Component {
 	}
 
 	componentDidUpdate(){
-		// if(this.state.mounted && !this.state.updated_scoreboard){
-		// 	this.getScoreboard()
-		// }
 	}
 
 	getScoreboard(){
@@ -63,21 +60,11 @@ export default class Home extends React.Component {
 
 	render(){
 
-		console.log(this.state)
+		// console.log(this.state)
 
 		const header = <h3>Spacebar Smasher</h3>
 
-		const start_button =
-			<Link
-				key={ "start_button" }
-				to='/game'
-				name="start_button"
-				interaction="click"
-				className="alt_button"
-				onClick={ this.onClickStartButtonFunctions }
-			>
-				Start Game
-			</Link>
+		const scoreboard_header = <h4>High Scores</h4>
 
 		const scores = this.state.scoreboard.map(score =>
 			<Score
@@ -94,18 +81,32 @@ export default class Home extends React.Component {
 			<tbody>
 				<tr className="scoreboard_head_row">
 					<th>Name</th>
+					<th>Power</th>
 					<th>Score</th>
 				</tr>
 					{ scores }
 			</tbody>
 		</table>
 
+		const start_button =
+		<Link
+			key={ "start_button" }
+			to='/game'
+			name="start_button"
+			interaction="click"
+			className="start_button"
+			onClick={ this.onClickStartButtonFunctions }
+		>
+			Start Game
+		</Link>
+
 		return(
-			<div className="default_wrapper">
+			<div className="home_wrapper">
 				{ header }
-				<div className="default_centered_buttons_container">
+				<div className="start_button_container">
 					{ start_button }
 				</div>
+				{ scoreboard_header }
 				{ scoreboard_table }
 			</div>
 		)

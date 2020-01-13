@@ -8,7 +8,7 @@ export default class Countdown extends React.Component {
 
 	state = {
 		display: 'countdown',
-		time: 5,
+		time: 1,
 		showHeader: false,
 		showTimer: false,
 		showGo: false,
@@ -96,7 +96,7 @@ export default class Countdown extends React.Component {
 					(() => {
 						switch(this.state.display) {
 							case 'countdown': return countdown;
-							case 'game': return <Game />;
+							case 'game': return <Game getPlayerID={this.props.getPlayerID} />;
 							default: return blank;
 						}
 					})()

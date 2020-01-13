@@ -1,11 +1,14 @@
 import React from 'react'
 
+import SubmitScore from './SubmitScore.js'
+
 import '../css/Game.css'
 
 export default class Game extends React.Component {
 
 	state = {
-		time: 30.01,
+		display: 'game',
+		time: 1.01,
 		count: 0,
 		rank: "SUPER BABY FINGERS",
 		power: 0,
@@ -14,7 +17,6 @@ export default class Game extends React.Component {
 		showCounter: false,
 		showRank: false,
 		showPower: false,
-		display: 'game',
 		spacebar_pressed: false,
 		updated_rank: false,
 		mounted: false
@@ -33,17 +35,21 @@ export default class Game extends React.Component {
 			mounted: true
 		})
 
-		document.addEventListener('keydown', this.spacebarDown)
-		document.addEventListener('keyup', this.spacebarUp)
+		this.startGame()
+
+		this.timerFunctions()
+	}
+
+	startGame = () => {
+		this.spacebarDownListener = setTimeout(() => { document.addEventListener('keydown', this.spacebarDown) }, 1000)
+		this.spacebarUpListener = setTimeout(() => { document.addEventListener('keyup', this.spacebarUp) }, 1000)
 
 		this.timerTimeout = setTimeout(() => { this.setState({ showTimer: true })}, 500)
 		this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 10)}, 1000)
 		this.counterTimeout = setTimeout(() => { this.setState({ showCounter: true })}, 500)
 		this.rankTimeout = setTimeout(() => { this.setState({ showRank: true })}, 500)
 		this.powerTimeout = setTimeout(() => { this.setState({ showPower: true })}, 500)
-		this.startPower = setTimeout(() => { this.powerInterval = setInterval(this.powerFunctions, 25)}, 500)
-
-		this.timerFunctions()
+		this.startPower = setTimeout(() => { this.powerInterval = setInterval(this.powerFunctions, 25)}, 1000)
 	}
 
 	spacebarDown(event){
@@ -83,7 +89,7 @@ export default class Game extends React.Component {
 			this.setState({
 				time: 0.0,
 				display: 'submit_score'
-			}, clearInterval(this.timerInterval))
+			}, this.clearTimers())
 		} else {
 			this.setState({
 				time: (this.state.time - 0.01).toFixed(2),
@@ -137,13 +143,40 @@ export default class Game extends React.Component {
 		}
 	}
 
-	componentWillUnmount(){
+	clearTimers = () => {
 		clearTimeout(this.timerTimeout)
 		clearInterval(this.startTimer)
+		clearInterval(this.timerInterval)
 		clearTimeout(this.counterTimeout)
 		clearTimeout(this.rankTimeout)
 		clearTimeout(this.powerTimeout)
 		clearInterval(this.powerInterval)
+
+		document.removeEventListener('keydown', this.spacebarDown)
+		document.removeEventListener('keyup', this.spacebarUp)
+	}
+
+	resetGame = () => {
+		this.setState({
+			display: 'game',
+			time: 5.00,
+			count: 0,
+			rank: "SUPER BABY FINGERS",
+			power: 0,
+		}, this.startGame())
+	}
+
+	componentWillUnmount(){
+		clearTimeout(this.timerTimeout)
+		clearInterval(this.startTimer)
+		clearInterval(this.timerInterval)
+		clearTimeout(this.counterTimeout)
+		clearTimeout(this.rankTimeout)
+		clearTimeout(this.powerTimeout)
+		clearInterval(this.powerInterval)
+
+		document.removeEventListener('keydown', this.spacebarDown)
+		document.removeEventListener('keyup', this.spacebarUp)
 	}
 
 	render(){
@@ -175,7 +208,7 @@ export default class Game extends React.Component {
 				<div className={ !this.state.showPower ? "blank" : "game_power" }>
 					<h2>Power Level</h2>
 					{ this.state.showPower ? power : blank }
-					<meter className="power_bar" value={this.state.power} min="0.0" max="2.0" low="0.5" optimum="1.0" high="1.5">
+					<meter className="power_bar" value={this.state.power} min="0.0" max="2.5" low="0.5" optimum="1.0" high="1.5">
 					</meter>
 				</div>
 			</div>
@@ -186,7 +219,13 @@ export default class Game extends React.Component {
 					(() => {
 						switch(this.state.display) {
 							case 'game': return game;
-							// case 'submit_score': return <SubmitScore />;
+							case 'submit_score': return <SubmitScore
+															resetGame={ this.resetGame }
+															getPlayerID={ this.props.getPlayerID }
+															count={ this.state.count }
+															rank={ this.state.rank }
+															power={ (this.state.power).toFixed(5) }
+														/>;
 							default: return blank;
 						}
 					})()
