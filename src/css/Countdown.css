@@ -1,0 +1,82 @@
+.blank {
+	opacity: 0;
+}
+
+.countdown_wrapper {
+	z-index: 1;
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin: 0px auto 0px auto;
+	padding: 0px 0px 0px 0px;
+	background-color: rgba(255,255,255, 1);
+	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.1) );
+	min-height: 85.75vh;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1;
+}
+
+.countdown_header h3 {
+	text-align: center;
+	font: 300 20pt "Lato";
+	padding-top: 15px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	/* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1; */
+}
+
+.countdown_timer {
+	width: 100%;
+	text-align: center;
+	background-color: rgba(255,255,255, 1);
+	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.025) );
+	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25);
+	padding: 10px 0px 0px 0px;
+	/* animation: slide_in_from_bottom .25s ease-in-out 1; */
+}
+
+.countdown_timer h1 {
+	margin-block-start: 0px;
+	margin-block-end: 0px;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding: 0px 0px 10px 0px;
+	font: 300 35pt 'Lato', sans-serif;
+	/* animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1; */
+}
+
+.countdown_go {
+	width: 100%;
+	height: auto;
+	text-align: center;
+	background-color: rgba(255,255,255, 1);
+	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.025) );
+	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25);
+	padding: 0px 0px 0px 0px;
+}
+
+.countdown_go h1 {
+	padding: 10px;
+	font: 300 50pt 'Lato', sans-serif;
+}
+
+.countdown_tutorial {
+	width: 100%;
+	height: auto;
+	text-align: center;
+	background-color: rgba(255,255,255, 1);
+	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.025) );
+	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25);
+	padding: 0px 0px 0px 0px;
+}
+
+.countdown_tutorial p {
+	padding: 10px;
+	font: 300 15pt 'Lato', sans-serif;
+}

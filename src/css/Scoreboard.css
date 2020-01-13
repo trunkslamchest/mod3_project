@@ -1,0 +1,49 @@
+.scoreboard_table {
+	width: 50%;
+	margin: 0 auto 0 auto;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.scoreboard_table tbody {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.scoreboard_head_row {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.scoreboard_head_row th {
+	width: 50%;
+}
+
+.scoreboard_sub_row {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.scoreboard_sub_row td {
+	text-align:center;
+	width: 50%;
+}

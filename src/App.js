@@ -1,8 +1,10 @@
 import React from 'react'
 
-import Header from './Header'
-import Home from './Home'
+// import Header from './Header'
 import Footer from './Footer'
+
+import Home from './index/Home'
+import Countdown from './game/Countdown'
 
 import LogIn from './user/LogIn'
 import SignUp from './user/SignUp'
@@ -238,18 +240,18 @@ export default class App extends React.Component {
 
 	render(){
 
-		const showHeader =
-			<Header
-				update_traffic_data={ this.update_traffic_data }
-				// ~~~~~~~~~~~~~~~~~~~~
-				token={ this.state.token }
-				user_id={ this.state.user_id }
-				user_name={ this.state.user_name }
-				access={ this.state.access }
-				logOut={ this.logOut }
-				update_backroom_from_header={ this.update_backroom_from_header }
-				// ~~~~~~~~~~~~~~~~~~~~
-			/>
+		// const showHeader =
+		// 	<Header
+		// 		update_traffic_data={ this.update_traffic_data }
+		// 		// ~~~~~~~~~~~~~~~~~~~~
+		// 		token={ this.state.token }
+		// 		user_id={ this.state.user_id }
+		// 		user_name={ this.state.user_name }
+		// 		access={ this.state.access }
+		// 		logOut={ this.logOut }
+		// 		update_backroom_from_header={ this.update_backroom_from_header }
+		// 		// ~~~~~~~~~~~~~~~~~~~~
+		// 	/>
 
 		const showFooter =
 			<Footer
@@ -259,17 +261,21 @@ export default class App extends React.Component {
 
 		return (
 			<>
-				<div className="header">
+				{/* <div className="header">
 					{ showHeader }
-				</div>
+				</div> */}
 				<div className="main_container">
 					<Switch>
 						<Route exact path='/'>
 							<Home
 								update_traffic_data={ this.update_traffic_data }
 								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
-								user_id={ this.state.user_id }
+							/>
+						</Route>
+						<Route exact path='/game'>
+							<Countdown
+								update_traffic_data={ this.update_traffic_data }
+								update_page_data={ this.update_page_data }
 							/>
 						</Route>
 						<Route exact path='/log_in'>
