@@ -1,5 +1,6 @@
 .blank {
 	opacity: 0;
+	height: 0px;
 }
 
 .countdown_wrapper {
@@ -10,16 +11,15 @@
 	flex-wrap: wrap;
 	margin: 0px auto 0px auto;
 	padding: 0px 0px 0px 0px;
-	background-color: rgba(255,255,255, 1);
-	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.1) );
+	background-color: rgba(0,0,0, 1);
+	background-image: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255,255,255, 0.5), rgba(0,0,0, 0) );
 	min-height: 86.00vh;
-	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
-	/* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
+	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1;
 }
 
 .countdown_header h3 {
 	text-align: center;
-	font: 300 20pt "Lato";
+	font: 300 30pt 'Saira Stencil One';
 	padding-top: 15px;
 	padding-bottom: 10px;
 	padding-left: 10px;
@@ -28,55 +28,131 @@
 	margin-bottom: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
-	/* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1; */
+	color: white;
+	padding-top: 75px;
+	text-align: center;
+	animation: blinker 2.5s ease-in-out infinite, fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1, slide_in_from_top.25s ease-in-out 1;
 }
 
-.countdown_timer {
-	width: 100%;
+.countdown_timer_five {
+	width: 50%;
+	min-height: 135px;
 	text-align: center;
 	background-color: rgba(255,255,255, 1);
-	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.025) );
-	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25);
-	padding: 10px 0px 0px 0px;
-	/* animation: slide_in_from_bottom .25s ease-in-out 1; */
+	padding: 10px 10px 0px 10px;
+	color: white;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
+	border-radius: 100px 100px 0px 0px;
+	border: 2px solid red;
+	box-shadow: 0px 10px 20px 0px rgba(255, 0, 0, 0.75);
+	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1, slide_in_from_left .25s ease-in-out 1, shadow_blink 1.25s infinite;
 }
 
-.countdown_timer h1 {
-	margin-block-start: 0px;
-	margin-block-end: 0px;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	padding: 0px 0px 10px 0px;
-	font: 300 35pt 'Lato', sans-serif;
-	/* animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1; */
+.countdown_timer_five h1 {
+	padding: 0px;
+	color: red;
+	font: 300 50pt 'Audiowide';
+}
+
+.countdown_timer_five h2 {
+	padding: 0px;
+	font: 300 25pt 'Audiowide';
+}
+
+.countdown_timer_three {
+	width: 50%;
+	min-height: 135px;
+	text-align: center;
+	background-color: rgba(255,255,255, 1);
+	padding: 10px 10px 0px 10px;
+	color: white;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
+	border-radius: 100px 100px 0px 0px;
+	border: 2px solid orange;
+	box-shadow: 0px 10px 20px 0px rgba(255, 165, 0, 0.75);
+	animation: shadow_blink 1.25s infinite;
+}
+
+.countdown_timer_three h1 {
+	padding: 0px;
+	color: orange;
+	font: 300 50pt 'Audiowide';
+}
+
+.countdown_timer_three h2 {
+	padding: 0px;
+	font: 300 25pt 'Audiowide';
+}
+
+.countdown_timer_one {
+	width: 50%;
+	min-height: 135px;
+	text-align: center;
+	background-color: rgba(255,255,255, 1);
+	padding: 10px 10px 0px 10px;
+	color: white;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
+	border-radius: 100px 100px 0px 0px;
+	border: 2px solid yellow;
+	box-shadow: 0px 10px 20px 0px rgba(255, 255, 0, 0.75);
+	animation: shadow_blink 1.25s infinite;
+}
+
+.countdown_timer_one h1 {
+	padding: 0px;
+	color: yellow;
+	font: 300 50pt 'Audiowide';
+}
+
+.countdown_timer_one h2 {
+	padding: 0px;
+	font: 300 25pt 'Audiowide';
 }
 
 .countdown_go {
-	width: 100%;
-	height: auto;
+	width: 50%;
+	min-height: 135px;
 	text-align: center;
 	background-color: rgba(255,255,255, 1);
-	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.025) );
-	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25);
-	padding: 0px 0px 0px 0px;
+	padding: 10px 10px 0px 10px;
+	color: green;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
+	border-radius: 100px 100px 0px 0px;
+	border: 2px solid green;
+	box-shadow: 0px 10px 20px 0px rgba(0, 128, 0, 0.75);
 }
 
 .countdown_go h1 {
 	padding: 10px;
-	font: 300 50pt 'Lato', sans-serif;
+	color: green;
+	font: 300 50pt 'Audiowide';
 }
 
 .countdown_tutorial {
-	width: 100%;
-	height: auto;
+	width: 50%;
+	color: white;
+	margin: 0 auto 0 auto;
 	text-align: center;
-	background-color: rgba(255,255,255, 1);
-	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.025) );
-	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25);
-	padding: 0px 0px 0px 0px;
+	display: flex;
+	padding: 10px;
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
+	border-radius: 0px 0px 100px 100px;
+	border: 2px solid white;
+	box-shadow: 0px 10px 20px 0px rgba(255, 255, 255, 0.75);
+	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1, slide_in_from_right .25s ease-in-out 1, shadow_blink 1.5s infinite;
 }
 
 .countdown_tutorial p {
+	width: 100%;
 	padding: 10px;
-	font: 300 15pt 'Lato', sans-serif;
+	margin: 0 auto 0 auto;
+	font: 300 20pt 'Staatliches';
 }

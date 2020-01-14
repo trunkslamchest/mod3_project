@@ -102,6 +102,12 @@ input[type=number]::-webkit-outer-spin-button {
 	opacity: 1;
 }
 
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .blank {
 	opacity: 0;
 	visibility: hidden;

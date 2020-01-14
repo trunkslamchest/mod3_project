@@ -8,7 +8,7 @@ export default class Countdown extends React.Component {
 
 	state = {
 		display: 'countdown',
-		time: 1,
+		time: 5,
 		showHeader: false,
 		showTimer: false,
 		showGo: false,
@@ -22,10 +22,10 @@ export default class Countdown extends React.Component {
 			mounted: true
 		})
 
-		this.headerTimeout = setTimeout(() => { this.setState({ showHeader: true })}, 1000)
-		this.timerTimeout = setTimeout(() => { this.setState({ showTimer: true })}, 1500)
-		this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 10)}, 2500)
-		this.tutorialTimeout = setTimeout(() => { this.setState({ showTutorial: true })}, 2000)
+		this.headerTimeout = setTimeout(() => { this.setState({ showHeader: true })}, 500)
+		this.timerTimeout = setTimeout(() => { this.setState({ showTimer: true })}, 1000)
+		this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 1000)}, 1500)
+		this.tutorialTimeout = setTimeout(() => { this.setState({ showTutorial: true })}, 1000)
 
 	}
 
@@ -78,7 +78,15 @@ export default class Countdown extends React.Component {
 				<div className={ this.state.showHeader ? "countdown_header" : "blank" }>
 					{ this.state.showHeader ? countdown_header : blank }
 				</div>
-				<div className={ this.state.time && this.state.showTimer ? "countdown_timer" : "blank" } >
+				<div className={ (this.state.time === 5 || this.state.time === 4) && this.state.showTimer ? "countdown_timer_five" : "blank" } >
+					{ this.state.time ? countdown_timer_header : blank }
+					{ this.state.time ? countdown_timer : blank }
+				</div>
+				<div className={ (this.state.time === 3 || this.state.time === 2) && this.state.showTimer ? "countdown_timer_three" : "blank" } >
+					{ this.state.time ? countdown_timer_header : blank }
+					{ this.state.time ? countdown_timer : blank }
+				</div>
+				<div className={ (this.state.time === 1) && this.state.showTimer ? "countdown_timer_one" : "blank" } >
 					{ this.state.time ? countdown_timer_header : blank }
 					{ this.state.time ? countdown_timer : blank }
 				</div>

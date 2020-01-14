@@ -45,7 +45,7 @@ export default class Game extends React.Component {
 		this.spacebarUpListener = setTimeout(() => { document.addEventListener('keyup', this.spacebarUp) }, 1000)
 
 		this.timerTimeout = setTimeout(() => { this.setState({ showTimer: true })}, 500)
-		this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 10)}, 1000)
+		// this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 10)}, 1000)
 		this.counterTimeout = setTimeout(() => { this.setState({ showCounter: true })}, 500)
 		this.rankTimeout = setTimeout(() => { this.setState({ showRank: true })}, 500)
 		this.powerTimeout = setTimeout(() => { this.setState({ showPower: true })}, 500)
@@ -194,7 +194,7 @@ export default class Game extends React.Component {
 		const game =
 			<div className="game_wrapper">
 				<div className={ !this.state.showTimer ? "blank" : "game_timer" } >
-					<h2>Time Left</h2>
+					<h2>TIME LEFT</h2>
 					{ this.state.showTimer ? time : blank }
 				</div>
 				<div className={ !this.state.showCounter ? "blank" : "game_counter" }>

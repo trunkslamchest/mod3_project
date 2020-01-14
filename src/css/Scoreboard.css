@@ -1,12 +1,26 @@
 .scoreboard_table {
-	width: 90%;
+	width: 50%;
+	color: white;
 	margin: 0 auto 0 auto;
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
+	border-radius: 0px 0px 15px 15px;
+	padding: 0px 0px 10px 0px;
+	border: 2px solid white;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
+	transform: matrix3d(
+		1,0,0,0.0,
+		0,1,0,-0.0004,
+		0,0,1,0,
+		0,0,0,1
+	);
+	box-shadow: 0 0 5px 0 rgba(255, 255, 0, 0.75), 0 0 5px 0 rgba(255, 255, 0, 0.75);
+	animation: fade_in .25s ease-in-out 1, slide_in_from_bottom_home_scoreboard .5s ease-in-out 1, shadow_blink 3s infinite;
+	z-index: 1;
 }
 
 .scoreboard_table tbody {
@@ -21,16 +35,22 @@
 
 .scoreboard_head_row {
 	width: 100%;
+	padding: 5px 0px 5px 0px;
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
+	border: 2px solid white;
+	/* animation: fade_in .25s ease-in-out 1, slide_in_from_bottom .55s ease-in-out 1; */
 }
 
 .scoreboard_head_row th {
-	width: 30%;
+	font: 300 15pt 'Audiowide';
+
+	width: 35%;
 }
 
 .scoreboard_sub_row {
@@ -41,11 +61,15 @@
 	justify-content: center;
 	align-items: center;
 	align-content: center;
+	border-radius: 5px;
+	border: 1px solid grey;
+	/* animation: fade_in .25s ease-in-out 1, slide_in_from_bottom .575s ease-in-out 1; */
 }
 
 .scoreboard_sub_row td {
-	text-align:center;
-	width: 30%;
+	font: 300 12pt 'Staatliches';
+	text-align: center;
+	width: 35%;
 }
 
 .highlighted {
@@ -63,11 +87,10 @@
 
 .highlighted td {
 	text-align:center;
-	width: 30%;
+	width: 35%;
 }
 
 .scoreboard_power {
-	background-color: transparent;
 	width: 50%;
 	padding: 0 0 0 0;
 	display: block;
@@ -76,3 +99,29 @@
 	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25);
 }
 
+.scoreboard_sub_row td meter::-webkit-meter-bar {
+	background: none;
+	background-image: linear-gradient(rgb(255, 255, 255, 1),  rgb(220, 220, 220, 1) );
+	width: 100%;
+	padding: 0 0 0 0;
+	display: block;
+	margin: 0 auto 0 auto;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.scoreboard_sub_row td meter::-webkit-meter-optimum-value {
+	box-shadow: 0 5px 5px -5px #999 inset;
+	background-image: linear-gradient(
+	  90deg,
+	  #8bcf69 5%,
+	  #e6d450 10%,
+	  #e6d450 15%,
+	  #f28f68 15%,
+	  #f28f68 55%,
+	  #cf82bf 55%,
+	  #cf82bf 95%,
+	  #719fd1 95%,
+	  #719fd1 100%
+	);
+	background-size: 100% 100%;
+  }

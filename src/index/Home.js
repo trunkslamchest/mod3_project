@@ -62,7 +62,7 @@ export default class Home extends React.Component {
 
 		// console.log(this.state)
 
-		const header = <h3>Spacebar Smasher</h3>
+		const header = <h3>SPACEBAR SMASHER</h3>
 
 		const scoreboard_header = <h4>High Scores</h4>
 
@@ -97,16 +97,20 @@ export default class Home extends React.Component {
 			className="start_button"
 			onClick={ this.onClickStartButtonFunctions }
 		>
-			Start Game
+			Start
 		</Link>
 
 		return(
 			<div className="home_wrapper">
-				{ header }
+				<div className="home_header">
+					{ header }
+				</div>
 				<div className="start_button_container">
 					{ start_button }
 				</div>
-				{ scoreboard_header }
+				<div className="home_scoreboard_header">
+					{ scoreboard_header }
+				</div>
 				{ scoreboard_table }
 			</div>
 		)

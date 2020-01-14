@@ -1,3 +1,133 @@
+@keyframes shadow_blink {
+	50% {
+		box-shadow: 0 0 15px 0  rgba(255, 255, 0, 0.0);
+	}
+}
+
+@keyframes text_shadow_blink {
+	50% {
+		text-shadow: 0px 0px 5px yellow;
+	}
+}
+
+
+@keyframes slide_in_from_left_title
+	{
+		0% {
+			transform: translateX(-250px);
+		}
+		100% {
+			transform: matrix3d(
+				1,0,0,0.00025,
+				0,1,0,0,
+				0,0,1,0,
+				0,0,0,1
+			  ) translateX(50px);
+		}
+	}
+
+	@keyframes slide_in_from_left_title_text
+	{
+		0% {
+			transform: translateX(-250px);
+		}
+		100% {
+			transform: matrix3d(
+				1,0,0,0.00025,
+				0,1,0,0,
+				0,0,1,0,
+				0,0,0,1
+			  ) translateX(0px);
+		}
+	}
+
+@keyframes slide_in_from_bottom_home_scoreboard {
+	0% {
+		transform: matrix3d(
+			1,0,0,0.0,
+			0,1,0,-0.0004,
+			0,0,1,0,
+			0,0,0,1
+		) translateY(250px);
+	}
+	100% {
+		transform: matrix3d(
+			1,0,0,0.0,
+			0,1,0,-0.0004,
+			0,0,1,0,
+			0,0,0,1
+		) translateY(0px);
+	}
+}
+
+@keyframes slide_in_from_bottom_home_scoreboard_header {
+	0% {
+		transform: matrix3d(
+			1,0,0,0.0,
+			0,1,0,-0.001,
+			0,0,1,0,
+			0,0,0,1
+		) translateY(250px);
+	}
+	100% {
+		transform: matrix3d(
+			1,0,0,0.0,
+			0,1,0,-0.001,
+			0,0,1,0,
+			0,0,0,1
+		) translateY(25px);
+	}
+}
+
+
+@keyframes slide_in_from_bottom_footer {
+	0% {
+		transform: matrix3d(
+			1,0,0,0.0,
+			0,1,0,-0.0004,
+			0,0,1,0,
+			0,0,0,1
+		) translateY(250px);
+	}
+	100% {
+		transform: matrix3d(
+			1,0,0,0.0,
+			0,1,0,-0.0002,
+			0,0,1,0,
+			0,0,0,1
+		) translateY(0px);
+	}
+}
+
+@keyframes slide_down
+	{
+		0% {top: -500px}
+		100% {top: 205px}
+	}
+
+@keyframes blinker {
+	50% {
+		opacity: 0.5;
+		transform: matrix3d(
+		1,0,0,-0.0005,
+		0,1,0,0,
+		0,0,1,0,
+		0,0,0,1
+		);
+	}
+}
+
+@keyframes blinker_hover {
+	50% {
+		transform: matrix3d(
+		1,0,0,-0.0005,
+		0,1,0,0,
+		0,0,1,0,
+		0,0,0,1
+		);
+	}
+}
+
 @keyframes fade_in {
 	0% {
 		opacity: 0;

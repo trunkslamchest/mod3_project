@@ -10,7 +10,7 @@
 html, body {
   height: 100vh;
 	width: 100vw;
-  overflow-x: hidden;
+  overflow: hidden;
   margin: 0;
   display: flex;
   flex-direction: column;
