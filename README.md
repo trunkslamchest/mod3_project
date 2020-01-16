@@ -1,5 +1,5 @@
 
-<p align="center"><img width=75% src="https://raw.githubusercontent.com/trunkslamchest/mod3_project/dev-win64-0.2/frontend/spacebar_smasher_logo.png"></p>
+<p align="center"><img width=75% src="https://raw.githubusercontent.com/trunkslamchest/mod3_project/frontend-0.1/src/assets/spacebar_smasher_logo.png"></p>
 
 <p align="center">
   <img align="center" src="https://img.shields.io/badge/CSS-3.0-1572B6">
