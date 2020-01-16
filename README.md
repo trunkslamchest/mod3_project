@@ -117,17 +117,17 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
 # Summary Of Files
   ### Internal File Structure
   - [Frontend](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1): All files used for Gameplay Loop & Functionality
-    -[public](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/public): Various Assets for General Purposes
-    -[src](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src): Root Frontend
-      -[admin](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/admin): Administrative Panel
+    - [public](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/public): Various Assets for General Purposes
+    - [src](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src): Root Frontend
+      - [admin](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/admin): Administrative Panel
        - [db_edit](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/admin/db_edit): In Browser Database Editor
        - [rtv](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/admin/rtv): Real Time Traffic Viewer
-      -[assets](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/assets): Art Assets
-      -[css](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/css): CSS stylesheets
-      -[game](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/game): Core Gameplay Loop
-      -[index](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/index): Index Page Functionality
-      -[user](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/user): User Specific Actions
-    -[package.json](https://github.com/trunkslamchest/mod3_project/blob/frontend-0.1/package.json): Modules & Dependencies
+      - [assets](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/assets): Art Assets
+      - [css](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/css): CSS stylesheets
+      - [game](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/game): Core Gameplay Loop
+      - [index](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/index): Index Page Functionality
+      - [user](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1/src/user): User Specific Actions
+    - [package.json](https://github.com/trunkslamchest/mod3_project/blob/frontend-0.1/package.json): Modules & Dependencies
   - [Backend](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1): All files used for player/scoreboard functionality
     - [app](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1/app): Primary location for API configuration
       - [controllers](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1/app/controllers): Render/REST methods
