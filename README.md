@@ -54,7 +54,8 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
   - Work together with a single team member to make sure all deliverables were met and no overlaps in workflow occured
   - Create a positive user feedback through a creative uses of condtional rendering and event listeners that encouraged repetitive engagement
   - Design then redesign all CSS elements and animations to non-intrusively appeal to different userbases and demographics
-  - Refactor the application to utilize Node.js & React.js over vanilla Javascript & Ruby on Rails
+  - Refactor the application to utilize React.js instead of vanilla Javascript
+  - Refactor the application to utilize Node.js instead of Ruby on Rails (TBA)
   - Deployment
   
 &nbsp;
