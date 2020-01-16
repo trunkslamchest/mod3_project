@@ -8,7 +8,7 @@ export default class Game extends React.Component {
 
 	state = {
 		display: 'game',
-		time: 1.01,
+		time: 30.01,
 		count: 0,
 		rank: "SUPER BABY FINGERS",
 		power: 0,
@@ -19,7 +19,9 @@ export default class Game extends React.Component {
 		showPower: false,
 		spacebar_pressed: false,
 		updated_rank: false,
-		mounted: false
+		mounted: false,
+		initUnload: false,
+		unloaded: false
 	}
 
 	constructor(props) {
@@ -44,11 +46,11 @@ export default class Game extends React.Component {
 		this.spacebarDownListener = setTimeout(() => { document.addEventListener('keydown', this.spacebarDown) }, 1000)
 		this.spacebarUpListener = setTimeout(() => { document.addEventListener('keyup', this.spacebarUp) }, 1000)
 
-		this.timerTimeout = setTimeout(() => { this.setState({ showTimer: true })}, 500)
-		// this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 10)}, 1000)
-		this.counterTimeout = setTimeout(() => { this.setState({ showCounter: true })}, 500)
-		this.rankTimeout = setTimeout(() => { this.setState({ showRank: true })}, 500)
-		this.powerTimeout = setTimeout(() => { this.setState({ showPower: true })}, 500)
+		this.timerTimeout = setTimeout(() => { this.setState({ showTimer: true })}, 250)
+		this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 10)}, 1000)
+		this.counterTimeout = setTimeout(() => { this.setState({ showCounter: true })}, 250)
+		this.rankTimeout = setTimeout(() => { this.setState({ showRank: true })}, 250)
+		this.powerTimeout = setTimeout(() => { this.setState({ showPower: true })}, 250)
 		this.startPower = setTimeout(() => { this.powerInterval = setInterval(this.powerFunctions, 25)}, 1000)
 	}
 
@@ -81,15 +83,11 @@ export default class Game extends React.Component {
 		}, document.addEventListener('keydown', this.spacebarDown))
 	}
 
-	componentDidUpdate(){
-	}
-
 	timerFunctions = () => {
 		if (this.state.time <= 0) {
 			this.setState({
 				time: 0.0,
-				display: 'submit_score'
-			}, this.clearTimers())
+			}, this.unloadFunctions())
 		} else {
 			this.setState({
 				time: (this.state.time - 0.01).toFixed(2),
@@ -159,11 +157,22 @@ export default class Game extends React.Component {
 	resetGame = () => {
 		this.setState({
 			display: 'game',
-			time: 5.00,
+			time: 30.00,
 			count: 0,
 			rank: "SUPER BABY FINGERS",
 			power: 0,
+			spacebar_pressed: false,
+			updated_rank: false,
+			mounted: false,
+			initUnload: false,
+			unloaded: false
 		}, this.startGame())
+	}
+
+	unloadFunctions = () => {
+		this.initUnloadTimeout = setTimeout(() => { this.setState({ initUnload: true })}, 500)
+		this.unloadTimeout = setTimeout(() => { this.setState({ unloaded: true, display: 'submit_score' })}, 750)
+		this.clearTimers()
 	}
 
 	componentWillUnmount(){
@@ -174,6 +183,8 @@ export default class Game extends React.Component {
 		clearTimeout(this.rankTimeout)
 		clearTimeout(this.powerTimeout)
 		clearInterval(this.powerInterval)
+		clearTimeout(this.unloadTimeout)
+		clearTimeout(this.initUnloadTimeout)
 
 		document.removeEventListener('keydown', this.spacebarDown)
 		document.removeEventListener('keyup', this.spacebarUp)
@@ -183,7 +194,7 @@ export default class Game extends React.Component {
 
 		const blank = <></>
 
-		const time = <h1>{ this.state.time ? this.state.time : blank }</h1>
+		const time = <h1>{ this.state.time ? this.state.time : (0.00).toFixed(2) }</h1>
 
 		const counter = <h1>{ this.state.count ? this.state.count : 0 }</h1>
 
@@ -193,19 +204,63 @@ export default class Game extends React.Component {
 
 		const game =
 			<div className="game_wrapper">
-				<div className={ !this.state.showTimer ? "blank" : "game_timer" } >
+				<div className=
+					{{
+						false: "blank",
+						true: (() => {
+							switch(this.state.initUnload) {
+								case true: return "unload_game_timer";
+								case false: return "game_timer";
+								default: return "blank";
+								}
+							})()
+						}[this.state.showTimer]}
+				>
 					<h2>TIME LEFT</h2>
 					{ this.state.showTimer ? time : blank }
 				</div>
-				<div className={ !this.state.showCounter ? "blank" : "game_counter" }>
+				<div className=
+					{{
+						false: "blank",
+						true: (() => {
+							switch(this.state.initUnload) {
+								case true: return "unload_game_counter";
+								case false: return "game_counter";
+								default: return "blank";
+								}
+							})()
+						}[this.state.showCounter]}
+				>
 					<h2>Spacebar Smashes</h2>
 					{ this.state.showCounter ? counter : blank }
 				</div>
-				<div className={ !this.state.showRank ? "blank" : "game_rank" }>
+				<div className=
+					{{
+						false: "blank",
+						true: (() => {
+							switch(this.state.initUnload) {
+								case true: return "unload_game_rank";
+								case false: return "game_rank";
+								default: return "blank";
+								}
+							})()
+						}[this.state.showRank]}
+				>
 					<h2>Rank</h2>
 					{ this.state.showRank ? rank : blank }
 				</div>
-				<div className={ !this.state.showPower ? "blank" : "game_power" }>
+				<div className=
+					{{
+						false: "blank",
+						true: (() => {
+							switch(this.state.initUnload) {
+								case true: return "unload_game_power";
+								case false: return "game_power";
+								default: return "blank";
+								}
+							})()
+						}[this.state.showPower]}
+				>
 					<h2>Power Level</h2>
 					{ this.state.showPower ? power : blank }
 					<meter className="power_bar" value={this.state.power} min="0.0" max="2.5" low="0.5" optimum="1.0" high="1.5">

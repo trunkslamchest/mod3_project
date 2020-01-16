@@ -4,22 +4,12 @@
 }
 
 .countdown_wrapper {
-	z-index: 1;
-	width: 80%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	margin: 0px auto 0px auto;
-	padding: 0px 0px 0px 0px;
-	background-color: rgba(0,0,0, 1);
-	background-image: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255,255,255, 0.5), rgba(0,0,0, 0) );
-	min-height: 86.00vh;
-	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1;
+	padding-bottom: 50px;
 }
 
 .countdown_header h3 {
 	text-align: center;
-	font: 300 30pt 'Saira Stencil One';
+	font: 300 calc(30px + (60 - 30) * ((100vw - 500px) / (1920 - 500))) 'Saira Stencil One';
 	padding-top: 15px;
 	padding-bottom: 10px;
 	padding-left: 10px;
@@ -35,124 +25,152 @@
 }
 
 .countdown_timer_five {
-	width: 50%;
-	min-height: 135px;
-	text-align: center;
+	align-items: center;
+	align-content: center;
+	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1, slide_in_from_left .25s ease-in-out 1;
 	background-color: rgba(255,255,255, 1);
-	padding: 10px 10px 0px 10px;
-	color: white;
-	text-align: center;
-	margin: 0 auto 0 auto;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border-radius: 100px 100px 0px 0px;
 	border: 2px solid red;
-	box-shadow: 0px 10px 20px 0px rgba(255, 0, 0, 0.75);
-	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1, slide_in_from_left .25s ease-in-out 1, shadow_blink 1.25s infinite;
+	border-radius: 100px 100px 0px 0px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8), 0 10px 10px 0 rgba(0, 0, 0, 0.8);
+	display: flex;
+	color: white;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin: 0 auto 0 auto;
+	min-height: 170px;
+	padding: 10px 0px 0px 0px;
+	text-align: center;
+	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .countdown_timer_five h1 {
-	padding: 0px;
+	align-self: center;
 	color: red;
-	font: 300 50pt 'Audiowide';
+	font: 300 calc(75px + (100 - 75) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	padding: 0px;
 }
 
 .countdown_timer_five h2 {
+	align-self: center;
+	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
 	padding: 0px;
-	font: 300 25pt 'Audiowide';
 }
 
 .countdown_timer_three {
-	width: 50%;
-	min-height: 135px;
-	text-align: center;
+	align-items: center;
+	align-content: center;
+	/* animation: shadow_blink 1.25s infinite; */
 	background-color: rgba(255,255,255, 1);
-	padding: 10px 10px 0px 10px;
-	color: white;
-	text-align: center;
-	margin: 0 auto 0 auto;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border-radius: 100px 100px 0px 0px;
 	border: 2px solid orange;
-	box-shadow: 0px 10px 20px 0px rgba(255, 165, 0, 0.75);
-	animation: shadow_blink 1.25s infinite;
+	border-radius: 100px 100px 0px 0px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8), 0 10px 10px 0 rgba(0, 0, 0, 0.8);
+	display: flex;
+	color: white;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin: 0 auto 0 auto;
+	min-height: 170px;
+	padding: 10px 0px 0px 0px;
+	text-align: center;
+	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .countdown_timer_three h1 {
-	padding: 0px;
+	align-self: center;
 	color: orange;
-	font: 300 50pt 'Audiowide';
+	font: 300 calc(75px + (100 - 75) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	padding: 0px;
 }
 
 .countdown_timer_three h2 {
+	align-self: center;
+	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
 	padding: 0px;
-	font: 300 25pt 'Audiowide';
 }
 
 .countdown_timer_one {
-	width: 50%;
-	min-height: 135px;
-	text-align: center;
+	align-items: center;
+	align-content: center;
+	/* animation: shadow_blink 1.25s infinite; */
 	background-color: rgba(255,255,255, 1);
-	padding: 10px 10px 0px 10px;
-	color: white;
-	text-align: center;
-	margin: 0 auto 0 auto;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border-radius: 100px 100px 0px 0px;
 	border: 2px solid yellow;
-	box-shadow: 0px 10px 20px 0px rgba(255, 255, 0, 0.75);
-	animation: shadow_blink 1.25s infinite;
+	border-radius: 100px 100px 0px 0px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8), 0 10px 10px 0 rgba(0, 0, 0, 0.8);
+	display: flex;
+	color: white;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin: 0 auto 0 auto;
+	min-height: 170px;
+	padding: 10px 0px 0px 0px;
+	text-align: center;
+	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .countdown_timer_one h1 {
-	padding: 0px;
+	align-self: center;
 	color: yellow;
-	font: 300 50pt 'Audiowide';
+	font: 300 calc(75px + (100 - 75) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	padding: 0px;
 }
 
 .countdown_timer_one h2 {
+	align-self: center;
+	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
 	padding: 0px;
-	font: 300 25pt 'Audiowide';
 }
 
 .countdown_go {
-	width: 50%;
-	min-height: 135px;
-	text-align: center;
+	align-items: center;
+	align-content: center;
+	animation: shadow_blink 1.25s infinite;
 	background-color: rgba(255,255,255, 1);
-	padding: 10px 10px 0px 10px;
-	color: green;
-	text-align: center;
-	margin: 0 auto 0 auto;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border-radius: 100px 100px 0px 0px;
 	border: 2px solid green;
+	border-radius: 100px 100px 0px 0px;
 	box-shadow: 0px 10px 20px 0px rgba(0, 128, 0, 0.75);
+	display: flex;
+	color: white;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin: 0 auto 0 auto;
+	min-height: 170px;
+	padding: 10px 0px 0px 0px;
+	text-align: center;
+	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .countdown_go h1 {
-	padding: 10px;
+	align-self: center;
 	color: green;
-	font: 300 50pt 'Audiowide';
+	font: 300 calc(75px + (100 - 75) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	padding: 0px;
 }
 
 .countdown_tutorial {
-	width: 50%;
-	color: white;
-	margin: 0 auto 0 auto;
-	text-align: center;
-	display: flex;
-	padding: 10px;
+	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1, slide_in_from_right .25s ease-in-out 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border-radius: 0px 0px 100px 100px;
 	border: 2px solid white;
-	box-shadow: 0px 10px 20px 0px rgba(255, 255, 255, 0.75);
-	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1, slide_in_from_right .25s ease-in-out 1, shadow_blink 1.5s infinite;
+	border-radius: 0px 0px 100px 100px;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.8), 0 15px 15px 0 rgba(0, 0, 0, 0.8);
+	display: flex;
+	color: white;
+	padding: 0px 10px 0px 10px;
+	margin: 0 auto calc(30px + (15 - 30) * ((100vw - 500px) / (1920 - 500))) auto;
+	text-align: center;
+	width: calc(280px + (480 - 280) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .countdown_tutorial p {
 	width: 100%;
 	padding: 10px;
 	margin: 0 auto 0 auto;
-	font: 300 20pt 'Staatliches';
+	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
 }

@@ -1,54 +1,49 @@
 .home_wrapper {
-	z-index: 1;
-	width: 80%;
+	/* width: 80%;
 	display: flex;
 	flex-direction: column;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
 	margin: 0px auto 0px auto;
-	padding: 0px 0px 0px 0px;
-	background-color: rgba(0,0,0, 1);
-	background-image: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255,255,255, 0.5), rgba(0,0,0, 0) );
-	min-height: 86.00vh;
-	/* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
+	padding: 0px 0px 0px 0px; */
+	padding-bottom: 50px;
+	/* background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255,255,255, 0.0), rgba(0,0,0, 1) ); */
 }
 
 .home_header {
+	animation: slide_in_from_left_title .6s ease-in-out 1;
 	color: #fff;
 	text-align: center;
-	width: 75%;
-	margin: 20px auto 20px auto;
+	width: calc(375px + (1000 - 375) * ((100vw - 500px) / (1920 - 500)));
+	margin: 0px auto 0px auto;
 	padding: 0 0 0 0;
   	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 0.75) 90%);
 	border-radius: 30px 30px;
 	border: 2px solid white;
-  	box-shadow: 0 0 5px 0 rgba(255, 255, 0, 0.75), 0 0 5px 0 rgba(255, 255, 0, 0.75);
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.8), 0 15px 15px 0 rgba(0, 0, 0, 0.8);
     transform: matrix3d(
       1,0,0,0.00025,
       0,1,0,0,
       0,0,1,0,
       0,0,0,1
-	) translateX(50px);
-	animation: slide_in_from_left_title .6s ease-in-out 1, shadow_blink 1s infinite;
+	) translateX(10px);
 }
 
 .home_wrapper h3 {
-	text-align: center;
-	font: 300 40pt 'Saira Stencil One';
-	padding-top: 15px;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin: 0 auto 0 auto;
-	padding: 0 0 0 0;
+	animation: fade_in 1s ease-in-out 1, slide_in_from_left_title_text .5s ease-in-out 1;
 	color: yellow;
+	font: 300 calc(30px + (60 - 30) * ((100vw - 500px) / (1920 - 500))) 'Saira Stencil One';
+	margin: 0 auto 0 auto;
+	padding: 15px 10px 10px 10px;
 	text-align: center;
 	 transform: matrix3d(
 		1,0,0,0.00025,
 		0,1,0,0,
 		0,0,1,0,
 		0,0,0,1
-	  );
-	animation: fade_in 1s ease-in-out 1, slide_in_from_left_title_text .75s ease-in-out 1;
+	  ) translateX(15px);
 }
 
 .start_button_container {
@@ -58,12 +53,12 @@
 	align-items: baseline;
 	margin: 0 auto 0 auto;
 	padding: 10px;
-	animation: slide_in_from_bottom .4s ease-in-out 1;
+	animation: fade_in .5s ease-in-out 1, slide_in_from_bottom_start_button .5s ease-in-out 1;
 }
 
 .start_button {
-	font: 300 20pt 'Saira Stencil One';
-	width: 300px;
+	font: 300 calc(20px + (25 - 20) * ((100vw - 500px) / (1920 - 500))) 'Saira Stencil One';
+	width: calc(150px + (300 - 150) * ((100vw - 500px) / (1920 - 500)));
 	margin: 0 auto 0 auto;
 	padding: 10px;
 	color: white !important;
@@ -72,69 +67,66 @@
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border-radius: 30px;
 	border: 2px solid white;
-	box-shadow: 0 0 15px 0 rgba(6, 200, 200, 0.8), 0 0 15px 0 rgba(6, 200, 200, 0.8);
+	box-shadow: 0 0 5px 0 rgba(255, 255, 0, 0.75), 0 0 5px 0 rgba(255, 255, 0, 0.75);
 	transform: matrix3d(
 		1,0,0,0.0005,
 		0,1,0,0,
 		0,0,1,0,
 		0,0,0,1
 	);
-	animation: blinker 2s ease-in-out infinite, shadow_blink 1.5s infinite;
+	animation: sway 2s ease-in-out infinite, shadow_blink 1.5s infinite;
 }
 
 .start_button:hover {
-	color: orangered;
-	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border-radius: 30px;
-	border: 2px solid white;
-	opacity: 1;
-    transform: matrix3d(
-      1,0,0,0,
-      0,1,0,0,
-      0,0,1,0,
-      0,0,0,1
-    );
 	animation: blinker_hover .1s ease-in-out 1;
+	background-image: linear-gradient(rgb(255, 255, 0, 1),  rgb(212, 144, 57, 1) );
+	border: 2px solid black;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
+	color: rgb(0, 0, 0, 1) !important;
+	cursor: pointer;
+	opacity: 1;
+	transform: matrix3d(
+		1,0,0,0,
+		0,1,0,0,
+		0,0,1,0,
+		0,0,0,1
+	);
 }
 
 .start_button:active {
-	color: rgb(40, 44, 52, 1);
-	background-image: linear-gradient(rgb(245, 167, 66, 1),  rgb(212, 144, 57, 1) );
+	animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1;
+	background-image: linear-gradient(rgb(255, 255, 0, 1),  rgb(212, 144, 57, 1) );
+	border: 2px solid black;
+	color: rgb(0, 0, 0, 1) !important;
+	cursor: pointer;
 	transition-property: color;
 	transition-duration: .1s, .1s;
 	transition-timing-function: ease-in-out;
-	/* animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1; */
 }
 
 .home_scoreboard_header {
-	width: 43%;
-	color: white;
-	margin: 0 auto 0 auto;
+	animation: fade_in .5s ease-in-out 1, slide_in_from_bottom_home_scoreboard_header .5s ease-in-out 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border-radius: 30px 30px 5px 5px;
 	border: 2px solid white;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.0), 0 0 10px 0 rgba(0, 0, 0, 0.8);
+	color: white;
+	margin: 0 auto 0 auto;
 	transform: matrix3d(
 		1,0,0,0.0,
 		0,1,0,-0.001,
 		0,0,1,0,
 		0,0,0,1
-	) translateY(25px);
+		);
+	width: calc(333px + (870 - 333) * ((100vw - 500px) / (1920 - 500)));
 	z-index: 2;
-	box-shadow: 0 0 5px 0 rgba(255, 255, 0, 0.75), 0 0 5px 0 rgba(255, 255, 0, 0.75);
-	animation: fade_in .3s ease-in-out 1, slide_in_from_bottom_home_scoreboard_header .4s ease-in-out 1, shadow_blink 2s infinite;
 }
 
 .home_wrapper h4 {
 	text-align: center;
-	font: 300 20pt 'Audiowide';
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 0px;
-	padding-right: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
+	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	padding: 5px 0px 10px 0px;
+	margin: 0px;
 	transform: matrix3d(
 		1,0,0,0.0,
 		0,1,0,-0.001,

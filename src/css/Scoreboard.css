@@ -1,26 +1,27 @@
 .scoreboard_table {
-	width: 50%;
-	color: white;
-	margin: 0 auto 0 auto;
+	animation: fade_in .5s ease-in-out 1, slide_in_from_bottom_home_scoreboard .5s ease-in-out 1;
+	align-items: center;
+	align-content: center;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border-radius: 0px 0px 15px 15px;
-	padding: 0px 0px 10px 0px;
 	border: 2px solid white;
+	border-radius: 0px 0px 15px 15px;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.8), 0 15px 15px 0 rgba(0, 0, 0, 0.8);
+	color: white;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
-	align-items: center;
-	align-content: center;
+	min-height: 427px;
+	margin: 0 auto 0 auto;
+	max-height: 526px;
+	padding: 0px 0px 10px 0px;
 	transform: matrix3d(
 		1,0,0,0.0,
 		0,1,0,-0.0004,
 		0,0,1,0,
 		0,0,0,1
-	);
-	box-shadow: 0 0 5px 0 rgba(255, 255, 0, 0.75), 0 0 5px 0 rgba(255, 255, 0, 0.75);
-	animation: fade_in .25s ease-in-out 1, slide_in_from_bottom_home_scoreboard .5s ease-in-out 1, shadow_blink 3s infinite;
-	z-index: 1;
+		) translateY(-33px);
+	width: calc(375px + (1000 - 375) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .scoreboard_table tbody {
@@ -48,7 +49,7 @@
 }
 
 .scoreboard_head_row th {
-	font: 300 15pt 'Audiowide';
+	font: 300 calc(12px + (20 - 12) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
 
 	width: 35%;
 }
@@ -61,21 +62,24 @@
 	justify-content: center;
 	align-items: center;
 	align-content: center;
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	border: 1px solid grey;
 	/* animation: fade_in .25s ease-in-out 1, slide_in_from_bottom .575s ease-in-out 1; */
 }
 
 .scoreboard_sub_row td {
-	font: 300 12pt 'Staatliches';
+	font: 300 calc(14px + (16 - 14) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
+	/* font: 300 12pt 'Staatliches'; */
 	text-align: center;
 	width: 35%;
 }
 
 .highlighted {
 	width: 100%;
-	background: red;
-	color: #fff;
+	background-image: linear-gradient(rgb(255, 255, 0, 1),  rgb(212, 144, 57, 1) );
+	border: 1px solid black;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
+	color: rgb(0, 0, 0, 1);
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -86,6 +90,7 @@
 }
 
 .highlighted td {
+	font: 300 calc(14px + (20 - 14) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
 	text-align:center;
 	width: 35%;
 }
@@ -109,7 +114,7 @@
 	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25);
 }
 
-.scoreboard_sub_row td meter::-webkit-meter-optimum-value {
+/* .scoreboard_sub_row td meter::-webkit-meter-optimum-value {
 	box-shadow: 0 5px 5px -5px #999 inset;
 	background-image: linear-gradient(
 	  90deg,
@@ -124,4 +129,4 @@
 	  #719fd1 100%
 	);
 	background-size: 100% 100%;
-  }
+  } */

@@ -14,7 +14,9 @@ export default class Countdown extends React.Component {
 		showGo: false,
 		showTutorial: false,
 		initGame: false,
-		mounted: false
+		mounted: false,
+		initUnload: false,
+		unloaded: false
 	}
 
 	componentDidMount(){
@@ -22,21 +24,22 @@ export default class Countdown extends React.Component {
 			mounted: true
 		})
 
-		this.headerTimeout = setTimeout(() => { this.setState({ showHeader: true })}, 500)
-		this.timerTimeout = setTimeout(() => { this.setState({ showTimer: true })}, 1000)
-		this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 1000)}, 1500)
-		this.tutorialTimeout = setTimeout(() => { this.setState({ showTutorial: true })}, 1000)
-
+		this.headerTimeout = setTimeout(() => { this.setState({ showHeader: true })}, 250)
+		this.timerTimeout = setTimeout(() => { this.setState({ showTimer: true })}, 500)
+		this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 1000)}, 1000)
+		this.tutorialTimeout = setTimeout(() => { this.setState({ showTutorial: true })}, 500)
 	}
 
 	componentDidUpdate(){
 		if(this.state.time === 0 && !this.state.initGame){
 			this.initGame()
 		}
+		if(this.state.initUnload && !this.state.unloaded){
+			this.unloadFunctions()
+		}
 	}
 
 	timerFunctions = () => {
-
 		if (this.state.time <= 0) {
 			this.setState({
 				time: 0,
@@ -51,7 +54,12 @@ export default class Countdown extends React.Component {
 	}
 
 	initGame(){
-		this.initGameTimeout = setTimeout(() => { this.setState({ initGame: true, display: 'game' })}, 1500)
+		this.initGameTimeout = setTimeout(() => { this.setState({ initGame: true, display: 'game'})}, 1000)
+		this.initUnloadTimeout = setTimeout(() => { this.setState({ initUnload: true })}, 750)
+	}
+
+	unloadFunctions = () => {
+		this.unloadTimeout = setTimeout(() => { this.setState({ unloaded: true })}, 500)
 	}
 
 	componentWillUnmount(){
@@ -60,7 +68,8 @@ export default class Countdown extends React.Component {
 		clearInterval(this.startTimer)
 		clearTimeout(this.tutorialTimeout)
 		clearTimeout(this.initGameTimeout)
-
+		clearTimeout(this.initUnloadTimeout)
+		clearTimeout(this.unloadTimeout)
 	}
 
 	render(){
@@ -75,7 +84,18 @@ export default class Countdown extends React.Component {
 
 		const countdown =
 			<div className={ this.state.display === "countdown" ? "countdown_wrapper": "blank" }>
-				<div className={ this.state.showHeader ? "countdown_header" : "blank" }>
+				<div className=
+					{{
+						false: "blank",
+						true: (() => {
+							switch(this.state.initUnload) {
+								case true: return "unload_countdown_header";
+								case false: return "countdown_header";
+								default: return "blank";
+								}
+							})()
+						}[this.state.showHeader]}
+				>
 					{ this.state.showHeader ? countdown_header : blank }
 				</div>
 				<div className={ (this.state.time === 5 || this.state.time === 4) && this.state.showTimer ? "countdown_timer_five" : "blank" } >
@@ -90,10 +110,32 @@ export default class Countdown extends React.Component {
 					{ this.state.time ? countdown_timer_header : blank }
 					{ this.state.time ? countdown_timer : blank }
 				</div>
-				<div className={ this.state.time ? "blank" : "countdown_go" } >
+				<div className=
+					{{
+						false: "blank",
+						true: (() => {
+							switch(this.state.initUnload) {
+								case true: return "unload_countdown_go";
+								case false: return "countdown_go";
+								default: return "blank";
+								}
+							})()
+						}[this.state.time === 0]}
+				>
 					{ this.state.time ? blank : countdown_go }
 				</div>
-				<div className={ this.state.showTutorial ? "countdown_tutorial" : "blank" }>
+			<div className=
+					{{
+						false: "blank",
+						true: (() => {
+							switch(this.state.initUnload) {
+								case true: return "unload_countdown_tutorial";
+								case false: return "countdown_tutorial";
+								default: return "blank";
+								}
+							})()
+						}[this.state.showTutorial]}
+				>
 					{ this.state.showTutorial ? countdown_tutorial : blank }
 				</div>
 			</div>

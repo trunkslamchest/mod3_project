@@ -33,6 +33,7 @@ import {
 import './App.css'
 import './css/Response.css'
 import './css/Loading.css'
+import './css/Unload.css'
 
 export default class App extends React.Component {
 
@@ -370,7 +371,7 @@ export default class App extends React.Component {
 						<Route component={ Error } />
 					</Switch>
 				</div>
-				<div className="footer">
+				<div className="footer_container">
 					{ showFooter }
 				</div>
 			</>

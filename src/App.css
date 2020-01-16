@@ -97,20 +97,23 @@ input[type=number]::-webkit-outer-spin-button {
 	appearance: none;
 }
 
-::placeholder {
+/* ::placeholder {
 	color: #000;
 	opacity: 1;
-}
+} */
 
 a:-webkit-any-link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: none;
+	cursor: pointer;
+	text-decoration: none;
 }
 
 .blank {
 	opacity: 0;
 	visibility: hidden;
+}
+
+.footer_margin{
+	height: 50px;
 }
 
 .loading_container {
@@ -142,10 +145,19 @@ a:-webkit-any-link {
 }
 
 .main_container {
-	margin: 0 auto 0 auto;
-	background-color: #fff;
-	animation: fade_in .1s ease-in-out 1, blur_in .05s ease-in-out 1;
-	z-index: 0;
+	/* background-color: #fff; */
+	/* animation: fade_in .1s ease-in-out 1, blur_in .05s ease-in-out 1; */
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* flex-wrap: nowrap; */
+	/* justify-content: center; */
+	/* align-items: stretch; */
+	/* align-content: stretch; */
+	/* height: 100vh; */
+	/* margin: 0 auto 0 auto; */
+	/* z-index: 0; */
+	min-height: 90%;
+	background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255,255,255, 0.0), rgba(0,0,0, 1) );
 }
 
 .main_container > * {

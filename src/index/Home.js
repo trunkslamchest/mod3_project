@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import Score from './Score.js'
 
@@ -11,7 +11,9 @@ export default class Home extends React.Component {
 	state = {
 		scoreboard: [],
 		mounted: false,
-		updated_scoreboard: false
+		updated_scoreboard: false,
+		initUnload: false,
+		unloaded: false
 	}
 
 	componentDidMount(){
@@ -23,6 +25,9 @@ export default class Home extends React.Component {
 	}
 
 	componentDidUpdate(){
+		if(this.state.initUnload && !this.state.unloaded){
+			this.unloadFunctions()
+		}
 	}
 
 	getScoreboard(){
@@ -36,8 +41,14 @@ export default class Home extends React.Component {
 		)
 	}
 
-	onClickStartButtonFunctions(event){
-		// this.onClickUpdateTrafficFunctions(event)
+	onClickStartButtonFunctions = (event) => {
+		this.setState({
+			initUnload: true
+		})
+	}
+
+	unloadFunctions = () => {
+		this.timerTimeout = setTimeout(() => { this.setState({ unloaded: true })}, 500)
 	}
 
 	onClickUpdateTrafficFunctions = (event) => {
@@ -60,7 +71,7 @@ export default class Home extends React.Component {
 
 	render(){
 
-		// console.log(this.state)
+		const blank = <></>
 
 		const header = <h3>SPACEBAR SMASHER</h3>
 
@@ -76,7 +87,7 @@ export default class Home extends React.Component {
 		const scoreboard_table =
 		<table
 			key={"scoreboard_table"}
-			className="scoreboard_table"
+			className={this.state.initUnload ? "unload_scoreboard_table" : "scoreboard_table" }
 		>
 			<tbody>
 				<tr className="scoreboard_head_row">
@@ -89,30 +100,43 @@ export default class Home extends React.Component {
 		</table>
 
 		const start_button =
-		<Link
+		<button
 			key={ "start_button" }
 			to='/game'
 			name="start_button"
 			interaction="click"
-			className="start_button"
+			className={this.state.initUnload ? "unload_start_button" : "start_button"}
 			onClick={ this.onClickStartButtonFunctions }
 		>
 			Start
-		</Link>
+		</button>
 
-		return(
+			const home_page =
 			<div className="home_wrapper">
-				<div className="home_header">
+				<div className={this.state.initUnload ? "unload_home_header" : "home_header"}>
 					{ header }
 				</div>
 				<div className="start_button_container">
 					{ start_button }
 				</div>
-				<div className="home_scoreboard_header">
+				<div className={this.state.initUnload ? "unload_scoreboard_header" : "home_scoreboard_header"}>
 					{ scoreboard_header }
 				</div>
 				{ scoreboard_table }
 			</div>
+
+		return(
+			<>
+				{
+					(() => {
+						switch(this.state.unloaded) {
+							case true: return <Redirect to='/game' />;
+							case false: return home_page;
+							default: return blank;
+						}
+					})()
+				}
+			</>
 		)
 	}
 }
