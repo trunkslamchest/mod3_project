@@ -12,8 +12,8 @@ export default class Home extends React.Component {
 		scoreboard: [],
 		mounted: false,
 		updated_scoreboard: false,
-		initUnload: false,
-		unloaded: false
+		initDismount: false,
+		dismounted: false
 	}
 
 	componentDidMount(){
@@ -25,8 +25,8 @@ export default class Home extends React.Component {
 	}
 
 	componentDidUpdate(){
-		if(this.state.initUnload && !this.state.unloaded){
-			this.unloadFunctions()
+		if(this.state.initDismount && !this.state.dismounted){
+			this.onDismount()
 		}
 	}
 
@@ -43,12 +43,12 @@ export default class Home extends React.Component {
 
 	onClickStartButtonFunctions = (event) => {
 		this.setState({
-			initUnload: true
+			initDismount: true
 		})
 	}
 
-	unloadFunctions = () => {
-		this.timerTimeout = setTimeout(() => { this.setState({ unloaded: true })}, 500)
+	onDismount = () => {
+		this.timerTimeout = setTimeout(() => { this.setState({ dismounted: true })}, 500)
 	}
 
 	onClickUpdateTrafficFunctions = (event) => {
@@ -73,10 +73,6 @@ export default class Home extends React.Component {
 
 		const blank = <></>
 
-		const header = <h3>SPACEBAR SMASHER</h3>
-
-		const scoreboard_header = <h4>High Scores</h4>
-
 		const scores = this.state.scoreboard.map(score =>
 			<Score
 				key={score.id}
@@ -85,42 +81,41 @@ export default class Home extends React.Component {
 		)
 
 		const scoreboard_table =
-		<table
-			key={"scoreboard_table"}
-			className={this.state.initUnload ? "unload_scoreboard_table" : "scoreboard_table" }
-		>
-			<tbody>
-				<tr className="scoreboard_head_row">
-					<th>Name</th>
-					<th>Power</th>
-					<th>Score</th>
-				</tr>
-					{ scores }
-			</tbody>
-		</table>
+			<>
+				<div className={this.state.initDismount ? "dismount_scoreboard_header" : "home_scoreboard_header"}>
+					<h4>High Scores</h4>
+				</div>
+				<table
+					key={"scoreboard_table"}
+					className={this.state.initDismount ? "dismount_scoreboard_table" : "scoreboard_table" }
+				>
+					<tbody>
+						<tr className="scoreboard_head_row">
+							<th>Name</th>
+							<th>Power</th>
+							<th>Score</th>
+						</tr>
+							{ scores }
+					</tbody>
+				</table>
+			</>
 
-		const start_button =
-		<button
-			key={ "start_button" }
-			to='/game'
-			name="start_button"
-			interaction="click"
-			className={this.state.initUnload ? "unload_start_button" : "start_button"}
-			onClick={ this.onClickStartButtonFunctions }
-		>
-			Start
-		</button>
-
-			const home_page =
+		const home_page =
 			<div className="home_wrapper">
-				<div className={this.state.initUnload ? "unload_home_header" : "home_header"}>
-					{ header }
+				<div className={this.state.initDismount ? "dismount_home_header" : "home_header" } >
+					<h3>SPACEBAR SMASHER</h3>
 				</div>
 				<div className="start_button_container">
-					{ start_button }
-				</div>
-				<div className={this.state.initUnload ? "unload_scoreboard_header" : "home_scoreboard_header"}>
-					{ scoreboard_header }
+					<button
+						key={ "start_button" }
+						to='/game'
+						name="start_button"
+						interaction="click"
+						className={this.state.initDismount ? "dismount_start_button" : "start_button"}
+						onClick={ this.onClickStartButtonFunctions }
+					>
+						Start
+					</button>
 				</div>
 				{ scoreboard_table }
 			</div>
@@ -129,7 +124,7 @@ export default class Home extends React.Component {
 			<>
 				{
 					(() => {
-						switch(this.state.unloaded) {
+						switch(this.state.dismounted) {
 							case true: return <Redirect to='/game' />;
 							case false: return home_page;
 							default: return blank;

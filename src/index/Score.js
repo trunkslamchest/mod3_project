@@ -31,12 +31,23 @@ export default class Score extends React.Component {
 				<td>
 					{player_name}
 				</td>
-				<td>
-					<meter className="scoreboard_power" value={power} min="0.0" max="2.5" low="0.5" optimum="1.0" high="1.5">
-					</meter>
-				</td>
-				<td>{score}</td>
+				<td className=	{{
+						true: "scoreboard_power_low",
+						false: (() => {
+							switch(this.props.score.attributes.power_level > 2) {
+								case true: return "scoreboard_power_high";
+								case false: return "scoreboard_power";
+								default: return "blank";
+								}
+							})()
+						}[this.props.score.attributes.power_level < 1]}
+					>
 
+					<meter value={power} min="0.0" low="0.5" optimum="1.0" high="2.0" max="3.0"></meter>
+				</td>
+				<td>
+					{score}
+				</td>
 			</tr>
 
 		return(

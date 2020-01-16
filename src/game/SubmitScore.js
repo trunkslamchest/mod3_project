@@ -25,8 +25,8 @@ export default class SubmitScore extends React.Component {
 		gotNewScoreboard: false,
 		updatedDisplay: false,
 		mounted: false,
-		initUnload: false,
-		unloaded: false
+		initDismount: false,
+		dismounted: false
 	}
 
 	componentDidMount(){
@@ -51,7 +51,7 @@ export default class SubmitScore extends React.Component {
 		}
 		if(this.state.gotNewScoreboard && !this.state.updatedDisplay){
 			// this.displaySwitchToScoreboard()
-			this.unloadFunctions()
+			this.onDismount()
 		}
 	}
 
@@ -149,17 +149,17 @@ export default class SubmitScore extends React.Component {
 		)
 	}
 
-	displaySwitchToScoreboard = () => {
-		this.setState({
-			// display: "scoreboard",
-			updatedDisplay: true
-		}, this.props.getPlayerID(this.state.player.id))
-	}
+	// displaySwitchToScoreboard = () => {
+	// 	this.setState({
+	// 		display: "scoreboard",
+	// 		updatedDisplay: true
+	// 	}, this.props.getPlayerID(this.state.player.id))
+	// }
 
 	onClickMainMenuButtonFunctions = () => {
 
 		this.setState({
-			initUnload: true
+			initDismount: true
 		})
 
 		this.initResetTimeout = setTimeout(() => {
@@ -180,7 +180,7 @@ export default class SubmitScore extends React.Component {
 	onClickTryAgainButtonFunctions = () => {
 
 		this.setState({
-			initUnload: true
+			initDismount: true
 		})
 
 		this.initResetTimeout = setTimeout(() => {
@@ -194,18 +194,13 @@ export default class SubmitScore extends React.Component {
 			})
 		}, 500)
 
-		this.resetTimeout = setTimeout(() => { this.setState({ display: "game", unloaded: true }, this.props.resetGame())}, 1000 )
+		this.resetTimeout = setTimeout(() => { this.setState({ display: "game", dismounted: true }, this.props.resetGame())}, 1000 )
 	}
 
-	// resetFunctions = () => {
-	// 	// this.unloadFunctions()
-	// 	this.props.resetGame()
-	// }
+	onDismount = () => {
+		this.setState({ initDismount: true, updatedDisplay: true })
 
-	unloadFunctions = () => {
-		this.setState({ initUnload: true, updatedDisplay: true })
-
-		this.unloadTimeout = setTimeout(() => { this.setState({ unloaded: true, display: "scoreboard" })}, 500)
+		this.dismountedTimeout = setTimeout(() => { this.setState({ dismounted: true, display: "scoreboard" })}, 500)
 
 		this.props.getPlayerID(this.state.player.id)
 	}
@@ -216,8 +211,8 @@ export default class SubmitScore extends React.Component {
 		clearTimeout(this.rankTimeout)
 		clearTimeout(this.powerTimeout)
 		clearTimeout(this.formTimeout)
-		clearTimeout(this.initUnloadTimeout)
-		clearTimeout(this.unloadTimeout)
+		clearTimeout(this.initDismountTimeout)
+		clearTimeout(this.dismountTimeout)
 		clearTimeout(this.initResetTimeout)
 		clearTimeout(this.resetTimeout)
 		clearTimeout(this.mainMenuTimeout)
@@ -237,8 +232,8 @@ export default class SubmitScore extends React.Component {
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_submit_score_header";
+							switch(this.state.initDismount) {
+								case true: return "dismount_submit_score_header";
 								case false: return "submit_score_header";
 								default: return "blank";
 								}
@@ -251,8 +246,8 @@ export default class SubmitScore extends React.Component {
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_submit_score_counter";
+							switch(this.state.initDismount) {
+								case true: return "dismount_submit_score_counter";
 								case false: return "submit_score_counter";
 								default: return "blank";
 								}
@@ -266,8 +261,8 @@ export default class SubmitScore extends React.Component {
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_submit_score_rank";
+							switch(this.state.initDismount) {
+								case true: return "dismount_submit_score_rank";
 								case false: return "submit_score_rank";
 								default: return "blank";
 								}
@@ -281,8 +276,8 @@ export default class SubmitScore extends React.Component {
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_submit_score_power";
+							switch(this.state.initDismount) {
+								case true: return "dismount_submit_score_power";
 								case false: return "submit_score_power";
 								default: return "blank";
 								}
@@ -290,15 +285,17 @@ export default class SubmitScore extends React.Component {
 						}[this.state.showPower]}
 				>
 					<h2>Power Level</h2>
-					<meter className="power_bar" value={this.props.power} min="0.0" max="2.5" low="0.5" optimum="1.0" high="1.5">
-					</meter>
+					<div className={this.state.showPower ? "game_power_bar": "blank"}>
+						<meter value={this.props.power} min="0.0" max="2.5" low="0.5" optimum="1.0" high="1.5">
+						</meter>
+					</div>
 				</div>
 				<div className=
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_submit_score_form";
+							switch(this.state.initDismount) {
+								case true: return "dismount_submit_score_form";
 								case false: return "submit_score_form";
 								default: return "blank";
 								}
@@ -311,30 +308,29 @@ export default class SubmitScore extends React.Component {
 						interaction="submit"
 						onSubmit={ this.onSubmitScoreFunctions }
 					>
-						<div className="submit_score_div">
-							<input
-								id="player_name"
-								name="player_name"
-								type="text"
-								className="submit_score_text_box"
-								placeholder="Enter Your Name"
-								value={ this.state.player_name }
-								onChange={ this.onSubmitScoreChange }
-							/>
-							<input
-								className="submit_score_button"
-								type="submit"
-								value="Confirm"
-							/>
-						</div>
+						<input
+							id="player_name"
+							name="player_name"
+							type="text"
+							className="submit_score_text_box"
+							placeholder="Enter Your Name"
+							autoComplete="off"
+							value={ this.state.player_name }
+							onChange={ this.onSubmitScoreChange }
+						/>
+						<input
+							className="submit_score_button"
+							type="submit"
+							value="Confirm"
+						/>
 					</form>
 				</div>
 				<div className=
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_submit_score_bottom_buttons_container";
+							switch(this.state.initDismount) {
+								case true: return "dismount_submit_score_bottom_buttons_container";
 								case false: return "submit_score_bottom_buttons_container";
 								default: return "blank";
 								}

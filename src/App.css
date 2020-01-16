@@ -97,11 +97,6 @@ input[type=number]::-webkit-outer-spin-button {
 	appearance: none;
 }
 
-/* ::placeholder {
-	color: #000;
-	opacity: 1;
-} */
-
 a:-webkit-any-link {
 	cursor: pointer;
 	text-decoration: none;
@@ -145,17 +140,6 @@ a:-webkit-any-link {
 }
 
 .main_container {
-	/* background-color: #fff; */
-	/* animation: fade_in .1s ease-in-out 1, blur_in .05s ease-in-out 1; */
-	/* display: flex; */
-	/* flex-direction: column; */
-	/* flex-wrap: nowrap; */
-	/* justify-content: center; */
-	/* align-items: stretch; */
-	/* align-content: stretch; */
-	/* height: 100vh; */
-	/* margin: 0 auto 0 auto; */
-	/* z-index: 0; */
 	min-height: 90%;
 	background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255,255,255, 0.0), rgba(0,0,0, 1) );
 }
@@ -178,7 +162,6 @@ a:-webkit-any-link {
 	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.1) );
 	min-height: 85.75vh;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
-	/* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
 }
 
 .default_wrapper h3 {
@@ -192,7 +175,6 @@ a:-webkit-any-link {
 	margin-bottom: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
-	/* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1; */
 }
 
 .default_header {
@@ -211,7 +193,6 @@ a:-webkit-any-link {
 	font-family: Lato;
 	color: #000;
 	text-decoration: none;
-	/* animation: fade_in .2s ease-in-out 1, blur_in .1s ease-in-out 1; */
 }
 
 .default_link:hover {
@@ -249,38 +230,32 @@ a:-webkit-any-link {
 
 .default_edit_form {
 	padding: 10px;
-	/* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_bottom.25s ease-in-out 1; */
 }
 
 .default_form {
 	text-align: center;
 	margin: 0 auto 0 auto;
-	/* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
 }
 
 .default_form label {
 	padding: 5px;
 	margin: 5px;
 	font-family: Lato;
-	/* animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1; */
 }
 
 .default_form input {
 	display: block;
 	border-radius: 5px;
 	margin: 0 auto 0 auto;
-	/* animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1; */
 }
 
 .default_form select {
 	margin: 0 auto 0 auto;
-	/* animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1; */
 	border: 2px solid rgb(200, 200, 200, 1)
 }
 
 .default_form select option {
 	margin: 0 auto 0 auto;
-	/* animation: fade_in .5s ease-in-out 1, blur_in .25s ease-in-out 1; */
 }
 
 .default_div select {
@@ -309,7 +284,7 @@ a:-webkit-any-link {
 }
 
 select:not(:-internal-list-box) {
-    overflow: hidden !important;
+	overflow: hidden !important;
 }
 
 .default_div textarea {
@@ -332,7 +307,6 @@ select:not(:-internal-list-box) {
 	justify-content: center;
 	align-items: baseline;
 	margin: 0 auto 20px auto;
-	/* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
 }
 
 .alt_container {
@@ -379,7 +353,6 @@ select:not(:-internal-list-box) {
 	background-color: rgba(255,255,255, 1);
 	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.01) );
 	box-shadow: 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25), 0 0 2.5px 0 rgba(0, 0, 0, 0.25);
-	/* animation: fade_in .4s ease-in-out 1, blur_in .2s ease-in-out 1; */
 	z-index:8;
 }
 
@@ -449,7 +422,6 @@ select:not(:-internal-list-box) {
 	transition-property: color;
 	transition-duration: .1s, .1s;
 	transition-timing-function: ease-in-out;
-	/* animation: scale_in .1s ease-in-out 1; */
 }
 
 .alt_button:active {
@@ -458,7 +430,6 @@ select:not(:-internal-list-box) {
 	transition-property: color;
 	transition-duration: .1s, .1s;
 	transition-timing-function: ease-in-out;
-	/* animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1; */
 }
 
 .alt_button2 {
@@ -499,7 +470,6 @@ select:not(:-internal-list-box) {
 	transition-property: color;
 	transition-duration: .2s, .2s;
 	transition-timing-function: ease-in-out;
-	/* animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1; */
 }
 
 .confirm_button {
@@ -530,12 +500,10 @@ select:not(:-internal-list-box) {
 .confirm_button:hover {
 	padding: 10px 30px 10px 30px;
 	background-image: linear-gradient(rgb(0, 153, 51, 1),  rgb(0, 128, 43, 1) );
-	/* animation: scale_in .1s ease-in-out 1; */
 }
 
 .confirm_button:active {
 	background-image: linear-gradient(rgb(0, 102, 34, 1),  rgb(0, 77, 26, 1) );
-	/* animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1; */
 }
 
 .cancel_button {
@@ -636,7 +604,6 @@ select:not(:-internal-list-box) {
 	transition-property: color;
 	transition-duration: .1s, .1s;
 	transition-timing-function: ease-in-out;
-	/* animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1; */
 }
 
 .sign_up_button {
@@ -681,5 +648,4 @@ select:not(:-internal-list-box) {
 	transition-property: color;
 	transition-duration: .1s, .1s;
 	transition-timing-function: ease-in-out;
-	/* animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1; */
 }

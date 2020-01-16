@@ -10,7 +10,7 @@
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: flex-start;
 	min-height: 427px;
 	margin: 0 auto 0 auto;
 	max-height: 526px;
@@ -24,7 +24,7 @@
 	width: calc(375px + (1000 - 375) * ((100vw - 500px) / (1920 - 500)));
 }
 
-.scoreboard_table tbody {
+.scoreboard_table tbody, .dismount_scoreboard_table tbody {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -34,7 +34,7 @@
 	align-content: center;
 }
 
-.scoreboard_head_row {
+.scoreboard_head_row, .dismount_scoreboard_head_row {
 	width: 100%;
 	padding: 5px 0px 5px 0px;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
@@ -45,16 +45,14 @@
 	align-items: center;
 	align-content: center;
 	border: 2px solid white;
-	/* animation: fade_in .25s ease-in-out 1, slide_in_from_bottom .55s ease-in-out 1; */
 }
 
-.scoreboard_head_row th {
+.scoreboard_head_row th, .dismount_scoreboard_head_row th {
 	font: 300 calc(12px + (20 - 12) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
-
 	width: 35%;
 }
 
-.scoreboard_sub_row {
+.scoreboard_sub_row, .dismount_scoreboard_sub_row {
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -62,19 +60,16 @@
 	justify-content: center;
 	align-items: center;
 	align-content: center;
-	/* border-radius: 5px; */
 	border: 1px solid grey;
-	/* animation: fade_in .25s ease-in-out 1, slide_in_from_bottom .575s ease-in-out 1; */
 }
 
-.scoreboard_sub_row td {
+.scoreboard_sub_row td, .dismount_scoreboard_sub_row td {
 	font: 300 calc(14px + (16 - 14) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
-	/* font: 300 12pt 'Staatliches'; */
 	text-align: center;
 	width: 35%;
 }
 
-.highlighted {
+.highlighted, .dismount_highlighted {
 	width: 100%;
 	background-image: linear-gradient(rgb(255, 255, 0, 1),  rgb(212, 144, 57, 1) );
 	border: 1px solid black;
@@ -89,44 +84,164 @@
 	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25);
 }
 
-.highlighted td {
+.highlighted td, .dismount_highlighted td {
 	font: 300 calc(14px + (20 - 14) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
 	text-align:center;
 	width: 35%;
 }
 
-.scoreboard_power {
-	width: 50%;
+.scoreboard_power, .dismount_scoreboard_power {
 	padding: 0 0 0 0;
 	display: block;
 	margin: 0 auto 0 auto;
-	background: #FFF;
-	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25);
+	-webkit-appearance: none;
 }
 
-.scoreboard_sub_row td meter::-webkit-meter-bar {
+.scoreboard_power meter, .dismount_scoreboard_power meter {
 	background: none;
-	background-image: linear-gradient(rgb(255, 255, 255, 1),  rgb(220, 220, 220, 1) );
-	width: 100%;
+	width: 75%;
+	box-sizing: border-box;
 	padding: 0 0 0 0;
 	display: block;
 	margin: 0 auto 0 auto;
-	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25), 0 0 2px 0 rgba(0, 0, 0, 0.25);
+
 }
 
-/* .scoreboard_sub_row td meter::-webkit-meter-optimum-value {
-	box-shadow: 0 5px 5px -5px #999 inset;
+.scoreboard_power meter::-webkit-meter-bar, .dismount_scoreboard_power meter::-webkit-meter-bar {
+	background: #000;
+	border-radius: 5px;
+	border: 1px solid grey;
+	box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.8), 0 0px 5px 0 rgba(0, 0, 0, 0.8);
+}
+
+.scoreboard_power meter::-webkit-meter-optimum-value, .dismount_scoreboard_power meter::-webkit-meter-optimum-value {
+	width: 100%;
 	background-image: linear-gradient(
-	  90deg,
-	  #8bcf69 5%,
-	  #e6d450 10%,
-	  #e6d450 15%,
-	  #f28f68 15%,
-	  #f28f68 55%,
-	  #cf82bf 55%,
-	  #cf82bf 95%,
-	  #719fd1 95%,
-	  #719fd1 100%
+		90deg,
+		#FFC300 0%,
+		#FF5733 100%
 	);
 	background-size: 100% 100%;
-  } */
+	border-radius: 5px;
+}
+
+.scoreboard_power meter::-webkit-meter-suboptimum-value, .dismount_scoreboard_power meter::-webkit-meter-suboptimum-value {
+	width: 100%;
+	background-image: linear-gradient(
+		90deg,
+		#FFC300 0%,
+		#FF5733 100%,
+		#7A0000 100%
+	);
+	background-size: 100% 100%;
+	border-radius: 5px;
+}
+
+.scoreboard_power meter::-webkit-meter-even-less-good-value, .dismount_scoreboard_power meter::-webkit-meter-even-less-good-value {
+	width: 100%;
+	background-image: linear-gradient(
+		90deg,
+		#107A00 0%,
+		#FF5733 100%,
+	);
+	background-size: 100% 100%;
+	border-radius: 5px;
+}
+
+.scoreboard_power_low meter, .dismount_scoreboard_power_low meter {
+	background: none;
+	width: 75%;
+	box-sizing: border-box;
+	padding: 0 0 0 0;
+	display: block;
+	margin: 0 auto 0 auto;
+}
+
+.scoreboard_power_low meter::-webkit-meter-bar, .dismount_scoreboard_power_low meter::-webkit-meter-bar {
+	background: #000;
+	border-radius: 5px;
+	border: 1px solid grey;
+	box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.8), 0 0px 5px 0 rgba(0, 0, 0, 0.8);
+}
+
+.scoreboard_power_low meter::-webkit-meter-optimum-value, .dismount_scoreboard_power_low meter::-webkit-meter-optimum-value {
+	width: 100%;
+	background-image: linear-gradient(
+		90deg,
+		#FFC300 0%,
+		#FFC300 100%
+	);
+	background-size: 100% 100%;
+	border-radius: 5px;
+}
+
+.scoreboard_power_low meter::-webkit-meter-suboptimum-value, .dismount_scoreboard_power_low meter::-webkit-meter-suboptimum-value {
+	width: 100%;
+	background-image: linear-gradient(
+		90deg,
+		#FFC300 0%,
+		#FFC300 100%
+	);
+	background-size: 100% 100%;
+	border-radius: 5px;
+}
+
+.scoreboard_power_low meter::-webkit-meter-even-less-good-value, .dismount_scoreboard_power_low meter::-webkit-meter-even-less-good-value {
+	width: 100%;
+	background-image: linear-gradient(
+		90deg,
+		#FFC300 0%,
+		#FFC300 100%,
+	);
+	background-size: 100% 100%;
+	border-radius: 5px;
+}
+
+.scoreboard_power_high meter, .dismount_scoreboard_power_high meter {
+	background: none;
+	width: 75%;
+	box-sizing: border-box;
+	padding: 0 0 0 0;
+	display: block;
+	margin: 0 auto 0 auto;
+}
+
+.scoreboard_power_high meter::-webkit-meter-bar, .dismount_scoreboard_power_high meter::-webkit-meter-bar {
+	background: #000;
+	border-radius: 5px;
+	border: 1px solid grey;
+	box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.8), 0 0px 5px 0 rgba(0, 0, 0, 0.8);
+}
+
+.scoreboard_power_high meter::-webkit-meter-optimum-value, .dismount_scoreboard_power_high meter::-webkit-meter-optimum-value {
+	width: 100%;
+	background-image: linear-gradient(
+		90deg,
+		#FFC300 0%,
+		#FF0000 100%
+	);
+	background-size: 100% 100%;
+	border-radius: 5px;
+}
+
+.scoreboard_power_high meter::-webkit-meter-suboptimum-value, .dismount_scoreboard_power_high meter::-webkit-meter-suboptimum-value {
+	width: 100%;
+	background-image: linear-gradient(
+		90deg,
+		#FFC300 0%,
+		#FF0000 100%
+	);
+	background-size: 100% 100%;
+	border-radius: 5px;
+}
+
+.scoreboard_power_high meter::-webkit-meter-even-less-good-value, .dismount_scoreboard_power_high meter::-webkit-meter-even-less-good-value {
+	width: 100%;
+	background-image: linear-gradient(
+		90deg,
+		#107A00 0%,
+		#FF0000 100%,
+	);
+	background-size: 100% 100%;
+	border-radius: 5px;
+}

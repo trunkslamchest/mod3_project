@@ -15,8 +15,8 @@ export default class Countdown extends React.Component {
 		showTutorial: false,
 		initGame: false,
 		mounted: false,
-		initUnload: false,
-		unloaded: false
+		initDismount: false,
+		dismounted: false
 	}
 
 	componentDidMount(){
@@ -34,8 +34,8 @@ export default class Countdown extends React.Component {
 		if(this.state.time === 0 && !this.state.initGame){
 			this.initGame()
 		}
-		if(this.state.initUnload && !this.state.unloaded){
-			this.unloadFunctions()
+		if(this.state.initDismount && !this.state.dismounted){
+			this.onDismount()
 		}
 	}
 
@@ -55,11 +55,11 @@ export default class Countdown extends React.Component {
 
 	initGame(){
 		this.initGameTimeout = setTimeout(() => { this.setState({ initGame: true, display: 'game'})}, 1000)
-		this.initUnloadTimeout = setTimeout(() => { this.setState({ initUnload: true })}, 750)
+		this.dismountTimeout = setTimeout(() => { this.setState({ initDismount: true })}, 750)
 	}
 
-	unloadFunctions = () => {
-		this.unloadTimeout = setTimeout(() => { this.setState({ unloaded: true })}, 500)
+	onDismount = () => {
+		this.dismountedTimeout = setTimeout(() => { this.setState({ dismounted: true })}, 500)
 	}
 
 	componentWillUnmount(){
@@ -68,8 +68,8 @@ export default class Countdown extends React.Component {
 		clearInterval(this.startTimer)
 		clearTimeout(this.tutorialTimeout)
 		clearTimeout(this.initGameTimeout)
-		clearTimeout(this.initUnloadTimeout)
-		clearTimeout(this.unloadTimeout)
+		clearTimeout(this.dismountTimeout)
+		clearTimeout(this.dismountedTimeout)
 	}
 
 	render(){
@@ -88,8 +88,8 @@ export default class Countdown extends React.Component {
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_countdown_header";
+							switch(this.state.initDismount) {
+								case true: return "dismount_countdown_header";
 								case false: return "countdown_header";
 								default: return "blank";
 								}
@@ -114,8 +114,8 @@ export default class Countdown extends React.Component {
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_countdown_go";
+							switch(this.state.initDismount) {
+								case true: return "dismount_countdown_go";
 								case false: return "countdown_go";
 								default: return "blank";
 								}
@@ -124,21 +124,21 @@ export default class Countdown extends React.Component {
 				>
 					{ this.state.time ? blank : countdown_go }
 				</div>
-			<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_countdown_tutorial";
-								case false: return "countdown_tutorial";
-								default: return "blank";
-								}
-							})()
-						}[this.state.showTutorial]}
-				>
-					{ this.state.showTutorial ? countdown_tutorial : blank }
+				<div className=
+						{{
+							false: "blank",
+							true: (() => {
+								switch(this.state.initDismount) {
+									case true: return "dismount_countdown_tutorial";
+									case false: return "countdown_tutorial";
+									default: return "blank";
+									}
+								})()
+							}[this.state.showTutorial]}
+					>
+						{ this.state.showTutorial ? countdown_tutorial : blank }
+					</div>
 				</div>
-			</div>
 
 		return(
 			<>

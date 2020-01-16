@@ -20,20 +20,12 @@ import TestTemp from './admin/TestTemp'
 
 import Error from './Error'
 
-import {
-		//  NavLink,
-		//  Link,
-		//  Redirect,
-		Route,
-		Switch,
-		//  useRouteMatch,
-		//  useParams
-	} from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import './App.css'
 import './css/Response.css'
 import './css/Loading.css'
-import './css/Unload.css'
+import './css/Dismount.css'
 
 export default class App extends React.Component {
 

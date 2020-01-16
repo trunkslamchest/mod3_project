@@ -1,18 +1,6 @@
 .post_game_wrapper {
 	padding-top: 75px;
 	padding-bottom: 50px;
-	/* z-index: 1;
-	width: 80%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	margin: 0px auto 0px auto;
-	padding: 0px 0px 0px 0px;
-	background-color: rgba(255,255,255, 1);
-	background-image: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255,255,255, 1), rgba(0,0,0, 0.1) );
-	min-height: 86.00vh;
-	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25); */
-	/* animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1; */
 }
 
 .post_game_header {
@@ -33,7 +21,7 @@
 	z-index: 2;
 }
 
-.post_game_wrapper h3 {
+.post_game_wrapper h4 {
 	text-align: center;
 	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
 	padding: 5px 0px 10px 0px;
@@ -44,7 +32,6 @@
 		0,0,1,0,
 		0,0,0,1
 	);
-	/* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1; */
 }
 
 .post_game_buttons_container {
@@ -68,7 +55,7 @@
 	color: white !important;
 	font: 300 calc(20px + (25 - 20) * ((100vw - 500px) / (1920 - 500))) 'Saira Stencil One';
 	padding: 10px;
-	margin-right: -12px;
+	margin-right: -5px;
 	text-align: center;
 	text-shadow: 1px 1px 2px #000;
 	transform: matrix3d(
@@ -115,7 +102,7 @@
 	box-shadow: 0 0 5px 0 rgba(255, 255, 0, 0.75), 0 0 5px 0 rgba(255, 255, 0, 0.75);
 	color: white !important;
 	font: 300 calc(20px + (25 - 20) * ((100vw - 500px) / (1920 - 500))) 'Saira Stencil One';
-	margin-left: -12px;
+	margin-left: -5px;
 	padding: 10px;
 	text-align: center;
 	text-shadow: 1px 1px 2px #000;

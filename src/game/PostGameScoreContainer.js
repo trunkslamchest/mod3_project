@@ -13,8 +13,8 @@ export default class PostGameScoreContainer extends React.Component {
 		scoreboard: [],
 		updatedScoreboard: false,
 		mounted: false,
-		initUnload: false,
-		unloaded: false
+		initDismount: false,
+		dismounted: false
 	}
 
 	componentDidMount(){
@@ -43,7 +43,7 @@ export default class PostGameScoreContainer extends React.Component {
 	onClickMainMenuButtonFunctions = () => {
 
 		this.setState({
-			initUnload: true
+			initDismount: true
 		})
 
 		this.mainMenuTimeout = setTimeout(() => { this.setState({ display: "main_menu" })}, 500 )
@@ -52,7 +52,7 @@ export default class PostGameScoreContainer extends React.Component {
 
 	onClickPlayAgainButtonFunctions = () => {
 		this.setState({
-			initUnload: true
+			initDismount: true
 		})
 
 		this.playAgainTimeout = setTimeout(() => { this.setState({ display: "game" })}, 500 )
@@ -67,8 +67,6 @@ export default class PostGameScoreContainer extends React.Component {
 
 		const blank = <></>
 
-		const header = <h3>High Scores</h3>
-
 		const scores = this.state.scoreboard.map(score =>
 			<PostGameScore
 				key={score.id}
@@ -78,19 +76,24 @@ export default class PostGameScoreContainer extends React.Component {
 		)
 
 		const scoreboard_table =
-		<table
-			key={"scoreboard_table"}
-			className={this.state.initUnload ? "unload_scoreboard_table" : "scoreboard_table" }
-		>
-			<tbody>
-				<tr className="scoreboard_head_row">
-					<th>Name</th>
-					<th>Power</th>
-					<th>Score</th>
-				</tr>
-					{ scores }
-			</tbody>
-		</table>
+			<>
+				<div className={this.state.initDismount ? "dismount_scoreboard_header" : "home_scoreboard_header"}>
+					<h4>High Scores</h4>
+				</div>
+				<table
+					key={"scoreboard_table"}
+					className={this.state.initDismount ? "dismount_scoreboard_table" : "scoreboard_table" }
+				>
+					<tbody>
+						<tr className="scoreboard_head_row">
+							<th>Name</th>
+							<th>Power</th>
+							<th>Score</th>
+						</tr>
+							{ scores }
+					</tbody>
+				</table>
+			</>
 
 		const scoreboard_buttons =
 			<div className="post_game_buttons_container">
@@ -98,7 +101,7 @@ export default class PostGameScoreContainer extends React.Component {
 					key={ "main_menu_button" }
 					name="main_menu_button"
 					interaction="click"
-					className={this.state.initUnload ? "unload_post_game_main_menu_button" : "post_game_main_menu_button" }
+					className={this.state.initDismount ? "dismount_post_game_main_menu_button" : "post_game_main_menu_button" }
 					onClick={ this.onClickMainMenuButtonFunctions }
 				>
 					Main Menu
@@ -107,7 +110,7 @@ export default class PostGameScoreContainer extends React.Component {
 					key={ "play_again_button" }
 					name="play_again_button"
 					interaction="click"
-					className={this.state.initUnload ? "unload_post_game_play_again_button" : "post_game_play_again_button" }
+					className={this.state.initDismount ? "dismount_post_game_play_again_button" : "post_game_play_again_button" }
 					onClick={ this.onClickPlayAgainButtonFunctions }
 				>
 					Play Again
@@ -116,9 +119,6 @@ export default class PostGameScoreContainer extends React.Component {
 
 		const scoreboard =
 			<div className="post_game_wrapper">
-				<div className={this.state.initUnload ? "unload_post_game_header" : "post_game_header"}>
-					{ header }
-				</div>
 				{ scoreboard_table }
 				{ scoreboard_buttons }
 			</div>

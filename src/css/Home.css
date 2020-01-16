@@ -1,19 +1,9 @@
 .home_wrapper {
-	/* width: 80%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: center;
-	margin: 0px auto 0px auto;
-	padding: 0px 0px 0px 0px; */
 	padding-bottom: 50px;
-	/* background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255,255,255, 0.0), rgba(0,0,0, 1) ); */
 }
 
 .home_header {
-	animation: slide_in_from_left_title .6s ease-in-out 1;
+	animation: mount_home_header .5s ease-in-out 1;
 	color: #fff;
 	text-align: center;
 	width: calc(375px + (1000 - 375) * ((100vw - 500px) / (1920 - 500)));
@@ -31,7 +21,7 @@
 	) translateX(10px);
 }
 
-.home_wrapper h3 {
+.home_wrapper h3, .dismount_home_wrapper h3 {
 	animation: fade_in 1s ease-in-out 1, slide_in_from_left_title_text .5s ease-in-out 1;
 	color: yellow;
 	font: 300 calc(30px + (60 - 30) * ((100vw - 500px) / (1920 - 500))) 'Saira Stencil One';
@@ -133,5 +123,4 @@
 		0,0,1,0,
 		0,0,0,1
 	);
-	/* animation: fade_in .25s ease-in-out 1, blur_in .25s ease-in-out 1, slide_in_from_top.25s ease-in-out 1; */
 }

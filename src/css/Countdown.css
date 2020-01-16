@@ -61,7 +61,6 @@
 .countdown_timer_three {
 	align-items: center;
 	align-content: center;
-	/* animation: shadow_blink 1.25s infinite; */
 	background-color: rgba(255,255,255, 1);
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border: 2px solid orange;
@@ -95,7 +94,6 @@
 .countdown_timer_one {
 	align-items: center;
 	align-content: center;
-	/* animation: shadow_blink 1.25s infinite; */
 	background-color: rgba(255,255,255, 1);
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border: 2px solid yellow;
@@ -147,7 +145,7 @@
 	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
-.countdown_go h1 {
+.countdown_go h1, .dismount_countdown_go h1 {
 	align-self: center;
 	color: green;
 	font: 300 calc(75px + (100 - 75) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
@@ -168,7 +166,7 @@
 	width: calc(280px + (480 - 280) * ((100vw - 500px) / (1920 - 500)));
 }
 
-.countdown_tutorial p {
+.countdown_tutorial p, .dismount_countdown_tutorial p {
 	width: 100%;
 	padding: 10px;
 	margin: 0 auto 0 auto;

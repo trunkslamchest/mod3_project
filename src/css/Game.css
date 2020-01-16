@@ -20,7 +20,7 @@
 	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
-.game_timer h1 {
+.game_timer h1, .dismount_game_timer h1 {
 	animation: text_shadow_blink 2.5s ease-in-out infinite;
 	background-color: #000;
 	border-radius: 10px;
@@ -35,7 +35,7 @@
 	width: calc(250px + (400 - 250) * ((100vw - 500px) / (1920 - 500)));
 }
 
-.game_timer h2 {
+.game_timer h2, .dismount_game_timer h2 {
 	color: white;
 	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
 	margin: 0 auto 0 auto;
@@ -54,7 +54,7 @@
 	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
-.game_counter h1 {
+.game_counter h1, .dismount_game_counter h1 {
 	animation: text_shadow_blink 2s ease-in-out infinite;
 	background-color: #000;
 	border-radius: 10px;
@@ -68,7 +68,7 @@
 	width: calc(200px + (300 - 200) * ((100vw - 500px) / (1920 - 500)));
 }
 
-.game_counter h2 {
+.game_counter h2, .dismount_game_counter h2 {
 	color: white;
 	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
 	margin: 0 auto 0 auto;
@@ -87,7 +87,7 @@
 	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
-.game_rank h1 {
+.game_rank h1, .dismount_game_rank h1 {
 	animation: text_shadow_blink 1.5s ease-in-out infinite;
 	background-color: #000;
 	border: 1px solid grey;
@@ -102,7 +102,7 @@
 	width: calc(250px + (350 - 250) * ((100vw - 500px) / (1920 - 500)));
 }
 
-.game_rank h2 {
+.game_rank h2, .dismount_game_rank h2 {
 	color: white;
 	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
 	margin: 0 auto 0 auto;
@@ -122,14 +122,14 @@
 	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
-.game_power h1 {
+.game_power h1, .dismount_game_power h1 {
 	animation: text_shadow_blink 2.25s ease-in-out infinite;
 	background-color: #000;
 	border: 1px solid grey;
 	border-radius: 10px;
 	box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.8), 0 0px 10px 0 rgba(0, 0, 0, 0.8);
 	color: yellow;
-	font: 300 calc(25px + (50 - 25) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	font: 300 calc(20px + (40 - 20) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
 	margin: 0 auto 0 auto;
 	padding: 0px 5px 0px 5px;
 	text-align: center;
@@ -137,7 +137,7 @@
 	width: calc(200px + (350 - 200) * ((100vw - 500px) / (1920 - 500)));
 }
 
-.game_power h2 {
+.game_power h2, .dismount_game_power h2 {
 	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
 	color: white;
 	margin: 0 auto 0 auto;
@@ -145,15 +145,59 @@
 	text-align: center;
 }
 
-meter::-webkit-meter-bar {
-	background: #FFF;
-	box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.8), 0 0px 10px 0 rgba(0, 0, 0, 0.8);
+.game_power_bar{
+	padding: 0 0 0 0;
+	display: block;
+	margin: 0 auto 0 auto;
+	-webkit-appearance: none;
 }
 
-.power_bar {
-	background-color: transparent;
-	box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.8), 0 0px 10px 0 rgba(0, 0, 0, 0.8);
-	height: calc(40px + (50 - 40) * ((100vw - 500px) / (1920 - 500)));
-	padding: 0 0 20px 0;
-	width: calc(200px + (350 - 200) * ((100vw - 500px) / (1920 - 500)));
+.game_power_bar meter, .dismount_game_power_bar meter {
+	background: none;
+	width: 75%;
+	height: 25px;
+	box-sizing: border-box;
+	padding: 0 0 0 0;
+	display: block;
+	margin: 0 auto 0 auto;
+}
+
+.game_power_bar meter::-webkit-meter-bar, .dismount_game_power_bar meter::-webkit-meter-bar {
+	background: #000;
+	border-radius: 5px;
+	border: 1px solid grey;
+}
+
+.game_power_bar meter::-webkit-meter-optimum-value, .dismount_game_power_bar meter::-webkit-meter-optimum-value {
+	width: 100%;
+	background-image: linear-gradient(
+		90deg,
+		#FFC300 0%,
+		#FF5733 100%
+	);
+	background-size: 100% 100%;
+	border-radius: 5px;
+}
+
+.game_power_bar meter::-webkit-meter-suboptimum-value, .dismount_game_power_bar meter::-webkit-meter-suboptimum-value {
+	width: 100%;
+	background-image: linear-gradient(
+		90deg,
+		#FFC300 0%,
+		#FF5733 100%,
+		#7A0000 100%
+	);
+	background-size: 100% 100%;
+	border-radius: 5px;
+}
+
+.game_power_bar meter::-webkit-meter-even-less-good-value, .dismount_game_power_bar meter::-webkit-meter-even-less-good-value {
+	width: 100%;
+	background-image: linear-gradient(
+		90deg,
+		#107A00 0%,
+		#FF5733 100%,
+	);
+	background-size: 100% 100%;
+	border-radius: 5px;
 }

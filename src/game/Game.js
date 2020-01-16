@@ -8,7 +8,7 @@ export default class Game extends React.Component {
 
 	state = {
 		display: 'game',
-		time: 30.01,
+		time: 15.01,
 		count: 0,
 		rank: "SUPER BABY FINGERS",
 		power: 0,
@@ -20,8 +20,8 @@ export default class Game extends React.Component {
 		spacebar_pressed: false,
 		updated_rank: false,
 		mounted: false,
-		initUnload: false,
-		unloaded: false
+		initDismount: false,
+		dismounted: false
 	}
 
 	constructor(props) {
@@ -87,7 +87,7 @@ export default class Game extends React.Component {
 		if (this.state.time <= 0) {
 			this.setState({
 				time: 0.0,
-			}, this.unloadFunctions())
+			}, this.onDismount())
 		} else {
 			this.setState({
 				time: (this.state.time - 0.01).toFixed(2),
@@ -136,9 +136,24 @@ export default class Game extends React.Component {
 
 		if (this.state.time === 0){
 			this.setState({
-				power: this.state.power - 0.00225
+				power: this.state.power
 			}, clearInterval(this.powerInterval))
 		}
+	}
+
+	resetGame = () => {
+		this.setState({
+			display: 'game',
+			time: (30.00).toFixed(2),
+			count: 0,
+			rank: "SUPER BABY FINGERS",
+			power: 0,
+			spacebar_pressed: false,
+			updated_rank: false,
+			mounted: false,
+			initDismount: false,
+			dismounted: false
+		}, this.startGame())
 	}
 
 	clearTimers = () => {
@@ -149,30 +164,20 @@ export default class Game extends React.Component {
 		clearTimeout(this.rankTimeout)
 		clearTimeout(this.powerTimeout)
 		clearInterval(this.powerInterval)
+		clearTimeout(this.initDismountTimeout)
+		clearTimeout(this.dismountTimeout)
 
 		document.removeEventListener('keydown', this.spacebarDown)
 		document.removeEventListener('keyup', this.spacebarUp)
 	}
 
-	resetGame = () => {
-		this.setState({
-			display: 'game',
-			time: 30.00,
-			count: 0,
-			rank: "SUPER BABY FINGERS",
-			power: 0,
-			spacebar_pressed: false,
-			updated_rank: false,
-			mounted: false,
-			initUnload: false,
-			unloaded: false
-		}, this.startGame())
-	}
+	onDismount = () => {
+		document.removeEventListener('keydown', this.spacebarDown)
+		document.removeEventListener('keyup', this.spacebarUp)
 
-	unloadFunctions = () => {
-		this.initUnloadTimeout = setTimeout(() => { this.setState({ initUnload: true })}, 500)
-		this.unloadTimeout = setTimeout(() => { this.setState({ unloaded: true, display: 'submit_score' })}, 750)
-		this.clearTimers()
+		this.initDismountTimeout = setTimeout(() => { this.setState({ initDismount: true })}, 500)
+		this.dismountedTimeout = setTimeout(() => { this.setState({ dismounted: true, display: 'submit_score' })}, 750)
+		this.clearTimersTimeout = setTimeout(() => { this.clearTimers() }, 1000)
 	}
 
 	componentWillUnmount(){
@@ -183,8 +188,9 @@ export default class Game extends React.Component {
 		clearTimeout(this.rankTimeout)
 		clearTimeout(this.powerTimeout)
 		clearInterval(this.powerInterval)
-		clearTimeout(this.unloadTimeout)
-		clearTimeout(this.initUnloadTimeout)
+		clearTimeout(this.initDismountTimeout)
+		clearTimeout(this.dismountTimeout)
+		clearTimeout(this.clearTimersTimeout)
 
 		document.removeEventListener('keydown', this.spacebarDown)
 		document.removeEventListener('keyup', this.spacebarUp)
@@ -208,8 +214,8 @@ export default class Game extends React.Component {
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_game_timer";
+							switch(this.state.initDismount) {
+								case true: return "dismount_game_timer";
 								case false: return "game_timer";
 								default: return "blank";
 								}
@@ -223,8 +229,8 @@ export default class Game extends React.Component {
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_game_counter";
+							switch(this.state.initDismount) {
+								case true: return "dismount_game_counter";
 								case false: return "game_counter";
 								default: return "blank";
 								}
@@ -238,8 +244,8 @@ export default class Game extends React.Component {
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_game_rank";
+							switch(this.state.initDismount) {
+								case true: return "dismount_game_rank";
 								case false: return "game_rank";
 								default: return "blank";
 								}
@@ -253,8 +259,8 @@ export default class Game extends React.Component {
 					{{
 						false: "blank",
 						true: (() => {
-							switch(this.state.initUnload) {
-								case true: return "unload_game_power";
+							switch(this.state.initDismount) {
+								case true: return "dismount_game_power";
 								case false: return "game_power";
 								default: return "blank";
 								}
@@ -263,8 +269,10 @@ export default class Game extends React.Component {
 				>
 					<h2>Power Level</h2>
 					{ this.state.showPower ? power : blank }
-					<meter className="power_bar" value={this.state.power} min="0.0" max="2.5" low="0.5" optimum="1.0" high="1.5">
-					</meter>
+					<div className={this.state.showPower ? "game_power_bar": "blank"}>
+						<meter value={this.state.power} min="0.0" max="2.5" low="0.5" optimum="1.0" high="1.5">
+						</meter>
+					</div>
 				</div>
 			</div>
 
