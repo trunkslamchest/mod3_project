@@ -65,21 +65,27 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
 
 # Installation
   ### Prerequisites
-  Spacebar Smasher is built using Javascript, Ruby, Ruby on Rails & PostgresQL. Make sure you have the latest versions of the three following components installed before cloning this repo. You can find their official installation guides below:
+  Spacebar Smasher is built using React, Ruby, Ruby on Rails & PostgresQL. Make sure you have the latest versions of the four following components installed before cloning this repo. You can find their official installation guides below:
+  - [React](https://reactjs.org/docs/getting-started.html)
   - [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
   - [Ruby On Rails](https://guides.rubyonrails.org/v5.0/getting_started.html)
   - [PostgresQL](https://www.postgresqltutorial.com/)
 
 &nbsp;
 
-  - Clone the most recent branch from The Backend Repository
+  ### Frontend
+  - Clone the most recent branch from [The Frontend Repository](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.1)
+  - Run `npm install` in your bash-enabled terminal to make sure all dependancies are installed
+
+  ### Backend
+  - Clone the most recent branch from [The Backend Repository](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1/)
     - If you are running on Windows, add the line `gem 'wdm', '>= 0.1.0'` to Gemfile before running `bundle install`. If you are running on macOS, remove the line `gem 'wdm', '>= 0.1.0'` from Gemfile before running `bundle install`
 
-  - Run `rvm use Ruby-2.6.5` to make sure you are using the correct version of Ruby
   - Run `bundle install` to install all gems/dependancies required for Spacebar Smasher
-  - Run `rails db:create` to create a local PostgresQL database
+  - Run `rails db:create ` to create a local PostgresQL database
   - Run `rails db:migrate` to create the tables/columns required for proper Spacebar Smasher functionality
   - Run `rails db:seed` to populate the columns with rows of "real" data
+  - Create a file called `.env` in the backend directory (/root/backend/) and add `HMAC_SECRET = "<insert secret string here>"` and `MOD3_PROJECT_REVAMP_BACKEND_DATABASE_PASSWORD = "hockey"` to the file
 
 &nbsp;
 
@@ -88,13 +94,12 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
 
   First:
   - Run `rails s -p 3001` to start the backend server on port 3001.
-
-  The server must run on 3001 as all the fetch requests on the frontend point to port 3001. If you can not or do not want to run the backend server on port 3001, you will need to update all frontend fetch requests accordingly. 
-
+    - You can access the Backend portion of Spacebar Smasher by visiting: `http://localhost:3001`
+ 
   Second:
-  - Open 'index.html' with your Chrome or Firefox
-
-  You can access the Backend portion of Spacebar Smasher by visiting: `http://localhost:3001`
+  - Run `npm start` **in a separate bash terminal window** to start the frontend server on port 3000
+    - You can now access Frontend portion of Spacebar Smasher by visiting: `http://localhost:3000` 
+ 
 
   Thats it! Have fun breaking/fixing/doing whatever you want with Spacebar Smasher. The world is your oyster!
 
@@ -111,15 +116,15 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
 # Summary Of Files
   ### Internal File Structure
   - [Frontend](https://github.com/trunkslamchest/mod3_project/tree/dev-win64-0.2/frontend): All files used for Gameplay Loop & Functionality
-  - [Backend](https://github.com/trunkslamchest/mod3_project/tree/dev-win64-0.2/backend): All files used for player/scoreboard statistics
-    - [app](https://github.com/trunkslamchest/mod3_project/tree/dev-win64-0.2/backend/app): Primary location for API configuration
-      - [controllers](https://github.com/trunkslamchest/mod3_project/tree/dev-win64-0.2/backend/app/controllers): Render/REST methods
-      - [models](https://github.com/trunkslamchest/mod3_project/tree/dev-win64-0.2/backend/app/models): Active Record Associations methods
-      - [serializers](https://github.com/trunkslamchest/mod3_project/tree/dev-win64-0.2/backend/app/serializers): Filters for API
-  - [bin](https://github.com/trunkslamchest/mod3_project/tree/dev-win64-0.2/backend/bin): Environment configuration files
-  - [config](https://github.com/trunkslamchest/mod3_project/tree/dev-win64-0.2/backend/config): Start/Backend configuration files
-  - [db](https://github.com/trunkslamchest/mod3_project/tree/dev-win64-0.2/backend/db): Database Configuration files
-  - [Gemfile](https://github.com/trunkslamchest/mod3_project/blob/dev-win64-0.2/backend/Gemfile): Prerequistes & Dependencies
+  - [Backend](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1): All files used for player/scoreboard statistics
+    - [app](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1/app): Primary location for API configuration
+      - [controllers](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1/app/controllers): Render/REST methods
+      - [models](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1/app/models): Active Record Associations methods
+      - [serializers](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1/app/serializers): Filters for API
+  - [bin](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1/bin): Environment configuration files
+  - [config](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1/config): Start/Backend configuration files
+  - [db](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1/db): Database Configuration files
+  - [Gemfile](https://github.com/trunkslamchest/mod3_project/tree/backend-0.1/Gemfile): Prerequistes & Dependencies
 
 &nbsp;
 
