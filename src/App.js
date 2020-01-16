@@ -10,7 +10,6 @@ import LogIn from './user/LogIn'
 import SignUp from './user/SignUp'
 import LogOut from './user/LogOut'
 
-import Dashboard from './user/dashboard/Dashboard'
 import EditProfile from './user/dashboard/EditProfile'
 import DeleteProfile from './user/dashboard/DeleteProfile'
 
@@ -288,14 +287,6 @@ export default class App extends React.Component {
 								update_page_data={ this.update_page_data }
 								// ~~~~~~~~~~~~~~~~~~~~
 								updateLogin={ this.updateLogin }
-							/>
-						</Route>
-						<Route exact path='/dashboard'>
-							<Dashboard
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
-								user_id={ this.state.user_id }
 							/>
 						</Route>
 						<Route exact path='/edit_profile'>

@@ -1,7 +1,7 @@
 @media only screen and (min-height: 930px) {
 	html, body {
 		overflow: hidden;
-	  }
+	}
 }
 
 @media only screen and (max-width: 1450px) {
@@ -121,68 +121,6 @@
 
 }
 
-@media only screen and (max-width: 1000px) {
-
-	.default_header_link {
-		font: 300 15pt 'Lato', sans-serif;
-		padding-left: 15px;
-		padding-right: 15px;
-		text-decoration: none;
-	}
-
-}
-
-@media only screen and (max-width: 800px) {
-
-	.default_header_link {
-		font: 300 12pt 'Lato', sans-serif;
-		padding-left: 10px;
-		padding-right: 10px;
-		text-decoration: none;
-	}
-
-	.logo_rectangle{
-		max-height: 30px;
-	}
-
-	.quick_play_container {
-		width: 100%;
-		min-width: 100%;
-		max-width: 100%;
-	}
-
-	.other_play_container {
-		width: 100%;
-		min-width: 100%;
-		max-width: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		margin: 0 auto 0 auto;
-		animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1;
-	}
-
-	.quick_play_button {
-		width: 75%;
-		min-width: 75%;
-		max-width: 75%;
-	}
-
-	.play_by_difficulty_button {
-		width: 75%;
-		min-width: 75%;
-		max-width: 75%;
-	}
-
-	.play_by_category_button {
-		width: 75%;
-		min-width: 75%;
-		max-width: 75%;
-	}
-
-}
-
 @media only screen and (max-width: 750px) {
 
 	.default_wrapper{
@@ -270,42 +208,6 @@
 
 @media only screen and (max-width: 700px) {
 
-	.header_left {
-		flex-shrink: 2;
-	}
-
-	.header_left a img {
-		flex-shrink: 2;
-	}
-
-	.header_right {
-		flex-direction: column;
-		width:100%;
-		flex-wrap: wrap;
-		padding-right: 0px;
-		align-items: flex-end;
-	}
-
-	.header_greeting {
-		margin-top: 10px;
-		margin-right: -20px;
-		align-self: flex-end;
-		font: 300 8pt 'Lato', sans-serif;
-		order: 1;
-	}
-
-	.links a{
-		font-size: 9pt;
-		margin: 0px auto 0px auto;
-		text-decoration: none;
-	}
-
-	.default_header_link {
-		font: 400 10pt 'Lato', sans-serif;
-		padding-bottom: 10px;
-		text-decoration: none;
-	}
-
 	.logos {
 		display: flex;
 		flex-direction: row;
@@ -321,26 +223,6 @@
 		height: auto;
 		max-height: 20px;
 		margin: 5px;
-	}
-
-	.dashboard_tabs ul {
-		display: block;
-	}
-
-	.dashboard_tabs li {
-		padding: 5px;
-	}
-
-	.stats_difficulty {
-		display: block;
-	}
-
-	.stats_category ul {
-		max-width: 100%;
-	}
-
-	.question_card_text h2 {
-		padding: 15px 10px 15px 10px;
 	}
 
 	.div1 {
@@ -359,20 +241,12 @@
 		align-items: center;
 	}
 
-	.question_card_all_comments li p{
-		font: 300 10pt 'Lato', sans-serif;
-	}
-
 }
 
 @media only screen and (max-width: 500px) {
 
 	.logo_rectangle{
 		max-height: 20px;
-	}
-
-	.question_card_text h2 {
-		padding: 15px 10px 15px 10px;
 	}
 
 }
