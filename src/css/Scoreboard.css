@@ -14,7 +14,7 @@
 	min-height: 427px;
 	margin: 0 auto 0 auto;
 	max-height: 526px;
-	padding: 0px 0px 10px 0px;
+	padding: 0px 0px 40px 0px;
 	transform: matrix3d(
 		1,0,0,0.0,
 		0,1,0,-0.0004,
@@ -43,7 +43,7 @@
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
-	padding: 5px 0px 5px 0px;
+	padding: 2.5px 0px 2.5px 0px;
 	width: 100%;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .scoreboard_sub_row td, .dismount_scoreboard_sub_row td {
-	font: 300 calc(14px + (16 - 14) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
+	font: 300 calc(14px + (17 - 14) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
 	text-align: center;
 	width: 35%;
 }

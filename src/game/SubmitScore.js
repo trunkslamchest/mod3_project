@@ -286,7 +286,7 @@ export default class SubmitScore extends React.Component {
 				>
 					<h2>POWER</h2>
 					<div className={this.state.showPower ? "game_power_bar": "blank"}>
-						<meter value={this.props.power} min="0.0" max="2.5" low="0.5" optimum="1.0" high="1.5">
+						<meter value={this.props.power} min="0.0" low="0.5" optimum="1.0" high="2.0" max="3.0">
 						</meter>
 					</div>
 				</div>

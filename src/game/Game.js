@@ -270,7 +270,7 @@ export default class Game extends React.Component {
 					<h2>POWER</h2>
 					{ this.state.showPower ? power : blank }
 					<div className={this.state.showPower ? "game_power_bar": "blank"}>
-						<meter value={this.state.power} min="0.0" max="2.5" low="0.5" optimum="1.0" high="1.5">
+						<meter value={this.state.power} min="0.0" low="0.5" optimum="1.0" high="2.0" max="3.0">
 						</meter>
 					</div>
 				</div>
