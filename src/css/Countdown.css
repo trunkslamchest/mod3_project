@@ -4,123 +4,116 @@
 }
 
 .countdown_wrapper {
+	padding-top: 75px;
 	padding-bottom: 50px;
+}
+
+.countdown_header {
+	animation: slide_in_from_top.25s ease-in-out 1;
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
+	border: 2px solid grey;
+	border-radius: 50px 50px 0px 0px;
+	box-shadow: 0 -10px 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
+	margin: 0px auto 0 auto;
+	padding: 0px;
+	text-align: center;
+	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .countdown_header h3 {
 	text-align: center;
-	font: 300 calc(30px + (60 - 30) * ((100vw - 500px) / (1920 - 500))) 'Saira Stencil One';
-	padding-top: 15px;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
+	font: 300 calc(30px + (55 - 30) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	padding: 10px;
+	margin: 0px;
 	color: white;
-	padding-top: 75px;
 	text-align: center;
-	animation: blinker 2.5s ease-in-out infinite, fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1, slide_in_from_top.25s ease-in-out 1;
+	/* animation: slide_in_from_top.25s ease-in-out 1; */
 }
 
 .countdown_timer_five {
 	align-items: center;
 	align-content: center;
-	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1, slide_in_from_left .25s ease-in-out 1;
+	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1, slide_in_from_left .25s ease-in-out 1, shadow_blink 1.5s infinite;
 	background-color: rgba(255,255,255, 1);
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border: 2px solid red;
-	border-radius: 100px 100px 0px 0px;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8), 0 10px 10px 0 rgba(0, 0, 0, 0.8);
+	border-radius: 0px;
+	box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.8), 0 10px 10px 0 rgba(255, 0, 0, 0.8);
 	display: flex;
 	color: white;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
 	margin: 0 auto 0 auto;
-	min-height: 170px;
-	padding: 10px 0px 0px 0px;
+	padding: 0px;
 	text-align: center;
 	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .countdown_timer_five h1 {
+	animation: text_shadow_blink_red 1.5s infinite;
 	align-self: center;
 	color: red;
-	font: 300 calc(75px + (100 - 75) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
-	padding: 0px;
-}
-
-.countdown_timer_five h2 {
-	align-self: center;
-	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
+	font: 300 calc(100px + (150 - 100) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	text-shadow: 0 0 10px rgb(255, 0, 0);
 	padding: 0px;
 }
 
 .countdown_timer_three {
 	align-items: center;
 	align-content: center;
+	animation: shadow_blink 1.5s infinite;
 	background-color: rgba(255,255,255, 1);
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border: 2px solid orange;
-	border-radius: 100px 100px 0px 0px;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8), 0 10px 10px 0 rgba(0, 0, 0, 0.8);
+	border-radius: 0px;
+	box-shadow: 0 0 10px 0 rgba(255, 165, 0, 0.8), 0 10px 10px 0 rgba(255, 165, 0, 0.8);
 	display: flex;
 	color: white;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
 	margin: 0 auto 0 auto;
-	min-height: 170px;
-	padding: 10px 0px 0px 0px;
+	padding: 0px;
 	text-align: center;
 	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .countdown_timer_three h1 {
+	animation: text_shadow_blink_orange 1.5s infinite;
 	align-self: center;
 	color: orange;
-	font: 300 calc(75px + (100 - 75) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
-	padding: 0px;
-}
-
-.countdown_timer_three h2 {
-	align-self: center;
-	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
+	font: 300 calc(100px + (150 - 100) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	text-shadow: 0 0 10px rgb(255, 0, 0);
 	padding: 0px;
 }
 
 .countdown_timer_one {
 	align-items: center;
 	align-content: center;
+	animation: shadow_blink 1.5s infinite;
 	background-color: rgba(255,255,255, 1);
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border: 2px solid yellow;
-	border-radius: 100px 100px 0px 0px;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8), 0 10px 10px 0 rgba(0, 0, 0, 0.8);
+	border-radius: 0px;
+	box-shadow: 0 0 10px 0 rgba(255, 255, 0, 0.8), 0 10px 10px 0 rgba(255, 255, 0, 0.8);
 	display: flex;
 	color: white;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
 	margin: 0 auto 0 auto;
-	min-height: 170px;
-	padding: 10px 0px 0px 0px;
+	padding: 0px;
 	text-align: center;
 	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .countdown_timer_one h1 {
+	animation: text_shadow_blink 1.5s infinite;
 	align-self: center;
 	color: yellow;
-	font: 300 calc(75px + (100 - 75) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
-	padding: 0px;
-}
-
-.countdown_timer_one h2 {
-	align-self: center;
-	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
+	font: 300 calc(100px + (150 - 100) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	text-shadow: 0 0 10px rgb(255, 255, 0);
 	padding: 0px;
 }
 
@@ -131,7 +124,7 @@
 	background-color: rgba(255,255,255, 1);
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border: 2px solid green;
-	border-radius: 100px 100px 0px 0px;
+	border-radius:0px;
 	box-shadow: 0px 10px 20px 0px rgba(0, 128, 0, 0.75);
 	display: flex;
 	color: white;
@@ -139,24 +132,25 @@
 	flex-wrap: nowrap;
 	justify-content: center;
 	margin: 0 auto 0 auto;
-	min-height: 170px;
-	padding: 10px 0px 0px 0px;
+	padding: 0px;
 	text-align: center;
 	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .countdown_go h1, .dismount_countdown_go h1 {
+	animation: text_shadow_blink_green 1.5s infinite;
 	align-self: center;
 	color: green;
-	font: 300 calc(75px + (100 - 75) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	font: 300 calc(100px + (150 - 100) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	text-shadow: 0 0 10px rgb(255, 255, 0);
 	padding: 0px;
 }
 
 .countdown_tutorial {
 	animation: fade_in .3s ease-in-out 1, blur_in .15s ease-in-out 1, slide_in_from_right .25s ease-in-out 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
-	border-radius: 0px 0px 100px 100px;
+	border: 2px solid grey;
+	border-radius: 0px 0px 50px 50px;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.8), 0 15px 15px 0 rgba(0, 0, 0, 0.8);
 	display: flex;
 	color: white;

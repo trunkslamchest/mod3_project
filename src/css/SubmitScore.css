@@ -10,7 +10,7 @@
 .submit_score_header {
 	animation: slide_in_from_top .5s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 50px 50px 0px 0px;
 	box-shadow: 0 -10px 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0 auto;
@@ -21,10 +21,6 @@
 
 .submit_score_header h1, .dismount_submit_score_header h1 {
 	animation: text_shadow_blink_red 2.5s ease-in-out infinite;
-	background-color: #000;
-	border-radius: 10px;
-	border: 1px solid grey;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8), 0 0 10px 0 rgba(0, 0, 0, 0.8);
 	color: red;
 	font: 300 calc(30px + (55 - 30) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
 	margin: 0 auto 0 auto;
@@ -38,7 +34,7 @@
 	animation: slide_in_from_top .4s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
-	border: 2px solid white;
+	border: 2px solid grey;
 	margin: 0px auto 0 auto;
 	padding: 10px;
 	text-align: center;
@@ -52,7 +48,7 @@
 	border: 1px solid grey;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8), 0 0 10px 0 rgba(0, 0, 0, 0.8);
 	color: yellow;
-	font: 300 calc(75px + (100 - 75) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	font: 300 calc(75px + (125 - 75) * ((100vw - 500px) / (1920 - 500))) 'Conv_digital-7.mono';
 	padding: 0px 10px 0px 10px;
 	margin: 0 auto 0 auto;
 	text-align: center;
@@ -70,7 +66,7 @@
 .submit_score_rank {
 	animation: slide_in_from_top .3s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0 auto;
 	padding: 10px;
@@ -85,7 +81,7 @@
 	border-radius: 5px;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8), 0 0 10px 0 rgba(0, 0, 0, 0.8);
 	color: yellow;
-	font: 300 calc(14px + (20 - 14) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	font: 300 calc(23px + (33 - 23) * ((100vw - 500px) / (1920 - 500))) 'Conv_digital-7.mono';
 	margin: 0 auto 0 auto;
 	padding: 0px 10px 0px 10px;
 	text-align: center;
@@ -104,7 +100,7 @@
 .submit_score_power {
 	animation: slide_in_from_bottom .3s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 0px;
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0px auto;
@@ -138,7 +134,7 @@
 .submit_score_form {
 	animation: slide_in_from_bottom .4s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 0px;
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0px auto;
@@ -162,8 +158,8 @@
 	border-radius: 25px 0px 0px 25px;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8), 0 0 10px 0 rgba(0, 0, 0, 0.8);
 	color: yellow;
-	font: 300 calc(10px + (20 - 10) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
-	padding: 13px 30px 13px 30px;
+	font: 300 calc(15px + (25 - 15) * ((100vw - 500px) / (1920 - 500))) 'Conv_digital-7.mono';
+	padding: calc(11px + (13 - 11) * ((100vw - 500px) / (1920 - 500))) 30px calc(13px + (15 - 13) * ((100vw - 500px) / (1920 - 500))) 30px;
 	text-align: center;
 	width: calc(100px + (200 - 100) * ((100vw - 500px) / (1920 - 500)));
 }
@@ -175,13 +171,9 @@
 .submit_score_text_box::placeholder, .dismount_submit_score_text_box::placeholder {
 	animation: text_shadow_blink 2.1s ease-in-out infinite;
 	color: yellow;
-	font: 300 calc(10px + (20 - 10) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	font: 300 calc(15px + (25 - 15) * ((100vw - 500px) / (1920 - 500))) 'Conv_digital-7.mono';
 	opacity: 1;
 }
-
-/* .submit_score_div, .dismount_submit_score_div {
-
-} */
 
 .submit_score_button, .dismount_submit_score_button {
 	-webkit-appearance: none;
@@ -245,7 +237,7 @@
 .submit_score_bottom_buttons_container {
 	animation: slide_in_from_bottom .5s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 0px 0px 50px 50px;
 	box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.8), 0 10px 15px 0 rgba(0, 0, 0, 0.8);
 	align-items: baseline;

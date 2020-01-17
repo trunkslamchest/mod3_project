@@ -76,8 +76,7 @@ export default class Countdown extends React.Component {
 
 		const blank = <></>
 
-		const countdown_header = <h3>Prepare to Smash...</h3>
-		const countdown_timer_header = <h2>Get Ready</h2>
+		const countdown_header = <h3>GET READY</h3>
 		const countdown_timer = <h1>{ this.state.time }</h1>
 		const countdown_go = <h1>GO!</h1>
 		const countdown_tutorial = <p>Press the spacebar as many times as you can in 30 seconds!</p>
@@ -99,15 +98,15 @@ export default class Countdown extends React.Component {
 					{ this.state.showHeader ? countdown_header : blank }
 				</div>
 				<div className={ (this.state.time === 5 || this.state.time === 4) && this.state.showTimer ? "countdown_timer_five" : "blank" } >
-					{ this.state.time ? countdown_timer_header : blank }
+					{/* { this.state.time ? countdown_timer_header : blank } */}
 					{ this.state.time ? countdown_timer : blank }
 				</div>
 				<div className={ (this.state.time === 3 || this.state.time === 2) && this.state.showTimer ? "countdown_timer_three" : "blank" } >
-					{ this.state.time ? countdown_timer_header : blank }
+					{/* { this.state.time ? countdown_timer_header : blank } */}
 					{ this.state.time ? countdown_timer : blank }
 				</div>
 				<div className={ (this.state.time === 1) && this.state.showTimer ? "countdown_timer_one" : "blank" } >
-					{ this.state.time ? countdown_timer_header : blank }
+					{/* { this.state.time ? countdown_timer_header : blank } */}
 					{ this.state.time ? countdown_timer : blank }
 				</div>
 				<div className=

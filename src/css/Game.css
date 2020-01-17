@@ -11,7 +11,7 @@
 .game_timer {
 	animation: slide_in_from_top .6s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 50px 50px 0px 0px;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0 auto;
@@ -27,7 +27,8 @@
 	border: 1px solid grey;
 	box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.8), 0 0px 10px 0 rgba(0, 0, 0, 0.8);
 	color: yellow;
-	font: 300 calc(60px + (100 - 60) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	font: 300 calc(75px + (150 - 75) * ((100vw - 500px) / (1920 - 500))) 'Conv_digital-7.mono';
+	letter-spacing: 5px;
 	margin: 0 auto 0 auto;
 	padding: 0px 0px 0px 0px;
 	text-align: center;
@@ -46,7 +47,7 @@
 .game_counter {
 	animation: slide_in_from_top .4s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0 auto;
 	padding: 10px;
@@ -61,7 +62,7 @@
 	border: 1px solid grey;
 	box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.8), 0 0px 10px 0 rgba(0, 0, 0, 0.8);
 	color: yellow;
-	font: 300 calc(75px + (100 - 75) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	font: 300 calc(75px + (125 - 75) * ((100vw - 500px) / (1920 - 500))) 'Conv_digital-7.mono';
 	padding: 0px 10px 0px 10px;
 	margin: 0 auto 0 auto;
 	text-align: center;
@@ -79,7 +80,7 @@
 .game_rank {
 	animation: slide_in_from_bottom .4s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	box-shadow: 0 -10px 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0 auto;
 	padding: 10px;
@@ -94,7 +95,7 @@
 	border-radius: 5px;
 	box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.8), 0 0px 10px 0 rgba(0, 0, 0, 0.8);
 	color: yellow;
-	font: 300 calc(14px + (20 - 14) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	font: 300 calc(23px + (33 - 23) * ((100vw - 500px) / (1920 - 500))) 'Conv_digital-7.mono';
 	margin: 0 auto 0 auto;
 	padding: 0px 10px 0px 10px;
 	text-align: center;
@@ -113,7 +114,7 @@
 .game_power {
 	animation: slide_in_from_bottom .6s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 0px 0px 50px 50px;
 	box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.8), 0 10px 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 10px auto;
@@ -129,12 +130,12 @@
 	border-radius: 10px;
 	box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.8), 0 0px 10px 0 rgba(0, 0, 0, 0.8);
 	color: yellow;
-	font: 300 calc(20px + (40 - 20) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	font: 300 calc(40px + (60 - 40) * ((100vw - 500px) / (1920 - 500))) 'Conv_digital-7.mono';
 	margin: 0 auto 0 auto;
 	padding: 0px 5px 0px 5px;
 	text-align: center;
 	text-shadow: 0px 0px 2.5px yellow;
-	width: calc(200px + (350 - 200) * ((100vw - 500px) / (1920 - 500)));
+	width: calc(150px + (300 - 150) * ((100vw - 500px) / (1920 - 500)));
 }
 
 .game_power h2, .dismount_game_power h2 {
@@ -170,18 +171,19 @@
 
 .game_power_bar meter::-webkit-meter-optimum-value, .dismount_game_power_bar meter::-webkit-meter-optimum-value {
 	width: 100%;
-	background-image: linear-gradient(
+	background: linear-gradient(
 		90deg,
 		#FFC300 0%,
 		#FF5733 100%
 	);
 	background-size: 100% 100%;
 	border-radius: 5px;
+	transition: background 1s 1s ease-in-out;
 }
 
 .game_power_bar meter::-webkit-meter-suboptimum-value, .dismount_game_power_bar meter::-webkit-meter-suboptimum-value {
 	width: 100%;
-	background-image: linear-gradient(
+	background: linear-gradient(
 		90deg,
 		#FFC300 0%,
 		#FF5733 100%,
@@ -189,15 +191,17 @@
 	);
 	background-size: 100% 100%;
 	border-radius: 5px;
+	transition: background 1s 1s ease-in-out;
 }
 
 .game_power_bar meter::-webkit-meter-even-less-good-value, .dismount_game_power_bar meter::-webkit-meter-even-less-good-value {
 	width: 100%;
-	background-image: linear-gradient(
+	background: linear-gradient(
 		90deg,
 		#107A00 0%,
 		#FF5733 100%,
 	);
 	background-size: 100% 100%;
 	border-radius: 5px;
+	transition: background 1s 1s ease-in-out;
 }

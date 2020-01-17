@@ -9,7 +9,7 @@
 .footer_wrapper {
 	animation: fade_in .5s ease-in-out 1, slide_in_from_bottom_footer .5s ease-in-out 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 30px 30px 0px 0px;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.0), 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 0 0 rgba(0, 0, 0, 0.8);
 	padding: 0px;

@@ -254,7 +254,7 @@ export default class SubmitScore extends React.Component {
 							})()
 						}[this.state.showScore]}
 				>
-					<h2>Spacebar Smashes</h2>
+					<h2>SMASHES</h2>
 					{ this.state.showScore ? score : blank }
 				</div>
 				<div className=
@@ -269,7 +269,7 @@ export default class SubmitScore extends React.Component {
 							})()
 						}[this.state.showRank]}
 				>
-					<h2>Rank</h2>
+					<h2>RANK</h2>
 					{ this.state.showRank ? rank : blank }
 				</div>
 				<div className=
@@ -284,7 +284,7 @@ export default class SubmitScore extends React.Component {
 							})()
 						}[this.state.showPower]}
 				>
-					<h2>Power Level</h2>
+					<h2>POWER</h2>
 					<div className={this.state.showPower ? "game_power_bar": "blank"}>
 						<meter value={this.props.power} min="0.0" max="2.5" low="0.5" optimum="1.0" high="1.5">
 						</meter>

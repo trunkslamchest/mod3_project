@@ -175,12 +175,24 @@
 	}
 }
 
+.dismount_countdown_header{
+	animation: dismount_countdown_header .6s ease-in-out 1;
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
+	border: 2px solid grey;
+	border-radius: 50px 50px 0px 0px;
+	box-shadow: 0 -10px 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
+	margin: 0px auto 0 auto;
+	padding: 0px;
+	text-align: center;
+	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
+}
+
 .dismount_countdown_header h3 {
-	animation: blinker 2.5s ease-in-out infinite, dismount_countdown_header .6s ease-in-out 1, fade_out .3s ease-in-out 1, blur_out .15s ease-in-out 1;
-	color: white;
-	font: 300 calc(30px + (60 - 30) * ((100vw - 500px) / (1920 - 500))) 'Saira Stencil One';
+	text-align: center;
+	font: 300 calc(30px + (55 - 30) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	padding: 10px;
 	margin: 0px;
-	padding-top: 75px;
+	color: white;
 	text-align: center;
 }
 
@@ -232,7 +244,7 @@
 .dismount_countdown_tutorial {
 	animation: dismount_countdown_tutorial 1s 1, fade_out .3s ease-in-out 1, blur_out .15s ease-in-out 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 0px 0px 100px 100px;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.8), 0 15px 15px 0 rgba(0, 0, 0, 0.8);
 	display: flex;
@@ -258,7 +270,7 @@
 .dismount_game_timer {
 	animation: dismount_game_timer 1s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 50px 50px 0px 0px;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0 auto;
@@ -282,7 +294,7 @@
 .dismount_game_counter {
 	animation: dismount_game_counter 1s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0 auto;
 	padding: 10px;
@@ -305,7 +317,7 @@
 .dismount_game_rank {
 	animation: dismount_game_rank 1s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	box-shadow: 0 -10px 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0 auto;
 	padding: 10px;
@@ -328,7 +340,7 @@
 .dismount_game_power {
 	animation: dismount_game_power 1s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 0px 0px 50px 50px;
 	box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.8), 0 10px 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 10px auto;

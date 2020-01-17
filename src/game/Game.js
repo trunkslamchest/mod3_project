@@ -8,7 +8,7 @@ export default class Game extends React.Component {
 
 	state = {
 		display: 'game',
-		time: 15.01,
+		time: 30.01,
 		count: 0,
 		rank: "SUPER BABY FINGERS",
 		power: 0,
@@ -73,7 +73,7 @@ export default class Game extends React.Component {
 		this.setState({
 			spacebar_pressed: true,
 			count: this.state.count + 1,
-			power: this.state.power + 0.02
+			power: this.state.power + 0.025
 		}, document.removeEventListener('keydown', this.spacebarDown))
 	}
 
@@ -130,7 +130,7 @@ export default class Game extends React.Component {
 			})
 		} else {
 			this.setState({
-				power: this.state.power - 0.00225
+				power: this.state.power - 0.003
 			})
 		}
 
@@ -206,7 +206,7 @@ export default class Game extends React.Component {
 
 		const rank = <h1>{ this.state.rank }</h1>
 
-		const power = <h1>{ (this.state.power).toFixed(5) }</h1>
+		const power = <h1>{ (this.state.power).toFixed(3) }</h1>
 
 		const game =
 			<div className="game_wrapper">
@@ -222,7 +222,7 @@ export default class Game extends React.Component {
 							})()
 						}[this.state.showTimer]}
 				>
-					<h2>TIME LEFT</h2>
+					<h2>TIME</h2>
 					{ this.state.showTimer ? time : blank }
 				</div>
 				<div className=
@@ -237,7 +237,7 @@ export default class Game extends React.Component {
 							})()
 						}[this.state.showCounter]}
 				>
-					<h2>Spacebar Smashes</h2>
+					<h2>SMASHES</h2>
 					{ this.state.showCounter ? counter : blank }
 				</div>
 				<div className=
@@ -252,7 +252,7 @@ export default class Game extends React.Component {
 							})()
 						}[this.state.showRank]}
 				>
-					<h2>Rank</h2>
+					<h2>RANK</h2>
 					{ this.state.showRank ? rank : blank }
 				</div>
 				<div className=
@@ -267,7 +267,7 @@ export default class Game extends React.Component {
 							})()
 						}[this.state.showPower]}
 				>
-					<h2>Power Level</h2>
+					<h2>POWER</h2>
 					{ this.state.showPower ? power : blank }
 					<div className={this.state.showPower ? "game_power_bar": "blank"}>
 						<meter value={this.state.power} min="0.0" max="2.5" low="0.5" optimum="1.0" high="1.5">

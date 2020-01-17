@@ -13,7 +13,7 @@ html, body {
   display: flex;
   flex-direction: column;
   font-family:  "Lato", "Roboto",
-    "Helvetica", "Poppins",
+    "Helvetica", "Poppins", "Digital-7 Mono",
     sans-serif;
     background-image: url(assets/bg_01.jpg);
     background-repeat:no-repeat;

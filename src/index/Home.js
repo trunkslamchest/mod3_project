@@ -83,7 +83,7 @@ export default class Home extends React.Component {
 		const scoreboard_table =
 			<>
 				<div className={this.state.initDismount ? "dismount_scoreboard_header" : "home_scoreboard_header"}>
-					<h4>High Scores</h4>
+					<h4>HIGH SCORES</h4>
 				</div>
 				<table
 					key={"scoreboard_table"}
@@ -91,9 +91,9 @@ export default class Home extends React.Component {
 				>
 					<tbody>
 						<tr className="scoreboard_head_row">
-							<th>Name</th>
-							<th>Power</th>
-							<th>Score</th>
+							<th>NAME</th>
+							<th>POWER</th>
+							<th>SCORE</th>
 						</tr>
 							{ scores }
 					</tbody>
@@ -114,7 +114,7 @@ export default class Home extends React.Component {
 						className={this.state.initDismount ? "dismount_start_button" : "start_button"}
 						onClick={ this.onClickStartButtonFunctions }
 					>
-						Start
+						START
 					</button>
 				</div>
 				{ scoreboard_table }

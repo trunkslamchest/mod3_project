@@ -78,7 +78,7 @@ export default class PostGameScoreContainer extends React.Component {
 		const scoreboard_table =
 			<>
 				<div className={this.state.initDismount ? "dismount_scoreboard_header" : "home_scoreboard_header"}>
-					<h4>High Scores</h4>
+					<h4>HIGH SCORES</h4>
 				</div>
 				<table
 					key={"scoreboard_table"}
@@ -86,9 +86,9 @@ export default class PostGameScoreContainer extends React.Component {
 				>
 					<tbody>
 						<tr className="scoreboard_head_row">
-							<th>Name</th>
-							<th>Power</th>
-							<th>Score</th>
+							<th>NAME</th>
+							<th>POWER</th>
+							<th>SCORE</th>
 						</tr>
 							{ scores }
 					</tbody>
@@ -104,7 +104,7 @@ export default class PostGameScoreContainer extends React.Component {
 					className={this.state.initDismount ? "dismount_post_game_main_menu_button" : "post_game_main_menu_button" }
 					onClick={ this.onClickMainMenuButtonFunctions }
 				>
-					Main Menu
+					MAIN MENU
 				</button>
 				<button
 					key={ "play_again_button" }
@@ -113,7 +113,7 @@ export default class PostGameScoreContainer extends React.Component {
 					className={this.state.initDismount ? "dismount_post_game_play_again_button" : "post_game_play_again_button" }
 					onClick={ this.onClickPlayAgainButtonFunctions }
 				>
-					Play Again
+					PLAY AGAIN
 				</button>
 			</div>
 
