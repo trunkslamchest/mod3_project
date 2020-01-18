@@ -4,7 +4,7 @@
 
 .submit_score_wrapper {
 	padding-bottom: 50px;
-	padding-top: calc(10px + (75 - 10) * ((100vh - 697px) / (980 - 697)));
+	padding-top: calc(12.5px + (25 - 12.5) * ((100vh - 434px) / (779 - 434)));
 }
 
 .submit_score_header {

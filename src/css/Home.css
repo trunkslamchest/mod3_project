@@ -1,6 +1,6 @@
 .home_wrapper {
 	padding-bottom: 50px;
-	padding-top: calc(5px + (10 - 5) * ((100vh - 812px) / (980 - 812)));
+	padding-top: calc(5px + (10 - 5) * ((100vh - 434px) / (779 - 434)));
 }
 
 .home_header {
