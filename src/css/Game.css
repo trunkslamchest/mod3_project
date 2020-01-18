@@ -4,8 +4,9 @@
 }
 
 .game_wrapper {
-	padding-top: 75px;
+	/* padding-top: 75px; */
 	padding-bottom: 50px;
+	padding-top: calc(10px + (75 - 10) * ((100vh - 630px) / (980 - 630)));
 }
 
 .game_timer {

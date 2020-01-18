@@ -1,19 +1,19 @@
 .dismount_home_header {
 	animation: dismount_home_header 1s ease-in-out 1;
-	text-align: center;
-	width: calc(375px + (1000 - 375) * ((100vw - 500px) / (1920 - 500)));
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 0.75) 90%);
+	border: 2px solid white;
+	border-radius: 30px 30px;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.8), 0 15px 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0px auto;
 	padding: 0 0 0 0;
-  	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 0.75) 90%);
-	border-radius: 30px 30px;
-	border: 2px solid white;
-	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.8), 0 15px 15px 0 rgba(0, 0, 0, 0.8);
-    transform: matrix3d(
-      1,0,0,0.00025,
-      0,1,0,0,
-      0,0,1,0,
-      0,0,0,1
-	) translateX(10px);
+	text-align: center;
+	transform: matrix3d(
+		1,0,0,0.00025,
+		0,1,0,0,
+		0,0,1,0,
+		0,0,0,1
+		) translateX(10px);
+	width: calc(375px + (1000 - 375) * ((100vw - 500px) / (1920 - 500)));
 }
 
 @keyframes dismount_home_header {
@@ -45,23 +45,23 @@
 
 .dismount_start_button {
 	animation: dismount_start_button .6s ease-in-out 1;
-	font: 300 calc(20px + (25 - 20) * ((100vw - 500px) / (1920 - 500))) 'Saira Stencil One';
-	width: calc(150px + (300 - 150) * ((100vw - 500px) / (1920 - 500)));
+	border: 2px solid white;
+	border-radius: 30px;
+	color: white !important;
+	font: 300 calc(20px + (25 - 20) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
+	box-shadow: 0 0 5px 0 rgba(255, 255, 0, 0.75), 0 0 5px 0 rgba(255, 255, 0, 0.75);
 	margin: 0 auto 0 auto;
 	padding: 10px;
-	color: white !important;
-	text-shadow: 1px 1px 2px #000;
 	text-align: center;
-	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border-radius: 30px;
-	border: 2px solid white;
-	box-shadow: 0 0 5px 0 rgba(255, 255, 0, 0.75), 0 0 5px 0 rgba(255, 255, 0, 0.75);
+	text-shadow: 1px 1px 2px #000;
 	transform: matrix3d(
 		1,0,0,0.0005,
 		0,1,0,0,
 		0,0,1,0,
 		0,0,0,1
-	);
+		);
+	width: calc(150px + (300 - 150) * ((100vw - 500px) / (1920 - 500)));
 }
 
 @keyframes dismount_start_button {
@@ -80,18 +80,17 @@
 	animation: dismount_scoreboard_header .6s ease-in-out 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border-radius: 30px 30px 5px 5px;
-	border: 2px solid white;
+	border: 2px solid grey;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.0), 0 0 10px 0 rgba(0, 0, 0, 0.8);
 	color: white;
 	margin: 0 auto 0 auto;
-	/* opacity: 0.0; */
 	transform: matrix3d(
 		1,0,0,0.0,
 		0,1,0,-0.001,
 		0,0,1,0,
 		0,0,0,1
 		);
-	width: calc(333px + (870 - 333) * ((100vw - 500px) / (1920 - 500)));
+	width: calc(336px + (871 - 336) * ((100vw - 500px) / (1920 - 500)));
 	z-index: 2;
 }
 
@@ -127,24 +126,22 @@
 	align-items: center;
 	align-content: center;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 0px 0px 15px 15px;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.8), 0 15px 15px 0 rgba(0, 0, 0, 0.8);
 	color: white;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	justify-content: center;
-	min-height: 427px;
+	justify-content: flex-start;
 	margin: 0 auto 0 auto;
-	max-height: 526px;
-	padding: 0px 0px 10px 0px;
+	padding: 0px;
 	transform: matrix3d(
 		1,0,0,0.0,
 		0,1,0,-0.0004,
 		0,0,1,0,
 		0,0,0,1
-		) translateY(-33px);
+		) translateY(calc(-31px + (-40 - -31) * ((100vw - 500px) / (1920 - 500))));
 	width: calc(375px + (1000 - 375) * ((100vw - 500px) / (1920 - 500)));
 }
 
@@ -182,7 +179,7 @@
 	border-radius: 50px 50px 0px 0px;
 	box-shadow: 0 -10px 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0 auto;
-	padding: 0px;
+	padding: 0px 0px 0px 0px;
 	text-align: center;
 	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
@@ -211,11 +208,11 @@
 .dismount_countdown_go {
 	align-items: center;
 	align-content: center;
-	animation: dismount_countdown_go 1s 1, fade_out .3s ease-in-out 1, blur_out .15s ease-in-out 1;
+	animation: dismount_countdown_go 1s 1;
 	background-color: rgba(255,255,255, 1);
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border: 2px solid green;
-	border-radius: 100px 100px 0px 0px;
+	border-radius:0px;
 	box-shadow: 0px 10px 20px 0px rgba(0, 128, 0, 0.75);
 	display: flex;
 	color: white;
@@ -223,8 +220,7 @@
 	flex-wrap: nowrap;
 	justify-content: center;
 	margin: 0 auto 0 auto;
-	min-height: 170px;
-	padding: 10px 0px 0px 0px;
+	padding: 0px;
 	text-align: center;
 	width: calc(300px + (500 - 300) * ((100vw - 500px) / (1920 - 500)));
 }
@@ -245,12 +241,12 @@
 	animation: dismount_countdown_tutorial 1s 1, fade_out .3s ease-in-out 1, blur_out .15s ease-in-out 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border: 2px solid grey;
-	border-radius: 0px 0px 100px 100px;
+	border-radius: 0px 0px 50px 50px;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.8), 0 15px 15px 0 rgba(0, 0, 0, 0.8);
 	display: flex;
 	color: white;
+	margin: 0 auto 10px auto;
 	padding: 0px 10px 0px 10px;
-	margin: 0 auto calc(30px + (15 - 30) * ((100vw - 500px) / (1920 - 500))) auto;
 	text-align: center;
 	width: calc(280px + (480 - 280) * ((100vw - 500px) / (1920 - 500)));
 }
@@ -364,7 +360,7 @@
 .dismount_submit_score_header {
 	animation: dismount_submit_score_header 1s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 50px 50px 0px 0px;
 	box-shadow: 0 -10px 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0 auto;
@@ -389,7 +385,7 @@
 	animation: dismount_submit_score_counter 1s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
-	border: 2px solid white;
+	border: 2px solid grey;
 	margin: 0px auto 0 auto;
 	padding: 10px;
 	text-align: center;
@@ -411,7 +407,7 @@
 .dismount_submit_score_rank {
 	animation: dismount_submit_score_rank 1s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0 auto;
 	padding: 10px;
@@ -434,7 +430,7 @@
 .dismount_submit_score_power {
 	animation: dismount_submit_score_power 1s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 0px;
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0px auto;
@@ -458,7 +454,7 @@
 .dismount_submit_score_form {
 	animation: dismount_submit_score_form 1s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 0px;
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
 	margin: 0px auto 0px auto;
@@ -482,7 +478,7 @@
 .dismount_submit_score_bottom_buttons_container {
 	animation: dismount_submit_score_bottom_buttons_container 1s 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	border: 2px solid white;
+	border: 2px solid grey;
 	border-radius: 0px 0px 50px 50px;
 	box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.8), 0 10px 15px 0 rgba(0, 0, 0, 0.8);
 	align-items: baseline;

@@ -11,16 +11,14 @@
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	min-height: 427px;
 	margin: 0 auto 0 auto;
-	max-height: 526px;
-	padding: 0px 0px 40px 0px;
+	padding: 0px;
 	transform: matrix3d(
 		1,0,0,0.0,
 		0,1,0,-0.0004,
 		0,0,1,0,
 		0,0,0,1
-		) translateY(-33px);
+		) translateY(calc(-31px + (-40 - -31) * ((100vw - 500px) / (1920 - 500))));
 	width: calc(375px + (1000 - 375) * ((100vw - 500px) / (1920 - 500)));
 }
 
@@ -61,6 +59,18 @@
 	align-items: center;
 	align-content: center;
 	border: 1px solid grey;
+}
+
+.scoreboard_sub_row:last-child, .dismount_scoreboard_sub_row:last-child {
+	align-items: center;
+	align-content: center;
+	border: 1px solid grey;
+	border-radius: 0px 0px 10px 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	width: 100%;
 }
 
 .scoreboard_sub_row td, .dismount_scoreboard_sub_row td {

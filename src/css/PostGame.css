@@ -1,10 +1,11 @@
 .post_game_wrapper {
-	padding-top: 75px;
+	/* padding-top: 75px; */
 	padding-bottom: 50px;
+	padding-top: calc(10px + (75 - 10) * ((100vh - 756px) / (980 - 756)));
 }
 
 .post_game_header {
-	animation: fade_in .5s ease-in-out 1, slide_in_from_bottom_home_scoreboard_header .5s ease-in-out 1;
+	animation: slide_in_from_bottom_home_scoreboard_header .5s ease-in-out 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
 	border-radius: 30px 30px 5px 5px;
 	border: 2px solid white;
