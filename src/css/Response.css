@@ -1,5 +1,5 @@
 
-@viewport { min-height: 100vh; min-width: 100vw }
+/* @viewport { min-height: 100vh; min-width: 100vw } */
 
 
 @media only screen and (max-width: 1450px) {
@@ -119,7 +119,7 @@
 
 }
 
-@media screen and (min-height: 980px) {
+@media screen and (min-height: 948px) {
 	html, body {
 		overflow: hidden;
 	}
