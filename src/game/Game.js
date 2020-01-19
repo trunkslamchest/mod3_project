@@ -8,7 +8,7 @@ export default class Game extends React.Component {
 
 	state = {
 		display: 'game',
-		time: 5.01,
+		time: 30.01,
 		count: 0,
 		rank: "SUPER BABY FINGERS",
 		power: 0,
@@ -144,7 +144,7 @@ export default class Game extends React.Component {
 	resetGame = () => {
 		this.setState({
 			display: 'game',
-			time: (5.00).toFixed(2),
+			time: (30.00).toFixed(2),
 			count: 0,
 			rank: "SUPER BABY FINGERS",
 			power: 0,
