@@ -88,7 +88,7 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
   - Run `rails db:create ` to create a local PostgresQL database
   - Run `rails db:migrate` to create the tables/columns required for proper Spacebar Smasher functionality
   - Run `rails db:seed` to populate the columns with rows of "real" data
-  - Create a file called `.env` in the backend directory (/root/backend/) and add `HMAC_SECRET = "<insert secret string here>"` and `MOD3_PROJECT_REVAMP_BACKEND_DATABASE_PASSWORD = "hockey"` to the file
+  - Create a file called `.env` in the backend directory (/root/backend/) and add `HMAC_SECRET = "<insert secret string here>"` and `MOD3_PROJECT_REVAMP_BACKEND_DATABASE_PASSWORD = "<insert password used during PostgresQL installation>"` to the file
 
 &nbsp;
 
