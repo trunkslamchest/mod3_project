@@ -33,6 +33,7 @@
 - [Summary Of Files](#summary-of-files)
   - [Internal File Structure](#internal-file-structure)
 - [Credits](#credits)
+- [Contact](#contact)
 
 &nbsp;
 
