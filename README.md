@@ -26,6 +26,7 @@
   - [Key Features](#key-features)
   - [Goals](#goals)
   - [Challenges](#challenges)
+- [Demo](#demo)
 - [Installation](#installation)
     - [Prerequisites](#prerequisites)
     - [First Start](#first-start)
@@ -62,6 +63,14 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
 &nbsp;
 
 <a href="https://github.com/trunkslamchest/mod3_project/blob/master/README.md#contents"><img src="https://img.shields.io/badge/^-Back%20To%20Top-000000"></a>
+
+&nbsp;
+
+# Demo
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=h2Pfk5HSqjY" target="_blank"><img align="center" src="https://img.youtube.com/vi/h2Pfk5HSqjY/0.jpg"></a>
+</p>
 
 &nbsp;
 
