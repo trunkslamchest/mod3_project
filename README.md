@@ -83,7 +83,6 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
   - Clone the most recent branch from [The Backend Repository](https://github.com/trunkslamchest/mod3_project/tree/backend-0.2/)
     - If you are running on Windows, add `gem 'wdm', '>= 0.1.0'` to Gemfile before running `bundle install`
     - If you are running on macOS, remove `gem 'wdm', '>= 0.1.0'` from Gemfile before running `bundle install`
-
   - Run `bundle install` to install all gems/dependancies required for Spacebar Smasher
   - Run `rails db:create ` to create a local PostgresQL database
   - Run `rails db:migrate` to create the tables/columns required for proper Spacebar Smasher functionality
