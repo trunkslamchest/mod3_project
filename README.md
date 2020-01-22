@@ -70,7 +70,9 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
 # Demo
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=h2Pfk5HSqjY" target="_blank"><img align="center" src="https://img.youtube.com/vi/h2Pfk5HSqjY/0.jpg"></a>
+  <a href="https://www.youtube.com/watch?v=h2Pfk5HSqjY" target="_blank">
+    <img align="center" src="https://img.youtube.com/vi/h2Pfk5HSqjY/0.jpg">
+  </a>
 </p>
 
 &nbsp;
