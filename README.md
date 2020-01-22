@@ -77,6 +77,10 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
 
 &nbsp;
 
+<a href="https://github.com/trunkslamchest/mod5_project_backend/blob/master/README.md#contents"><img src="https://img.shields.io/badge/^-Back%20To%20Top-000000"></a>
+
+&nbsp;
+
 # Installation
   ### Prerequisites
   Spacebar Smasher is built using React, Ruby, Ruby on Rails & PostgresQL. Make sure you have the latest versions of the four following components installed before cloning this repo. You can find their official installation guides below:
