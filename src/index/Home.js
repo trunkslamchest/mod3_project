@@ -1,6 +1,8 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
+import { getScoreboard } from '../utility/scoreboardFunctions'
+
 import Score from './Score.js'
 
 import '../css/Home.css'
@@ -20,18 +22,8 @@ export default class Home extends React.Component {
 		this.setState({
 			mounted: true
 		})
-		this.getScoreboard()
-		// this.onPageLoadFunctions()
-	}
 
-	componentDidUpdate(){
-		if(this.state.initDismount && !this.state.dismounted){
-			this.onDismount()
-		}
-	}
-
-	getScoreboard(){
-		fetch(`http://localhost:3001/scoreboards`)
+		getScoreboard()
 		.then(res => res.json())
 		.then(res_obj =>
 			this.setState({
@@ -40,6 +32,23 @@ export default class Home extends React.Component {
 			})
 		)
 	}
+
+	componentDidUpdate(){
+		if(this.state.initDismount && !this.state.dismounted){
+			this.onDismount()
+		}
+	}
+
+	// getScoreboard = () => {
+	// 	fetch(`http://localhost:3001/scoreboards`)
+	// 	.then(res => res.json())
+	// 	.then(res_obj =>
+	// 		this.setState({
+	// 			scoreboard: res_obj.data,
+	// 			updated_scoreboard: true
+	// 		})
+	// 	)
+	// }
 
 	onClickStartButtonFunctions = (event) => {
 		this.setState({
