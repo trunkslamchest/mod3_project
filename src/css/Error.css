@@ -1,0 +1,44 @@
+.error_container {
+	min-height: 30px;
+	padding-bottom: 60px;
+	background-image: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255,255,255, 0.0), rgba(0,0,0, 1) );
+}
+
+.error_container > * {
+	text-shadow:1px 1px 1px rgba(0,0,0,0.004) !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.error_wrapper {
+	z-index: 1;
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin: 0px auto 0px auto;
+	padding-top: calc(250 * ((100vh - 250px) / (1080 - 250)));
+
+	/* min-height: 180px; */
+}
+
+.error_wrapper h3 {
+	color: white;
+	text-align: center;
+	font: 300 calc(20px + (25 - 20) * ((100vw - 500px) / (1920 - 500))) 'Staatliches';
+	/* padding-top: 15px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px; */
+	/* margin-top: 50px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px; */
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 0.75) 90%);
+	border: 2px solid white;
+	border-radius: 30px 30px;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.8), 0 15px 15px 0 rgba(0, 0, 0, 0.8);
+	margin: 0px auto 0px auto;
+	padding: 5px 10px 5px 10px;
+	text-align: center;
+}
