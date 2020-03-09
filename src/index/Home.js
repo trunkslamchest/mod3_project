@@ -4,11 +4,11 @@ import { Redirect } from 'react-router-dom'
 import { Scoreboard } from '../utility/scoreboardFunctions'
 import { trafficUpdate } from '../utility/trafficFunctions'
 
-
 import Score from './Score.js'
 
 import '../css/Home.css'
 import '../css/Scoreboard.css'
+import '../UI/buttons.css'
 
 var sendTraffic = new trafficUpdate()
 
@@ -53,27 +53,24 @@ export default class Home extends React.Component {
 	onClickStartButtonFunctions = (event) => {
 		this.setState({
 			initDismount: true
-		}, this.onClickUpdateTrafficFunctions(event))
+		})
+
+		sendTraffic.elementUpdate({
+			user_id: localStorage.user_id,
+			interaction: event.target.attributes.interaction.value,
+			element: event.target.name
+		})
 	}
 
 	onDismount = () => {
 		this.timerTimeout = setTimeout(() => { this.setState({ dismounted: true })}, 500)
 	}
 
-	onClickUpdateTrafficFunctions = (event) => {
-		sendTraffic.elementUpdate({
-			user_id: this.props.user_id,
-			interaction: event.target.attributes.interaction.value,
-			element: event.target.name
-		})
-	}
-
 	componentWillUnmount(){
+		clearTimeout(this.timerTimeout)
 	}
 
 	render(){
-
-		const blank = <></>
 
 		const scores = this.state.scoreboard.map(score =>
 			<Score
@@ -124,15 +121,7 @@ export default class Home extends React.Component {
 
 		return(
 			<>
-				{
-					(() => {
-						switch(this.state.dismounted) {
-							case true: return <Redirect to='/game' />;
-							case false: return home_page;
-							default: return blank;
-						}
-					})()
-				}
+				{ this.state.dismounted ? <Redirect to='/game' /> : home_page }
 			</>
 		)
 	}

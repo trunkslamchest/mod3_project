@@ -2,7 +2,11 @@ import React from 'react'
 
 import Game from './Game.js'
 
+import { trafficUpdate } from '../utility/trafficFunctions'
+
 import '../css/Countdown.css'
+
+var sendTraffic = new trafficUpdate()
 
 export default class Countdown extends React.Component {
 
@@ -24,6 +28,11 @@ export default class Countdown extends React.Component {
 			mounted: true
 		})
 
+		sendTraffic.pageUpdate({
+			user_id: localStorage.user_id,
+			page_name: "countdown",
+		})
+
 		this.headerTimeout = setTimeout(() => { this.setState({ showHeader: true })}, 250)
 		this.timerTimeout = setTimeout(() => { this.setState({ showTimer: true })}, 500)
 		this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 1000)}, 1000)
@@ -37,6 +46,12 @@ export default class Countdown extends React.Component {
 		if(this.state.initDismount && !this.state.dismounted){
 			this.onDismount()
 		}
+
+	}
+
+	initGame(){
+		this.initGameTimeout = setTimeout(() => { this.setState({ initGame: true, display: 'game'})}, 1000)
+		this.dismountTimeout = setTimeout(() => { this.setState({ initDismount: true })}, 750)
 	}
 
 	timerFunctions = () => {
@@ -53,19 +68,14 @@ export default class Countdown extends React.Component {
 		}
 	}
 
-	initGame(){
-		this.initGameTimeout = setTimeout(() => { this.setState({ initGame: true, display: 'game'})}, 1000)
-		this.dismountTimeout = setTimeout(() => { this.setState({ initDismount: true })}, 750)
-	}
-
 	onDismount = () => {
 		this.dismountedTimeout = setTimeout(() => { this.setState({ dismounted: true })}, 500)
 	}
 
 	componentWillUnmount(){
+		clearInterval(this.startTimer)
 		clearTimeout(this.headerTimeout)
 		clearTimeout(this.timerTimeout)
-		clearInterval(this.startTimer)
 		clearTimeout(this.tutorialTimeout)
 		clearTimeout(this.initGameTimeout)
 		clearTimeout(this.dismountTimeout)
@@ -83,57 +93,33 @@ export default class Countdown extends React.Component {
 
 		const countdown =
 			<div className={ this.state.display === "countdown" ? "countdown_wrapper": "blank" }>
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_countdown_header";
-								case false: return "countdown_header";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							true: this.state.initDismount ? "dismount_countdown_header" : "countdown_header",
+							false: "blank"
 						}[this.state.showHeader]}
 				>
 					{ this.state.showHeader ? countdown_header : blank }
 				</div>
 				<div className={ (this.state.time === 5 || this.state.time === 4) && this.state.showTimer ? "countdown_timer_five" : "blank" } >
-					{/* { this.state.time ? countdown_timer_header : blank } */}
 					{ this.state.time ? countdown_timer : blank }
 				</div>
 				<div className={ (this.state.time === 3 || this.state.time === 2) && this.state.showTimer ? "countdown_timer_three" : "blank" } >
-					{/* { this.state.time ? countdown_timer_header : blank } */}
 					{ this.state.time ? countdown_timer : blank }
 				</div>
 				<div className={ (this.state.time === 1) && this.state.showTimer ? "countdown_timer_one" : "blank" } >
-					{/* { this.state.time ? countdown_timer_header : blank } */}
 					{ this.state.time ? countdown_timer : blank }
 				</div>
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_countdown_go";
-								case false: return "countdown_go";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							false: "blank",
+							true: this.state.initDismount ? "dismount_countdown_go" : "countdown_go"
 						}[this.state.time === 0]}
 				>
 					{ this.state.time ? blank : countdown_go }
 				</div>
-				<div className=
-						{{
+				<div className={{
 							false: "blank",
-							true: (() => {
-								switch(this.state.initDismount) {
-									case true: return "dismount_countdown_tutorial";
-									case false: return "countdown_tutorial";
-									default: return "blank";
-									}
-								})()
-							}[this.state.showTutorial]}
+							true: this.state.initDismount ? "dismount_countdown_tutorial" : "countdown_tutorial"
+						}[this.state.showTutorial]}
 					>
 						{ this.state.showTutorial ? countdown_tutorial : blank }
 					</div>

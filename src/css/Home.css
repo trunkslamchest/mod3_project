@@ -46,54 +46,6 @@
 	animation: fade_in .5s ease-in-out 1, slide_in_from_bottom_start_button .5s ease-in-out 1;
 }
 
-.start_button {
-	animation: sway 2s ease-in-out infinite, shadow_blink 1.5s infinite;
-	border: 2px solid white;
-	border-radius: 30px;
-	color: white !important;
-	font: 300 calc(20px + (25 - 20) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
-	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
-	box-shadow: 0 0 5px 0 rgba(255, 255, 0, 0.75), 0 0 5px 0 rgba(255, 255, 0, 0.75);
-	margin: 0 auto 0 auto;
-	padding: 10px;
-	text-align: center;
-	text-shadow: 1px 1px 2px #000;
-	transform: matrix3d(
-		1,0,0,0.0005,
-		0,1,0,0,
-		0,0,1,0,
-		0,0,0,1
-		);
-	width: calc(150px + (300 - 150) * ((100vw - 500px) / (1920 - 500)));
-}
-
-.start_button:hover {
-	animation: blinker_hover .1s ease-in-out 1;
-	background-image: linear-gradient(rgb(255, 255, 0, 1),  rgb(212, 144, 57, 1) );
-	border: 2px solid black;
-	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8), 0 0 15px 0 rgba(0, 0, 0, 0.8);
-	color: rgb(0, 0, 0, 1) !important;
-	cursor: pointer;
-	opacity: 1;
-	transform: matrix3d(
-		1,0,0,0,
-		0,1,0,0,
-		0,0,1,0,
-		0,0,0,1
-	);
-}
-
-.start_button:active {
-	animation: scale_out .1s ease-in-out 1, blur_out .1s ease-in-out 1;
-	background-image: linear-gradient(rgb(255, 255, 0, 1),  rgb(212, 144, 57, 1) );
-	border: 2px solid black;
-	color: rgb(0, 0, 0, 1) !important;
-	cursor: pointer;
-	transition-property: color;
-	transition-duration: .1s, .1s;
-	transition-timing-function: ease-in-out;
-}
-
 .home_scoreboard_header {
 	animation: fade_in .5s ease-in-out 1, slide_in_from_bottom_home_scoreboard_header .5s ease-in-out 1;
 	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
