@@ -12,7 +12,7 @@
 </p>  
 
 <p align="center">
-  <a href="https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2"><img align="center" src="https://img.shields.io/badge/Latest%20Frontend%20Repository-0.2-000000"></a>
+  <a href="https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3"><img align="center" src="https://img.shields.io/badge/Latest%20Frontend%20Repository-0.3-000000"></a>
   <a href="https://github.com/trunkslamchest/mod3_project/tree/backend-0.2"><img align="center" src="https://img.shields.io/badge/Latest%20Backend%20Repository-0.2-000000"></a>
 </p> 
 
@@ -92,7 +92,7 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
 &nbsp;
 
   ### Frontend
-  - Clone the most recent branch from [The Frontend Repository](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2)
+  - Clone the most recent branch from [The Frontend Repository](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3)
   - Run `npm install` in your bash-enabled terminal to make sure all dependancies are installed
 
   ### Backend
@@ -133,27 +133,27 @@ Spacebar Smasher is an interactive game where a player tries to press the spaceb
 
 # Summary Of Files
   ### Internal File Structure
-  - [Frontend](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2): All files used for Gameplay Loop & Functionality
-    - [public](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2/public): Various Assets for General Purposes
-    - [src](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2/src): Root Frontend
-      - [admin](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2/src/admin): Administrative Panel
-       - [db_edit](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2/src/admin/db_edit): In Browser Database Editor
-       - [rtv](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2/src/admin/rtv): Real Time Traffic Viewer
-      - [assets](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2/src/assets): Art Assets
-      - [css](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2/src/css): CSS stylesheets
-      - [game](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2/src/game): Core Gameplay Loop
-      - [index](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2/src/index): Index Page Functionality
-      - [user](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.2/src/user): User Specific Actions
-    - [package.json](https://github.com/trunkslamchest/mod3_project/blob/frontend-0.2/package.json): Modules & Dependencies
-  - [Backend](https://github.com/trunkslamchest/mod3_project/tree/backend-0.2): All files used for player/scoreboard functionality
-    - [app](https://github.com/trunkslamchest/mod3_project/tree/backend-0.2/app): Primary location for API configuration
-      - [controllers](https://github.com/trunkslamchest/mod3_project/tree/backend-0.2/app/controllers): Render/REST methods
-      - [models](https://github.com/trunkslamchest/mod3_project/tree/backend-0.2/app/models): Active Record Associations methods
-      - [serializers](https://github.com/trunkslamchest/mod3_project/tree/backend-0.2/app/serializers): Filters for API
-  - [bin](https://github.com/trunkslamchest/mod3_project/tree/backend-0.2/bin): Environment configuration files
-  - [config](https://github.com/trunkslamchest/mod3_project/tree/backend-0.2/config): Start/Backend configuration files
-  - [db](https://github.com/trunkslamchest/mod3_project/tree/backend-0.2/db): Database Configuration files
-  - [Gemfile](https://github.com/trunkslamchest/mod3_project/tree/backend-0.2/Gemfile): Prerequistes & Dependencies
+  - [Frontend](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3): All files used for Gameplay Loop & Functionality
+    - [public](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3/public): Various Assets for General Purposes
+    - [src](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3/src): Root Frontend
+      - [admin](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3/src/admin): Administrative Panel
+       - [db_edit](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3/src/admin/db_edit): In Browser Database Editor
+       - [rtv](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3/src/admin/rtv): Real Time Traffic Viewer
+      - [assets](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3/src/assets): Art Assets
+      - [css](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3/src/css): CSS stylesheets
+      - [game](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3/src/game): Core Gameplay Loop
+      - [index](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3/src/index): Index Page Functionality
+      - [user](https://github.com/trunkslamchest/mod3_project/tree/frontend-0.3/src/user): User Specific Actions
+    - [package.json](https://github.com/trunkslamchest/mod3_project/blob/frontend-0.3/package.json): Modules & Dependencies
+  - [Backend](https://github.com/trunkslamchest/mod3_project/tree/backend-0.3): All files used for player/scoreboard functionality
+    - [app](https://github.com/trunkslamchest/mod3_project/tree/backend-0.3/app): Primary location for API configuration
+      - [controllers](https://github.com/trunkslamchest/mod3_project/tree/backend-0.3/app/controllers): Render/REST methods
+      - [models](https://github.com/trunkslamchest/mod3_project/tree/backend-0.3/app/models): Active Record Associations methods
+      - [serializers](https://github.com/trunkslamchest/mod3_project/tree/backend-0.3/app/serializers): Filters for API
+  - [bin](https://github.com/trunkslamchest/mod3_project/tree/backend-0.3/bin): Environment configuration files
+  - [config](https://github.com/trunkslamchest/mod3_project/tree/backend-0.3/config): Start/Backend configuration files
+  - [db](https://github.com/trunkslamchest/mod3_project/tree/backend-0.3/db): Database Configuration files
+  - [Gemfile](https://github.com/trunkslamchest/mod3_project/tree/backend-0.3/Gemfile): Prerequistes & Dependencies
 
 &nbsp;
 
