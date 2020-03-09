@@ -12,7 +12,7 @@ export default class Countdown extends React.Component {
 
 	state = {
 		display: 'countdown',
-		time: 5,
+		time: 1,
 		showHeader: false,
 		showTimer: false,
 		showGo: false,

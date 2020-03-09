@@ -2,13 +2,17 @@ import React from 'react'
 
 import SubmitScore from './SubmitScore.js'
 
+import { trafficUpdate } from '../utility/trafficFunctions'
+
 import '../css/Game.css'
+
+var sendTraffic = new trafficUpdate()
 
 export default class Game extends React.Component {
 
 	state = {
 		display: 'game',
-		time: 30.01,
+		time: 5.01,
 		count: 0,
 		rank: "SUPER BABY FINGERS",
 		power: 0,
@@ -37,9 +41,12 @@ export default class Game extends React.Component {
 			mounted: true
 		})
 
-		this.startGame()
+		sendTraffic.pageUpdate({
+			user_id: localStorage.user_id,
+			page_name: "game_start",
+		})
 
-		this.timerFunctions()
+		this.startGame()
 	}
 
 	startGame = () => {
@@ -157,13 +164,13 @@ export default class Game extends React.Component {
 	}
 
 	clearTimers = () => {
-		clearTimeout(this.timerTimeout)
+		clearInterval(this.powerInterval)
 		clearInterval(this.startTimer)
 		clearInterval(this.timerInterval)
 		clearTimeout(this.counterTimeout)
-		clearTimeout(this.rankTimeout)
 		clearTimeout(this.powerTimeout)
-		clearInterval(this.powerInterval)
+		clearTimeout(this.rankTimeout)
+		clearTimeout(this.timerTimeout)
 		clearTimeout(this.initDismountTimeout)
 		clearTimeout(this.dismountTimeout)
 
@@ -181,19 +188,7 @@ export default class Game extends React.Component {
 	}
 
 	componentWillUnmount(){
-		clearTimeout(this.timerTimeout)
-		clearInterval(this.startTimer)
-		clearInterval(this.timerInterval)
-		clearTimeout(this.counterTimeout)
-		clearTimeout(this.rankTimeout)
-		clearTimeout(this.powerTimeout)
-		clearInterval(this.powerInterval)
-		clearTimeout(this.initDismountTimeout)
-		clearTimeout(this.dismountTimeout)
-		clearTimeout(this.clearTimersTimeout)
-
-		document.removeEventListener('keydown', this.spacebarDown)
-		document.removeEventListener('keyup', this.spacebarUp)
+		this.clearTimers()
 	}
 
 	render(){
@@ -201,70 +196,39 @@ export default class Game extends React.Component {
 		const blank = <></>
 
 		const time = <h1>{ this.state.time ? this.state.time : (0.00).toFixed(2) }</h1>
-
 		const counter = <h1>{ this.state.count ? this.state.count : 0 }</h1>
-
 		const rank = <h1>{ this.state.rank }</h1>
-
 		const power = <h1>{ (this.state.power).toFixed(3) }</h1>
 
 		const game =
 			<div className="game_wrapper">
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_game_timer";
-								case false: return "game_timer";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							false: "blank",
+							true: this.state.initDismount ? "dismount_game_timer" : "game_timer"
 						}[this.state.showTimer]}
 				>
 					<h2>TIME</h2>
 					{ this.state.showTimer ? time : blank }
 				</div>
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_game_counter";
-								case false: return "game_counter";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							false: "blank",
+							true: this.state.initDismount ? "dismount_game_counter" : "game_counter"
 						}[this.state.showCounter]}
 				>
 					<h2>SMASHES</h2>
 					{ this.state.showCounter ? counter : blank }
 				</div>
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_game_rank";
-								case false: return "game_rank";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							false: "blank",
+							true: this.state.initDismount ? "dismount_game_rank" : "game_rank"
 						}[this.state.showRank]}
 				>
 					<h2>RANK</h2>
 					{ this.state.showRank ? rank : blank }
 				</div>
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_game_power";
-								case false: return "game_power";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							false: "blank",
+							true: this.state.initDismount ? "dismount_game_power" : "game_power"
 						}[this.state.showPower]}
 				>
 					<h2>POWER</h2>
