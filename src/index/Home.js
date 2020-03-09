@@ -2,11 +2,15 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 
 import { Scoreboard } from '../utility/scoreboardFunctions'
+import { trafficUpdate } from '../utility/trafficFunctions'
+
 
 import Score from './Score.js'
 
 import '../css/Home.css'
 import '../css/Scoreboard.css'
+
+var sendTraffic = new trafficUpdate()
 
 export default class Home extends React.Component {
 
@@ -32,6 +36,12 @@ export default class Home extends React.Component {
 				updated_scoreboard: true
 			})
 		)
+
+		sendTraffic.pageUpdate({
+			user_id: localStorage.user_id,
+			page_name: "index",
+		})
+
 	}
 
 	componentDidUpdate(){
@@ -43,7 +53,7 @@ export default class Home extends React.Component {
 	onClickStartButtonFunctions = (event) => {
 		this.setState({
 			initDismount: true
-		})
+		}, this.onClickUpdateTrafficFunctions(event))
 	}
 
 	onDismount = () => {
@@ -51,17 +61,10 @@ export default class Home extends React.Component {
 	}
 
 	onClickUpdateTrafficFunctions = (event) => {
-		this.props.update_traffic_data({
+		sendTraffic.elementUpdate({
 			user_id: this.props.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
-		})
-	}
-
-	onPageLoadFunctions = () => {
-		this.props.update_page_data({
-			user_id: localStorage.user_id,
-			page_name: "index",
 		})
 	}
 
