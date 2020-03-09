@@ -11,6 +11,7 @@ import '../css/Scoreboard.css'
 import '../UI/buttons.css'
 
 var sendTraffic = new trafficUpdate()
+var scoreboard = new Scoreboard()
 
 export default class Home extends React.Component {
 
@@ -26,8 +27,6 @@ export default class Home extends React.Component {
 		this.setState({
 			mounted: true
 		})
-
-		var scoreboard = new Scoreboard()
 
 		scoreboard.get()
 		.then(res_obj =>

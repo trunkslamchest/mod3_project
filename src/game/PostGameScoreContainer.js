@@ -4,7 +4,13 @@ import { Redirect } from 'react-router-dom'
 
 import PostGameScore from './PostGameScore'
 
+import { Scoreboard } from '../utility/scoreboardFunctions'
+import { trafficUpdate } from '../utility/trafficFunctions'
+
 import '../css/PostGame.css'
+
+var sendTraffic = new trafficUpdate()
+var scoreboard = new Scoreboard()
 
 export default class PostGameScoreContainer extends React.Component {
 
@@ -21,6 +27,11 @@ export default class PostGameScoreContainer extends React.Component {
 		this.setState({
 			mounted: true
 		})
+
+		sendTraffic.pageUpdate({
+			user_id: localStorage.user_id,
+			page_name: "post_game_scoreboard",
+		})
 	}
 
 	componentDidUpdate(){
@@ -30,8 +41,7 @@ export default class PostGameScoreContainer extends React.Component {
 	}
 
 	getScoreboard(){
-		fetch(`http://localhost:3001/scoreboards`)
-		.then(res => res.json())
+		scoreboard.get()
 		.then(res_obj =>
 			this.setState({
 				scoreboard: res_obj.data,
@@ -40,19 +50,29 @@ export default class PostGameScoreContainer extends React.Component {
 		)
 	}
 
-	onClickMainMenuButtonFunctions = () => {
-
+	onClickMainMenuButtonFunctions = (event) => {
 		this.setState({
 			initDismount: true
 		})
 
-		this.mainMenuTimeout = setTimeout(() => { this.setState({ display: "main_menu" })}, 500 )
+		sendTraffic.elementUpdate({
+			user_id: localStorage.user_id,
+			interaction: event.target.attributes.interaction.value,
+			element: event.target.name
+		})
 
+		this.mainMenuTimeout = setTimeout(() => { this.setState({ display: "main_menu" })}, 500 )
 	}
 
-	onClickPlayAgainButtonFunctions = () => {
+	onClickPlayAgainButtonFunctions = (event) => {
 		this.setState({
 			initDismount: true
+		})
+
+		sendTraffic.elementUpdate({
+			user_id: localStorage.user_id,
+			interaction: event.target.attributes.interaction.value,
+			element: event.target.name
 		})
 
 		this.playAgainTimeout = setTimeout(() => { this.setState({ display: "game" })}, 500 )
@@ -125,8 +145,7 @@ export default class PostGameScoreContainer extends React.Component {
 
 		return(
 			<>
-
-			{
+				{
 					(() => {
 						switch(this.state.display) {
 							case 'scoreboard': return scoreboard;

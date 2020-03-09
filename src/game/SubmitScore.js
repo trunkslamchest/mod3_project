@@ -5,7 +5,13 @@ import {
 	 Redirect,
 } from 'react-router-dom'
 
+import { Scoreboard } from '../utility/scoreboardFunctions'
+import { trafficUpdate } from '../utility/trafficFunctions'
+
 import '../css/SubmitScore.css'
+
+var sendTraffic = new trafficUpdate()
+var scoreboard = new Scoreboard()
 
 export default class SubmitScore extends React.Component {
 
@@ -34,6 +40,11 @@ export default class SubmitScore extends React.Component {
 			mounted: true
 		})
 
+		sendTraffic.pageUpdate({
+			user_id: localStorage.user_id,
+			page_name: "submit_score",
+		})
+
 		this.headerTimeout = setTimeout(() => { this.setState({ showHeader: true })}, 500)
 		this.scoreTimeout = setTimeout(() => { this.setState({ showScore: true })}, 500)
 		this.rankTimeout = setTimeout(() => { this.setState({ showRank: true })}, 500)
@@ -46,11 +57,7 @@ export default class SubmitScore extends React.Component {
 		if(this.state.addedScore && !this.state.updatedScoreboard){
 			this.updateScoreboard()
 		}
-		if(this.state.updatedScoreboard && !this.state.gotNewScoreboard){
-			this.getNewScoreboard()
-		}
-		if(this.state.gotNewScoreboard && !this.state.updatedDisplay){
-			// this.displaySwitchToScoreboard()
+		if(this.state.updatedScoreboard && !this.state.updatedDisplay){
 			this.onDismount()
 		}
 	}
@@ -63,16 +70,13 @@ export default class SubmitScore extends React.Component {
 
 	onSubmitScoreFunctions = (event) => {
 		event.persist()
-
 		this.addScore(event)
 	}
 
 	addScore = (event) => {
 		event.preventDefault()
 
-		let name = event.target[0].value.trim()
-
-		let bro_array =	[
+		let broArr =	[
 			"Bromato",
 			"Bronado",
 			"Brostrodamus",
@@ -95,42 +99,30 @@ export default class SubmitScore extends React.Component {
 			"Shaquille Bro’Neal"
 		]
 
-		let random_bro_name = bro_array[Math.floor(Math.random() * bro_array.length)]
+		let name = event.target[0].value.trim()
+		let randomBroName = broArr[Math.floor(Math.random() * broArr.length)]
 
 		if (name === "") {
-			alert(`Enter Your Name, ${random_bro_name}`)
+			alert(`Enter Your Name, ${randomBroName}`)
 		} else {
-			fetch("http://localhost:3001/players", {
-				method: "POST",
-				headers: {
-					"content-type": "application/json",
-				},
-				body: JSON.stringify({
-					name: this.state.player_name
-				})
-			})
-			.then(res => res.json())
+			scoreboard.addPlayer(name)
 			.then((player_obj) => {
 				this.setState({
 					player: player_obj,
 					addedScore: true
+				})
+
+				sendTraffic.elementUpdate({
+					user_id: localStorage.user_id,
+					interaction: event.target.attributes.interaction.value,
+					element: event.target.name
 				})
 			})
 		}
 	}
 
 	updateScoreboard = () => {
-		fetch("http://localhost:3001/scoreboards", {
-				method: "POST",
-				headers: {
-					"content-type": "application/json",
-				},
-				body: JSON.stringify({
-					player_id: this.state.player.id,
-					score: this.props.count,
-					power_level: this.props.power
-				})
-			})
+		scoreboard.update(this.state.player.id, this.props.count, this.props.power)
 		.then(
 			this.setState({
 				updatedScoreboard: true
@@ -138,28 +130,15 @@ export default class SubmitScore extends React.Component {
 		)
 	}
 
-	getNewScoreboard = () => {
-		fetch(`http://localhost:3001/scoreboards`)
-		.then(res => res.json())
-		.then(res_obj =>
-			this.setState({
-				newScoreboard: res_obj.data,
-				gotNewScoreboard: true
-			})
-		)
-	}
-
-	// displaySwitchToScoreboard = () => {
-	// 	this.setState({
-	// 		display: "scoreboard",
-	// 		updatedDisplay: true
-	// 	}, this.props.getPlayerID(this.state.player.id))
-	// }
-
-	onClickMainMenuButtonFunctions = () => {
-
+	onClickMainMenuButtonFunctions = (event) => {
 		this.setState({
 			initDismount: true
+		})
+
+		sendTraffic.elementUpdate({
+			user_id: localStorage.user_id,
+			interaction: event.target.attributes.interaction.value,
+			element: event.target.name
 		})
 
 		this.initResetTimeout = setTimeout(() => {
@@ -174,13 +153,17 @@ export default class SubmitScore extends React.Component {
 		}, 250)
 
 		this.mainMenuTimeout = setTimeout(() => { this.setState({ display: "main_menu" })}, 500 )
-
 	}
 
-	onClickTryAgainButtonFunctions = () => {
-
+	onClickTryAgainButtonFunctions = (event) => {
 		this.setState({
 			initDismount: true
+		})
+
+		sendTraffic.elementUpdate({
+			user_id: localStorage.user_id,
+			interaction: event.target.attributes.interaction.value,
+			element: event.target.name
 		})
 
 		this.initResetTimeout = setTimeout(() => {
@@ -199,9 +182,7 @@ export default class SubmitScore extends React.Component {
 
 	onDismount = () => {
 		this.setState({ initDismount: true, updatedDisplay: true })
-
 		this.dismountedTimeout = setTimeout(() => { this.setState({ dismounted: true, display: "scoreboard" })}, 500)
-
 		this.props.getPlayerID(this.state.player.id)
 	}
 
@@ -228,60 +209,32 @@ export default class SubmitScore extends React.Component {
 
 		const submit_score =
 			<div className="submit_score_wrapper">
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_submit_score_header";
-								case false: return "submit_score_header";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							false: "blank",
+							true: this.state.initDismount ? "dismount_submit_score_header" : "submit_score_header"
 						}[this.state.showHeader]}
 				>
 					<h1>OUTTA TIME!</h1>
 				</div>
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_submit_score_counter";
-								case false: return "submit_score_counter";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							false: "blank",
+							true: this.state.initDismount ? "dismount_submit_score_counter" : "submit_score_counter"
 						}[this.state.showScore]}
 				>
 					<h2>SMASHES</h2>
 					{ this.state.showScore ? score : blank }
 				</div>
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_submit_score_rank";
-								case false: return "submit_score_rank";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							false: "blank",
+							true: this.state.initDismount ? "dismount_submit_score_rank" : "submit_score_rank"
 						}[this.state.showRank]}
 				>
 					<h2>RANK</h2>
 					{ this.state.showRank ? rank : blank }
 				</div>
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_submit_score_power";
-								case false: return "submit_score_power";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							false: "blank",
+							true: this.state.initDismount ? "dismount_submit_score_power" : "submit_score_power"
 						}[this.state.showPower]}
 				>
 					<h2>POWER</h2>
@@ -290,16 +243,9 @@ export default class SubmitScore extends React.Component {
 						</meter>
 					</div>
 				</div>
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_submit_score_form";
-								case false: return "submit_score_form";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							false: "blank",
+							true: this.state.initDismount ? "dismount_submit_score_form" : "submit_score_form"
 						}[this.state.showForm]}
 				>
 					<h2>Submit Score</h2>
@@ -325,19 +271,12 @@ export default class SubmitScore extends React.Component {
 						/>
 					</form>
 				</div>
-				<div className=
-					{{
-						false: "blank",
-						true: (() => {
-							switch(this.state.initDismount) {
-								case true: return "dismount_submit_score_bottom_buttons_container";
-								case false: return "submit_score_bottom_buttons_container";
-								default: return "blank";
-								}
-							})()
+				<div className={{
+							false: "blank",
+							true: this.state.initDismount ? "dismount_submit_score_bottom_buttons_container" : "submit_score_bottom_buttons_container"
 						}[this.state.showBottomButtons]}
 				>
-					<button
+					<Link
 						key={ "main_menu_button" }
 						to='/'
 						name="main_menu_button"
@@ -346,7 +285,7 @@ export default class SubmitScore extends React.Component {
 						onClick={ this.onClickMainMenuButtonFunctions }
 					>
 						Main Menu
-					</button>
+					</Link>
 					<Link
 						key={ "try_again_button" }
 						to='/game'

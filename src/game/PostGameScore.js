@@ -12,11 +12,11 @@ export default class PostGameScore extends React.Component {
 		})
 	}
 
-	componentDidUpdate(){
-	}
+	// componentDidUpdate(){
+	// }
 
-	componentWillUnmount(){
-	}
+	// componentWillUnmount(){
+	// }
 
 	render(){
 
@@ -33,13 +33,14 @@ export default class PostGameScore extends React.Component {
 				</td>
 				<td className=	{{
 						true: "scoreboard_power_low",
-						false: (() => {
-							switch(this.props.score.attributes.power_level > 2) {
-								case true: return "scoreboard_power_high";
-								case false: return "scoreboard_power";
-								default: return "blank";
-								}
-							})()
+						false: this.props.score.attributes.power_level > 2 ? "scoreboard_power_high" : "scoreboard_power"
+						// (() => {
+						// 	switch(this.props.score.attributes.power_level > 2) {
+						// 		case true: return "scoreboard_power_high";
+						// 		case false: return "scoreboard_power";
+						// 		default: return "blank";
+						// 		}
+						// 	})()
 						}[this.props.score.attributes.power_level < 1]}
 					>
 
