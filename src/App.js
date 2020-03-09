@@ -210,63 +210,21 @@ export default class App extends React.Component {
 		})
 	}
 
-	update_traffic_data = (res_obj) => {
-		fetch("http://localhost:3001/traffics", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				user_id: res_obj.user_id,
-				interaction: res_obj.interaction,
-				element: res_obj.element
-			})
-		})
-	}
-
-	update_page_data = (res_obj) => {
-		fetch("http://localhost:3001/pages", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-				body: JSON.stringify({
-				user_id: res_obj.user_id,
-				page_name: res_obj.page_name,
-			})
-		})
-	}
-
 	render(){
-
-		const showFooter =
-			<Footer
-				update_traffic_data={ this.update_traffic_data }
-				// ~~~~~~~~~~~~~~~~~~~~
-			/>
-
 		return (
 			<>
 				<div className="main_container">
 					<Switch>
 						<Route exact path='/'>
-							<Home
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
-							/>
+							<Home/>
 						</Route>
 						<Route exact path='/game'>
 							<Countdown
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
 								getPlayerID={ this.getPlayerID }
 							/>
 						</Route>
 						<Route exact path='/scoreboard'>
 							<PostGameScoreContainer
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
 								player_id={ this.state.player_id }
 							/>
 						</Route>
@@ -354,7 +312,7 @@ export default class App extends React.Component {
 					</Switch>
 				</div>
 				<div className="footer_container">
-					{ showFooter }
+					<Footer/>
 				</div>
 			</>
 		)

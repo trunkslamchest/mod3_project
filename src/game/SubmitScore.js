@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-	 Link,
-	 Redirect,
-} from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 import { Scoreboard } from '../utility/scoreboardFunctions'
 import { trafficUpdate } from '../utility/trafficFunctions'
