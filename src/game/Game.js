@@ -2,11 +2,14 @@ import React from 'react'
 
 import SubmitScore from './SubmitScore.js'
 
-import { trafficUpdate } from '../utility/trafficFunctions'
+import trafficFunctions from '../utility/trafficFunctions'
 
 import '../css/Game.css'
 
-var sendTraffic = new trafficUpdate()
+var pageInfo = {
+	user_id: localStorage.user_id,
+	page_name: "game_start"
+}
 
 export default class Game extends React.Component {
 
@@ -39,10 +42,7 @@ export default class Game extends React.Component {
 
 		this.startGame()
 
-		sendTraffic.pageUpdate({
-			user_id: localStorage.user_id,
-			page_name: "game_start"
-		})
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 
 	}
 

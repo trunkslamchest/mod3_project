@@ -2,11 +2,14 @@ import React from 'react'
 
 import Game from './Game.js'
 
-import { trafficUpdate } from '../utility/trafficFunctions'
+import trafficFunctions from '../utility/trafficFunctions'
 
 import '../css/Countdown.css'
 
-var sendTraffic = new trafficUpdate()
+var pageInfo = {
+	user_id: localStorage.user_id,
+	page_name: "countdown",
+}
 
 export default class Countdown extends React.Component {
 
@@ -28,10 +31,8 @@ export default class Countdown extends React.Component {
 		this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 1000)}, 1000)
 		this.tutorialTimeout = setTimeout(() => { this.setState({ showTutorial: true })}, 500)
 
-		sendTraffic.pageUpdate({
-			user_id: localStorage.user_id,
-			page_name: "countdown",
-		})
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
+
 	}
 
 	componentDidUpdate(){

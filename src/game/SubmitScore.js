@@ -2,31 +2,29 @@ import React from 'react'
 
 import { Link, Redirect } from 'react-router-dom'
 
-import { trafficUpdate } from '../utility/trafficFunctions'
-
 import scoreboardFunctions from '../utility/scoreboardFunctions'
+import trafficFunctions from '../utility/trafficFunctions'
 
 import '../css/SubmitScore.css'
 
-var sendTraffic = new trafficUpdate()
+var pageInfo = {
+	user_id: localStorage.user_id,
+	page_name: "submit_score",
+}
 
 export default class SubmitScore extends React.Component {
 
 	state = {
 		display: 'submit_score',
 		player: '',
-		playerScore: {},
 		player_name: '',
-		newScoreboard: [],
 		showHeader: false,
 		showScore: false,
 		showRank: false,
 		showPower: false,
 		showForm: false,
 		showBottomButtons: false,
-		addedScore: false,
 		updatedScoreboard: false,
-		gotNewScoreboard: false,
 		updatedDisplay: false,
 		initDismount: false,
 		dismounted: false
@@ -41,10 +39,7 @@ export default class SubmitScore extends React.Component {
 		this.formTimeout = setTimeout(() => { this.setState({ showForm: true })}, 500)
 		this.bottomButtonsTimeout = setTimeout(() => { this.setState({ showBottomButtons: true })}, 500)
 
-		sendTraffic.pageUpdate({
-			user_id: localStorage.user_id,
-			page_name: "submit_score",
-		})
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 
 	}
 
@@ -72,6 +67,12 @@ export default class SubmitScore extends React.Component {
 			player: this.state.player,
 			score: this.props.count,
 			power_level: this.props.power
+		}
+
+		let elementInfo = {
+			user_id: localStorage.user_id,
+			interaction: event.target.attributes.interaction.value,
+			element: event.target.name
 		}
 
 		let broArr =	[
@@ -107,23 +108,24 @@ export default class SubmitScore extends React.Component {
 		} else {
 
 			scoreboardFunctions('post', 'http://localhost:3001/scoreboards', playerObj)
-			.then((playerObj) => {
-				this.setState({
-					playerScore: playerObj,
-					updatedScoreboard: true
-				})
+			.then((resObj) => {
 
-				sendTraffic.elementUpdate({
-					user_id: localStorage.user_id,
-					interaction: event.target.attributes.interaction.value,
-					element: event.target.name
-				})
+				this.setState({ updatedScoreboard: true })
+
+				trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
+
 			})
 		}
 
 	}
 
 	onClickMainMenuButtonFunctions = (event) => {
+
+		let elementInfo = {
+			user_id: localStorage.user_id,
+			interaction: event.target.attributes.interaction.value,
+			element: event.target.name
+		}
 
 		this.setState({ initDismount: true })
 
@@ -140,15 +142,17 @@ export default class SubmitScore extends React.Component {
 
 		this.mainMenuTimeout = setTimeout(() => { this.setState({ display: "main_menu" })}, 500 )
 
-		sendTraffic.elementUpdate({
-			user_id: localStorage.user_id,
-			interaction: event.target.attributes.interaction.value,
-			element: event.target.name
-		})
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 
 	}
 
 	onClickTryAgainButtonFunctions = (event) => {
+
+		let elementInfo = {
+			user_id: localStorage.user_id,
+			interaction: event.target.attributes.interaction.value,
+			element: event.target.name
+		}
 
 		this.setState({ initDismount: true })
 
@@ -165,11 +169,7 @@ export default class SubmitScore extends React.Component {
 
 		this.resetTimeout = setTimeout(() => { this.setState({ display: "game", dismounted: true }, this.props.resetGame())}, 1000 )
 
-		sendTraffic.elementUpdate({
-			user_id: localStorage.user_id,
-			interaction: event.target.attributes.interaction.value,
-			element: event.target.name
-		})
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 
 	}
 

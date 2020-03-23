@@ -1,24 +1,24 @@
 import React from 'react'
 
-import Footer from './Footer'
+import { Route, Switch } from 'react-router-dom'
 
 import Home from './index/Home'
+import Footer from './Footer'
+
 import Countdown from './game/Countdown'
 import PostGameScoreContainer from './game/PostGameScoreContainer'
 
-import LogIn from './user/LogIn'
-import SignUp from './user/SignUp'
-import LogOut from './user/LogOut'
+// import LogIn from './user/LogIn'
+// import SignUp from './user/SignUp'
+// import LogOut from './user/LogOut'
 
-import EditProfile from './user/dashboard/EditProfile'
-import DeleteProfile from './user/dashboard/DeleteProfile'
+// import EditProfile from './user/dashboard/EditProfile'
+// import DeleteProfile from './user/dashboard/DeleteProfile'
 
 import Backroom from './admin/Backroom'
 import TestTemp from './admin/TestTemp'
 
 import Error from './Error'
-
-import { Route, Switch } from 'react-router-dom'
 
 import './App.css'
 import './css/Response.css'
@@ -224,7 +224,21 @@ export default class App extends React.Component {
 								player={ this.state.player }
 							/>
 						</Route>
-						<Route exact path='/log_in'>
+						<Route exact path='/backroom'>
+							<Backroom
+								token={ this.state.token }
+								user_name={ this.state.user_name }
+								access={ this.state.access }
+								update_backroom_from_header={ this.state.backroom_display }
+							/>
+						</Route>
+						<Route exact path='/backroom/test_temp'>
+							<TestTemp
+								token={ this.state.token }
+							/>
+						</Route>
+						<Route component={ Error } />
+						{/* <Route exact path='/log_in'>
 							<LogIn
 								setToken={ this.setToken }
 								updateLogin={ this.updateLogin }
@@ -278,21 +292,7 @@ export default class App extends React.Component {
 								access={ this.state.access }
 								logOut={ this.logOut }
 							/>
-						</Route>
-						<Route exact path='/backroom'>
-							<Backroom
-								token={ this.state.token }
-								user_name={ this.state.user_name }
-								access={ this.state.access }
-								update_backroom_from_header={ this.state.backroom_display }
-							/>
-						</Route>
-						<Route exact path='/backroom/test_temp'>
-							<TestTemp
-								token={ this.state.token }
-							/>
-						</Route>
-						<Route component={ Error } />
+						</Route> */}
 					</Switch>
 				</div>
 				<div className="footer_container">

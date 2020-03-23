@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { trafficUpdate } from './utility/trafficFunctions'
+import trafficFunctions from './utility/trafficFunctions'
 
 import './css/Footer.css'
 
@@ -9,8 +9,6 @@ import postgres_logo from './assets/footer_logo_postgres.png'
 import rails_logo from './assets/footer_logo_rails.png'
 import react_logo from './assets/footer_logo_react.png'
 
-var sendTraffic = new trafficUpdate()
-
 const Footer = (props) => {
 
 	const onClickFooterLinksFunctions = (event) => {
@@ -18,11 +16,13 @@ const Footer = (props) => {
 	}
 
 	const onClickUpdateTrafficFunctions = (event) => {
-			sendTraffic.elementUpdate({
-				user_id: localStorage.user_id,
-				interaction: event.target.attributes.interaction.value,
-				element: event.target.name
-			})
+		let elementInfo = {
+			user_id: localStorage.user_id,
+			interaction: event.target.attributes.interaction.value,
+			element: event.target.name
+		}
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
 	const footerLogos = [

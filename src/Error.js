@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 
-import { trafficUpdate } from './utility/trafficFunctions'
+import trafficFunctions from './utility/trafficFunctions'
 
 import './css/Error.css'
 
-var sendTraffic = new trafficUpdate()
+let pageInfo = {
+	user_id: localStorage.user_id,
+	page_name: "404 Error",
+}
 
 const Error = (props) => {
 
-	useEffect(() => { sendTraffic.pageUpdate({
-		user_id: localStorage.user_id,
-		page_name: "404 Error",
-	})})
+	useEffect(() => { trafficFunctions('page', 'http://localhost:3001/pages', pageInfo) })
 
 	return(
 		<div className="error_container">

@@ -4,13 +4,15 @@ import { Redirect } from 'react-router-dom'
 
 import PostGameScore from './PostGameScore'
 
-import { trafficUpdate } from '../utility/trafficFunctions'
-
 import scoreboardFunctions from '../utility/scoreboardFunctions'
+import trafficFunctions from '../utility/trafficFunctions'
 
 import '../css/PostGame.css'
 
-var sendTraffic = new trafficUpdate()
+var pageInfo = {
+	user_id: localStorage.user_id,
+	page_name: "post_game_scoreboard",
+}
 
 export default class PostGameScoreContainer extends React.Component {
 
@@ -28,10 +30,7 @@ export default class PostGameScoreContainer extends React.Component {
 			mounted: true
 		})
 
-		sendTraffic.pageUpdate({
-			user_id: localStorage.user_id,
-			page_name: "post_game_scoreboard",
-		})
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 
 	}
 
@@ -59,11 +58,13 @@ export default class PostGameScoreContainer extends React.Component {
 
 		this.mainMenuTimeout = setTimeout(() => { this.setState({ display: "main_menu" })}, 500 )
 
-		sendTraffic.elementUpdate({
+		let elementInfo = {
 			user_id: localStorage.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
-		})
+		}
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 
 	}
 
@@ -73,11 +74,13 @@ export default class PostGameScoreContainer extends React.Component {
 
 		this.playAgainTimeout = setTimeout(() => { this.setState({ display: "game" })}, 500 )
 
-		sendTraffic.elementUpdate({
+		let elementInfo = {
 			user_id: localStorage.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
-		})
+		}
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 
 	}
 

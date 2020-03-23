@@ -28,29 +28,8 @@
 				})
 			})
 			.then(res => res.json())
-		},
-
-		edit: function(url, userObj) {
-			return fetch(url, {
-				method: "PATCH",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					first_name: userObj.first_name,
-					last_name: userObj.last_name,
-					age: userObj.age,
-					current_state: userObj.current_state,
-				})
-			})
-			.then(res => res.json())
-		},
-
-		delete: function(url) {
-			return fetch(url, {
-				method: "DELETE"
-			})
 		}
+
 	}
 
 	scoreboardFunctions.init.prototype = scoreboardFunctions.prototype

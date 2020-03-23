@@ -1,9 +1,9 @@
 import React from 'react'
+
 import { Redirect } from 'react-router-dom'
 
-import { trafficUpdate } from '../utility/trafficFunctions'
-
 import scoreboardFunctions from '../utility/scoreboardFunctions'
+import trafficFunctions from '../utility/trafficFunctions'
 
 import Score from './Score.js'
 
@@ -11,7 +11,10 @@ import '../css/Home.css'
 import '../css/Scoreboard.css'
 import '../UI/buttons.css'
 
-var sendTraffic = new trafficUpdate()
+var pageInfo = {
+	user_id: localStorage.user_id,
+	page_name: "index",
+}
 
 export default class Home extends React.Component {
 
@@ -22,21 +25,12 @@ export default class Home extends React.Component {
 	}
 
 	componentDidMount(){
-		// scoreboard.get()
-		// .then(res_obj =>
-		// 	this.setState({ scoreboard: res_obj.data })
-		// )
-
 		scoreboardFunctions('get', 'http://localhost:3001/scoreboards')
 		.then(res_obj =>
 			this.setState({ scoreboard: res_obj.data })
 		)
 
-		sendTraffic.pageUpdate({
-			user_id: localStorage.user_id,
-			page_name: "index",
-		})
-
+		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
 	}
 
 	componentDidUpdate(){
@@ -46,14 +40,15 @@ export default class Home extends React.Component {
 	}
 
 	onClickStartButtonFunctions = (event) => {
-
-		this.setState({ initDismount: true})
-
-		sendTraffic.elementUpdate({
+		let elementInfo = {
 			user_id: localStorage.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
-		})
+		}
+
+		this.setState({ initDismount: true})
+
+		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
 	}
 
 	onDismount = () => {
@@ -111,9 +106,7 @@ export default class Home extends React.Component {
 						START
 					</button>
 				</div>
-
 				{ scoreboard_table }
-
 			</div>
 
 		return(
