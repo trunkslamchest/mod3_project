@@ -248,7 +248,7 @@ export default class Game extends React.Component {
 							case 'game': return game;
 							case 'submit_score': return <SubmitScore
 															resetGame={ this.resetGame }
-															getPlayerID={ this.props.getPlayerID }
+															getPlayer={ this.props.getPlayer }
 															count={ this.state.count }
 															rank={ this.state.rank }
 															power={ (this.state.power).toFixed(5) }

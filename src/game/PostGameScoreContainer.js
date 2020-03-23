@@ -84,14 +84,14 @@ export default class PostGameScoreContainer extends React.Component {
 	}
 
 	render(){
-
+		console.log(this.props.player)
 		const blank = <></>
 
 		const scores = this.state.scoreboard.map(score =>
 			<PostGameScore
 				key={score.id}
 				score={score}
-				player_id={this.props.player_id}
+				player={this.props.player}
 			/>
 		)
 

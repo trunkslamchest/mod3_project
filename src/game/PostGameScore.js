@@ -1,16 +1,18 @@
 import React from 'react'
 
 const PostGameScore = (props) => {
-	const player_name = props.score.attributes.player.name
-	const player_id = props.score.attributes.player.id
+	console.log(props.player)
+
+	const player = props.score.attributes.player
+	// const player_id = props.score.attributes.player.id
 	const score = props.score.attributes.score
 	const power = props.score.attributes.power_level
-	const submitted_player_id = props.player_id
+	const submitted_player = props.player
 
 	const score_row =
-		<tr className={ submitted_player_id === player_id ? "highlighted" : "scoreboard_sub_row" }>
+		<tr className={ submitted_player === player ? "highlighted" : "scoreboard_sub_row" }>
 			<td>
-				{player_name}
+				{player}
 			</td>
 			<td className={{
 						true: "scoreboard_power_low",

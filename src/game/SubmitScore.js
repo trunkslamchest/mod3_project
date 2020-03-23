@@ -14,7 +14,8 @@ export default class SubmitScore extends React.Component {
 
 	state = {
 		display: 'submit_score',
-		player: {},
+		player: '',
+		playerScore: {},
 		player_name: '',
 		newScoreboard: [],
 		showHeader: false,
@@ -51,9 +52,9 @@ export default class SubmitScore extends React.Component {
 	}
 
 	componentDidUpdate(){
-		if(this.state.addedScore && !this.state.updatedScoreboard){
-			this.updateScoreboard()
-		}
+		// if(this.state.addedScore && !this.state.updatedScoreboard){
+		// 	this.updateScoreboard()
+		// }
 		if(this.state.updatedScoreboard && !this.state.updatedDisplay){
 			this.onDismount()
 		}
@@ -62,7 +63,7 @@ export default class SubmitScore extends React.Component {
 	onSubmitScoreChange = (event) => {
 		this.setState({
 			[event.target.name]: event.target.value
-		})
+		}, console.log(event.target.name, event.target.value))
 	}
 
 	onSubmitScoreFunctions = (event) => {
@@ -102,11 +103,12 @@ export default class SubmitScore extends React.Component {
 		if (name === "") {
 			alert(`Enter Your Name, ${randomBroName}`)
 		} else {
-			scoreboard.addPlayer(name)
-			.then((player_obj) => {
+			scoreboard.addScore(this.state.player, this.props.count, this.props.power)
+			.then((playerObj) => {
 				this.setState({
-					player: player_obj,
-					addedScore: true
+					playerScore: playerObj,
+					// addedScore: true
+					updatedScoreboard: true
 				})
 
 				sendTraffic.elementUpdate({
@@ -119,7 +121,7 @@ export default class SubmitScore extends React.Component {
 	}
 
 	updateScoreboard = () => {
-		scoreboard.update(this.state.player.id, this.props.count, this.props.power)
+		scoreboard.update(this.state.player, this.props.count, this.props.power)
 		.then(
 			this.setState({
 				updatedScoreboard: true
@@ -180,7 +182,7 @@ export default class SubmitScore extends React.Component {
 	onDismount = () => {
 		this.setState({ initDismount: true, updatedDisplay: true })
 		this.dismountedTimeout = setTimeout(() => { this.setState({ dismounted: true, display: "scoreboard" })}, 500)
-		this.props.getPlayerID(this.state.player.id)
+		this.props.getPlayer(this.state.player)
 	}
 
 	componentWillUnmount(){
@@ -252,13 +254,13 @@ export default class SubmitScore extends React.Component {
 						onSubmit={ this.onSubmitScoreFunctions }
 					>
 						<input
-							id="player_name"
-							name="player_name"
+							id="player"
+							name="player"
 							type="text"
 							className="submit_score_text_box"
 							placeholder="Enter Your Name"
 							autoComplete="off"
-							value={ this.state.player_name }
+							value={ this.state.player }
 							onChange={ this.onSubmitScoreChange }
 						/>
 						<input

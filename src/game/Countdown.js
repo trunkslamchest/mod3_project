@@ -131,7 +131,7 @@ export default class Countdown extends React.Component {
 					(() => {
 						switch(this.state.display) {
 							case 'countdown': return countdown;
-							case 'game': return <Game getPlayerID={this.props.getPlayerID} />;
+							case 'game': return <Game getPlayer={this.props.getPlayer} />;
 							default: return blank;
 						}
 					})()

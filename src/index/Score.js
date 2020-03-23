@@ -19,17 +19,15 @@ export default class Score extends React.Component {
 	}
 
 	render(){
-
-		const player_name = this.props.score.attributes.player.name
-		const player_id = this.props.score.attributes.player.id
+		const player = this.props.score.attributes.player
 		const score = this.props.score.attributes.score
 		const power = this.props.score.attributes.power_level
-		const submitted_player_id = this.props.player_id
+		const submitted_player = this.props.player
 
 		const score_row =
-			<tr className={ submitted_player_id === player_id ? "highlighted" : "scoreboard_sub_row" }>
+			<tr className={ submitted_player === player ? "highlighted" : "scoreboard_sub_row" }>
 				<td>
-					{player_name}
+					{player}
 				</td>
 				<td className=	{{
 						true: "scoreboard_power_low",

@@ -70,11 +70,12 @@ export default class Home extends React.Component {
 	}
 
 	render(){
-
+		// console.log(this.props.player)
 		const scores = this.state.scoreboard.map(score =>
 			<Score
 				key={score.id}
 				score={score}
+				player={this.props.player}
 			/>
 		)
 

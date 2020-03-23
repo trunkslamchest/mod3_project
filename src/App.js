@@ -57,7 +57,7 @@ export default class App extends React.Component {
 		// ~~~~~~~~~~~~~~~~~~~~
 		backroom_display: null,
 		// ~~~~~~~~~~~~~~~~~~~~
-		player_id: null
+		player: null
 	}
 
 	componentDidMount(){
@@ -204,9 +204,9 @@ export default class App extends React.Component {
 		})
 	}
 
-	getPlayerID = (player_id) => {
+	getPlayer = (player) => {
 		this.setState({
-			player_id: player_id
+			player: player
 		})
 	}
 
@@ -216,23 +216,25 @@ export default class App extends React.Component {
 				<div className="main_container">
 					<Switch>
 						<Route exact path='/'>
-							<Home/>
+							<Home
+								player={ this.state.player }
+							/>
 						</Route>
 						<Route exact path='/game'>
 							<Countdown
-								getPlayerID={ this.getPlayerID }
+								getPlayer={ this.getPlayer }
 							/>
 						</Route>
 						<Route exact path='/scoreboard'>
 							<PostGameScoreContainer
-								player_id={ this.state.player_id }
+								player={ this.state.player }
 							/>
 						</Route>
 						<Route exact path='/log_in'>
 							<LogIn
 								setToken={ this.setToken }
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
+								// update_traffic_data={ this.update_traffic_data }
+								// update_page_data={ this.update_page_data }
 								// ~~~~~~~~~~~~~~~~~~~~
 								updateLogin={ this.updateLogin }
 							/>
@@ -240,8 +242,8 @@ export default class App extends React.Component {
 						<Route exact path='/sign_up'>
 							<SignUp
 								setToken={ this.setToken }
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
+								// update_traffic_data={ this.update_traffic_data }
+								// update_page_data={ this.update_page_data }
 								// ~~~~~~~~~~~~~~~~~~~~
 								updateLogin={ this.updateLogin }
 							/>
@@ -249,8 +251,8 @@ export default class App extends React.Component {
 						<Route exact path='/edit_profile'>
 							<EditProfile
 								setToken={ this.setToken }
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
+								// update_traffic_data={ this.update_traffic_data }
+								// update_page_data={ this.update_page_data }
 								// ~~~~~~~~~~~~~~~~~~~~
 								user_id= {this.state.user_id }
 								user_name={ this.state.user_name }
@@ -275,8 +277,8 @@ export default class App extends React.Component {
 						<Route exact path='/delete_profile'>
 							<DeleteProfile
 								setToken={ this.setToken }
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
+								// update_traffic_data={ this.update_traffic_data }
+								// update_page_data={ this.update_page_data }
 								// ~~~~~~~~~~~~~~~~~~~~
 								user_id={this.state.user_id }
 								access={ this.state.access }
@@ -285,8 +287,8 @@ export default class App extends React.Component {
 						</Route>
 						<Route exact path='/log_out'>
 							<LogOut
-								update_traffic_data={ this.update_traffic_data }
-								update_page_data={ this.update_page_data }
+								// update_traffic_data={ this.update_traffic_data }
+								// update_page_data={ this.update_page_data }
 								// ~~~~~~~~~~~~~~~~~~~~
 								token={ this.state.token }
 								user_id={ this.state.user_id }
