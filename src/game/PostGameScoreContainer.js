@@ -51,9 +51,10 @@ export default class PostGameScoreContainer extends React.Component {
 	}
 
 	onClickMainMenuButtonFunctions = (event) => {
-		this.setState({
-			initDismount: true
-		})
+
+		this.setState({ initDismount: true })
+
+		this.mainMenuTimeout = setTimeout(() => { this.setState({ display: "main_menu" })}, 500 )
 
 		sendTraffic.elementUpdate({
 			user_id: localStorage.user_id,
@@ -61,13 +62,13 @@ export default class PostGameScoreContainer extends React.Component {
 			element: event.target.name
 		})
 
-		this.mainMenuTimeout = setTimeout(() => { this.setState({ display: "main_menu" })}, 500 )
 	}
 
 	onClickPlayAgainButtonFunctions = (event) => {
-		this.setState({
-			initDismount: true
-		})
+
+		this.setState({ initDismount: true })
+
+		this.playAgainTimeout = setTimeout(() => { this.setState({ display: "game" })}, 500 )
 
 		sendTraffic.elementUpdate({
 			user_id: localStorage.user_id,
@@ -75,7 +76,6 @@ export default class PostGameScoreContainer extends React.Component {
 			element: event.target.name
 		})
 
-		this.playAgainTimeout = setTimeout(() => { this.setState({ display: "game" })}, 500 )
 	}
 
 	componentWillUnmount(){
@@ -84,7 +84,6 @@ export default class PostGameScoreContainer extends React.Component {
 	}
 
 	render(){
-		console.log(this.props.player)
 		const blank = <></>
 
 		const scores = this.state.scoreboard.map(score =>
@@ -100,6 +99,7 @@ export default class PostGameScoreContainer extends React.Component {
 				<div className={this.state.initDismount ? "dismount_scoreboard_header" : "home_scoreboard_header"}>
 					<h4>HIGH SCORES</h4>
 				</div>
+
 				<table
 					key={"scoreboard_table"}
 					className={this.state.initDismount ? "dismount_scoreboard_table" : "scoreboard_table" }

@@ -1,7 +1,6 @@
 import React from 'react'
 
 const PostGameScore = (props) => {
-	console.log(props.player)
 
 	const player = props.score.attributes.player
 	const score = props.score.attributes.score
