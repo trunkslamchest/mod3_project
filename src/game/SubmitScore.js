@@ -17,7 +17,6 @@ export default class SubmitScore extends React.Component {
 	state = {
 		display: 'submit_score',
 		player: '',
-		player_name: '',
 		showHeader: false,
 		showScore: false,
 		showRank: false,
@@ -31,7 +30,6 @@ export default class SubmitScore extends React.Component {
 	}
 
 	componentDidMount(){
-
 		this.headerTimeout = setTimeout(() => { this.setState({ showHeader: true })}, 500)
 		this.scoreTimeout = setTimeout(() => { this.setState({ showScore: true })}, 500)
 		this.rankTimeout = setTimeout(() => { this.setState({ showRank: true })}, 500)
@@ -40,7 +38,6 @@ export default class SubmitScore extends React.Component {
 		this.bottomButtonsTimeout = setTimeout(() => { this.setState({ showBottomButtons: true })}, 500)
 
 		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
-
 	}
 
 	componentDidUpdate(){
@@ -102,25 +99,17 @@ export default class SubmitScore extends React.Component {
 		let randomBroName = broArr[Math.floor(Math.random() * broArr.length)]
 
 		if (name === "") {
-
 			alert(`Enter Your Name, ${randomBroName}`)
-
 		} else {
-
 			scoreboardFunctions('post', 'http://localhost:3001/scoreboards', playerObj)
 			.then((resObj) => {
-
 				this.setState({ updatedScoreboard: true })
-
 				trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
-
 			})
 		}
-
 	}
 
 	onClickMainMenuButtonFunctions = (event) => {
-
 		let elementInfo = {
 			user_id: localStorage.user_id,
 			interaction: event.target.attributes.interaction.value,
@@ -143,11 +132,9 @@ export default class SubmitScore extends React.Component {
 		this.mainMenuTimeout = setTimeout(() => { this.setState({ display: "main_menu" })}, 500 )
 
 		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
-
 	}
 
 	onClickTryAgainButtonFunctions = (event) => {
-
 		let elementInfo = {
 			user_id: localStorage.user_id,
 			interaction: event.target.attributes.interaction.value,
@@ -170,7 +157,6 @@ export default class SubmitScore extends React.Component {
 		this.resetTimeout = setTimeout(() => { this.setState({ display: "game", dismounted: true }, this.props.resetGame())}, 1000 )
 
 		trafficFunctions('element', 'http://localhost:3001/traffics', elementInfo)
-
 	}
 
 	onDismount = () => {

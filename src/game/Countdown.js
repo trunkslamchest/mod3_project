@@ -32,7 +32,6 @@ export default class Countdown extends React.Component {
 		this.tutorialTimeout = setTimeout(() => { this.setState({ showTutorial: true })}, 500)
 
 		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
-
 	}
 
 	componentDidUpdate(){
@@ -42,7 +41,6 @@ export default class Countdown extends React.Component {
 		if(this.state.initDismount && !this.state.dismounted){
 			this.onDismount()
 		}
-
 	}
 
 	initGame(){

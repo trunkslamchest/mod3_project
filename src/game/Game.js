@@ -39,11 +39,8 @@ export default class Game extends React.Component {
 	}
 
 	componentDidMount(){
-
 		this.startGame()
-
 		trafficFunctions('page', 'http://localhost:3001/pages', pageInfo)
-
 	}
 
 	startGame = () => {
