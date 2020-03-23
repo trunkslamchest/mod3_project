@@ -22,8 +22,8 @@ export function trafficUpdate() {
 				"Content-Type": "application/json"
 			},
 				body: JSON.stringify({
-				user_id: res_obj.user_id,
-				page_name: res_obj.page_name,
+					user_id: res_obj.user_id,
+					page_name: res_obj.page_name,
 			})
 		})
 	}
