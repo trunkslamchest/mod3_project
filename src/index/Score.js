@@ -23,7 +23,6 @@ const Score = (props) => {
 							})()
 						}[props.score.attributes.power_level < 1]}
 					>
-
 					<meter value={power} min="0.0" low="0.5" optimum="1.0" high="2.0" max="3.0"></meter>
 				</td>
 				<td>

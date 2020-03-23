@@ -17,23 +17,14 @@ export default class Home extends React.Component {
 
 	state = {
 		scoreboard: [],
-		mounted: false,
-		updated_scoreboard: false,
 		initDismount: false,
 		dismounted: false
 	}
 
 	componentDidMount(){
-		this.setState({
-			mounted: true
-		})
-
 		scoreboard.get()
 		.then(res_obj =>
-			this.setState({
-				scoreboard: res_obj.data,
-				updated_scoreboard: true
-			})
+			this.setState({ scoreboard: res_obj.data })
 		)
 
 		sendTraffic.pageUpdate({
@@ -50,9 +41,8 @@ export default class Home extends React.Component {
 	}
 
 	onClickStartButtonFunctions = (event) => {
-		this.setState({
-			initDismount: true
-		})
+
+		this.setState({ initDismount: true})
 
 		sendTraffic.elementUpdate({
 			user_id: localStorage.user_id,
@@ -70,7 +60,6 @@ export default class Home extends React.Component {
 	}
 
 	render(){
-		// console.log(this.props.player)
 		const scores = this.state.scoreboard.map(score =>
 			<Score
 				key={score.id}
@@ -84,6 +73,7 @@ export default class Home extends React.Component {
 				<div className={this.state.initDismount ? "dismount_scoreboard_header" : "home_scoreboard_header"}>
 					<h4>HIGH SCORES</h4>
 				</div>
+
 				<table
 					key={"scoreboard_table"}
 					className={this.state.initDismount ? "dismount_scoreboard_table" : "scoreboard_table" }
@@ -116,7 +106,9 @@ export default class Home extends React.Component {
 						START
 					</button>
 				</div>
+
 				{ scoreboard_table }
+
 			</div>
 
 		return(

@@ -4,7 +4,6 @@ const PostGameScore = (props) => {
 	console.log(props.player)
 
 	const player = props.score.attributes.player
-	// const player_id = props.score.attributes.player.id
 	const score = props.score.attributes.score
 	const power = props.score.attributes.power_level
 	const submitted_player = props.player

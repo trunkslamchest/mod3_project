@@ -160,9 +160,7 @@ export default class App extends React.Component {
 	}
 
 	updateLogin = () => {
-		this.setState({
-			loggedIn: !this.state.loggedIn
-		})
+		this.setState({ loggedIn: !this.state.loggedIn })
 	}
 
 	logOut = () => {
@@ -199,15 +197,11 @@ export default class App extends React.Component {
 	}
 
 	update_backroom_from_header = (index_msg) => {
-		this.setState({
-			backroom_display: index_msg
-		})
+		this.setState({ backroom_display: index_msg })
 	}
 
 	getPlayer = (player) => {
-		this.setState({
-			player: player
-		})
+		this.setState({ player: player })
 	}
 
 	render(){
@@ -233,26 +227,18 @@ export default class App extends React.Component {
 						<Route exact path='/log_in'>
 							<LogIn
 								setToken={ this.setToken }
-								// update_traffic_data={ this.update_traffic_data }
-								// update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
 								updateLogin={ this.updateLogin }
 							/>
 						</Route>
 						<Route exact path='/sign_up'>
 							<SignUp
 								setToken={ this.setToken }
-								// update_traffic_data={ this.update_traffic_data }
-								// update_page_data={ this.update_page_data }
-								// ~~~~~~~~~~~~~~~~~~~~
 								updateLogin={ this.updateLogin }
 							/>
 						</Route>
 						<Route exact path='/edit_profile'>
 							<EditProfile
 								setToken={ this.setToken }
-								// update_traffic_data={ this.update_traffic_data }
-								// update_page_data={ this.update_page_data }
 								// ~~~~~~~~~~~~~~~~~~~~
 								user_id= {this.state.user_id }
 								user_name={ this.state.user_name }
@@ -277,8 +263,6 @@ export default class App extends React.Component {
 						<Route exact path='/delete_profile'>
 							<DeleteProfile
 								setToken={ this.setToken }
-								// update_traffic_data={ this.update_traffic_data }
-								// update_page_data={ this.update_page_data }
 								// ~~~~~~~~~~~~~~~~~~~~
 								user_id={this.state.user_id }
 								access={ this.state.access }
@@ -287,8 +271,6 @@ export default class App extends React.Component {
 						</Route>
 						<Route exact path='/log_out'>
 							<LogOut
-								// update_traffic_data={ this.update_traffic_data }
-								// update_page_data={ this.update_page_data }
 								// ~~~~~~~~~~~~~~~~~~~~
 								token={ this.state.token }
 								user_id={ this.state.user_id }
