@@ -1,8 +1,9 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
-import { Scoreboard } from '../utility/scoreboardFunctions'
 import { trafficUpdate } from '../utility/trafficFunctions'
+
+import scoreboardFunctions from '../utility/scoreboardFunctions'
 
 import Score from './Score.js'
 
@@ -11,7 +12,6 @@ import '../css/Scoreboard.css'
 import '../UI/buttons.css'
 
 var sendTraffic = new trafficUpdate()
-var scoreboard = new Scoreboard()
 
 export default class Home extends React.Component {
 
@@ -22,7 +22,12 @@ export default class Home extends React.Component {
 	}
 
 	componentDidMount(){
-		scoreboard.get()
+		// scoreboard.get()
+		// .then(res_obj =>
+		// 	this.setState({ scoreboard: res_obj.data })
+		// )
+
+		scoreboardFunctions('get', 'http://localhost:3001/scoreboards')
 		.then(res_obj =>
 			this.setState({ scoreboard: res_obj.data })
 		)

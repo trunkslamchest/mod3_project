@@ -4,13 +4,13 @@ import { Redirect } from 'react-router-dom'
 
 import PostGameScore from './PostGameScore'
 
-import { Scoreboard } from '../utility/scoreboardFunctions'
 import { trafficUpdate } from '../utility/trafficFunctions'
+
+import scoreboardFunctions from '../utility/scoreboardFunctions'
 
 import '../css/PostGame.css'
 
 var sendTraffic = new trafficUpdate()
-var scoreboard = new Scoreboard()
 
 export default class PostGameScoreContainer extends React.Component {
 
@@ -32,6 +32,7 @@ export default class PostGameScoreContainer extends React.Component {
 			user_id: localStorage.user_id,
 			page_name: "post_game_scoreboard",
 		})
+
 	}
 
 	componentDidUpdate(){
@@ -41,13 +42,15 @@ export default class PostGameScoreContainer extends React.Component {
 	}
 
 	getScoreboard(){
-		scoreboard.get()
+
+		scoreboardFunctions('get', 'http://localhost:3001/scoreboards')
 		.then(res_obj =>
 			this.setState({
 				scoreboard: res_obj.data,
 				updatedScoreboard: true
 			})
 		)
+
 	}
 
 	onClickMainMenuButtonFunctions = (event) => {

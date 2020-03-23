@@ -2,13 +2,13 @@ import React from 'react'
 
 import { Link, Redirect } from 'react-router-dom'
 
-import { Scoreboard } from '../utility/scoreboardFunctions'
 import { trafficUpdate } from '../utility/trafficFunctions'
+
+import scoreboardFunctions from '../utility/scoreboardFunctions'
 
 import '../css/SubmitScore.css'
 
 var sendTraffic = new trafficUpdate()
-var scoreboard = new Scoreboard()
 
 export default class SubmitScore extends React.Component {
 
@@ -68,6 +68,12 @@ export default class SubmitScore extends React.Component {
 	addScore = (event) => {
 		event.preventDefault()
 
+		let playerObj = {
+			player: this.state.player,
+			score: this.props.count,
+			power_level: this.props.power
+		}
+
 		let broArr =	[
 			"Bromato",
 			"Bronado",
@@ -100,7 +106,7 @@ export default class SubmitScore extends React.Component {
 
 		} else {
 
-			scoreboard.addScore(this.state.player, this.props.count, this.props.power)
+			scoreboardFunctions('post', 'http://localhost:3001/scoreboards', playerObj)
 			.then((playerObj) => {
 				this.setState({
 					playerScore: playerObj,

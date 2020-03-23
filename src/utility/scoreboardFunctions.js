@@ -1,23 +1,62 @@
-export function Scoreboard() {
+;(function(env) {
 
-	this.get = function() {
-		return fetch(`http://localhost:3001/scoreboards`)
-		.then(res => res.json())
+	var scoreboardFunctions = function(method, url, userObj){
+		var init = new scoreboardFunctions.init(method, url, userObj)
+		return init[method]
 	}
 
-	this.addScore = function(player, score, powerLevel) {
-		return fetch("http://localhost:3001/scoreboards", {
-			method: "POST",
-			headers: {
-				"content-type": "application/json",
-			},
-			body: JSON.stringify({
-				player: player,
-				score: score,
-				power_level: powerLevel
+	scoreboardFunctions.init = function(method, url, userObj){
+		this[method] = this[method](url, userObj)
+	}
+
+	scoreboardFunctions.prototype = {
+		get: function(url) {
+			return fetch(url)
+			.then(res => res.json())
+		},
+
+		post: function(url, playerObj) {
+			return fetch(url, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					player: playerObj.player,
+					score: playerObj.score,
+					power_level: playerObj.power_level,
+				})
 			})
-		})
-		.then(res => res.json())
+			.then(res => res.json())
+		},
+
+		edit: function(url, userObj) {
+			return fetch(url, {
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					first_name: userObj.first_name,
+					last_name: userObj.last_name,
+					age: userObj.age,
+					current_state: userObj.current_state,
+				})
+			})
+			.then(res => res.json())
+		},
+
+		delete: function(url) {
+			return fetch(url, {
+				method: "DELETE"
+			})
+		}
 	}
 
-}
+	scoreboardFunctions.init.prototype = scoreboardFunctions.prototype
+
+	env.scoreboardFunctions = scoreboardFunctions
+
+	module.exports = scoreboardFunctions
+
+})(typeof window === "undefined" ? global : window)
