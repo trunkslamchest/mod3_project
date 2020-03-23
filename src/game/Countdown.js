@@ -18,25 +18,20 @@ export default class Countdown extends React.Component {
 		showGo: false,
 		showTutorial: false,
 		initGame: false,
-		mounted: false,
 		initDismount: false,
 		dismounted: false
 	}
 
 	componentDidMount(){
-		this.setState({
-			mounted: true
-		})
+		this.headerTimeout = setTimeout(() => { this.setState({ showHeader: true })}, 250)
+		this.timerTimeout = setTimeout(() => { this.setState({ showTimer: true })}, 500)
+		this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 1000)}, 1000)
+		this.tutorialTimeout = setTimeout(() => { this.setState({ showTutorial: true })}, 500)
 
 		sendTraffic.pageUpdate({
 			user_id: localStorage.user_id,
 			page_name: "countdown",
 		})
-
-		this.headerTimeout = setTimeout(() => { this.setState({ showHeader: true })}, 250)
-		this.timerTimeout = setTimeout(() => { this.setState({ showTimer: true })}, 500)
-		this.startTimer = setTimeout(() => { this.timerInterval = setInterval(this.timerFunctions, 1000)}, 1000)
-		this.tutorialTimeout = setTimeout(() => { this.setState({ showTutorial: true })}, 500)
 	}
 
 	componentDidUpdate(){

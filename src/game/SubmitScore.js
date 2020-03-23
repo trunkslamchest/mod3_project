@@ -28,20 +28,11 @@ export default class SubmitScore extends React.Component {
 		updatedScoreboard: false,
 		gotNewScoreboard: false,
 		updatedDisplay: false,
-		mounted: false,
 		initDismount: false,
 		dismounted: false
 	}
 
 	componentDidMount(){
-		this.setState({
-			mounted: true
-		})
-
-		sendTraffic.pageUpdate({
-			user_id: localStorage.user_id,
-			page_name: "submit_score",
-		})
 
 		this.headerTimeout = setTimeout(() => { this.setState({ showHeader: true })}, 500)
 		this.scoreTimeout = setTimeout(() => { this.setState({ showScore: true })}, 500)
@@ -49,12 +40,15 @@ export default class SubmitScore extends React.Component {
 		this.powerTimeout = setTimeout(() => { this.setState({ showPower: true })}, 500)
 		this.formTimeout = setTimeout(() => { this.setState({ showForm: true })}, 500)
 		this.bottomButtonsTimeout = setTimeout(() => { this.setState({ showBottomButtons: true })}, 500)
+
+		sendTraffic.pageUpdate({
+			user_id: localStorage.user_id,
+			page_name: "submit_score",
+		})
+
 	}
 
 	componentDidUpdate(){
-		// if(this.state.addedScore && !this.state.updatedScoreboard){
-		// 	this.updateScoreboard()
-		// }
 		if(this.state.updatedScoreboard && !this.state.updatedDisplay){
 			this.onDismount()
 		}
@@ -63,7 +57,7 @@ export default class SubmitScore extends React.Component {
 	onSubmitScoreChange = (event) => {
 		this.setState({
 			[event.target.name]: event.target.value
-		}, console.log(event.target.name, event.target.value))
+		})
 	}
 
 	onSubmitScoreFunctions = (event) => {
@@ -101,13 +95,15 @@ export default class SubmitScore extends React.Component {
 		let randomBroName = broArr[Math.floor(Math.random() * broArr.length)]
 
 		if (name === "") {
+
 			alert(`Enter Your Name, ${randomBroName}`)
+
 		} else {
+
 			scoreboard.addScore(this.state.player, this.props.count, this.props.power)
 			.then((playerObj) => {
 				this.setState({
 					playerScore: playerObj,
-					// addedScore: true
 					updatedScoreboard: true
 				})
 
@@ -118,27 +114,12 @@ export default class SubmitScore extends React.Component {
 				})
 			})
 		}
-	}
 
-	updateScoreboard = () => {
-		scoreboard.update(this.state.player, this.props.count, this.props.power)
-		.then(
-			this.setState({
-				updatedScoreboard: true
-			})
-		)
 	}
 
 	onClickMainMenuButtonFunctions = (event) => {
-		this.setState({
-			initDismount: true
-		})
 
-		sendTraffic.elementUpdate({
-			user_id: localStorage.user_id,
-			interaction: event.target.attributes.interaction.value,
-			element: event.target.name
-		})
+		this.setState({ initDismount: true })
 
 		this.initResetTimeout = setTimeout(() => {
 			this.setState({
@@ -152,18 +133,18 @@ export default class SubmitScore extends React.Component {
 		}, 250)
 
 		this.mainMenuTimeout = setTimeout(() => { this.setState({ display: "main_menu" })}, 500 )
-	}
-
-	onClickTryAgainButtonFunctions = (event) => {
-		this.setState({
-			initDismount: true
-		})
 
 		sendTraffic.elementUpdate({
 			user_id: localStorage.user_id,
 			interaction: event.target.attributes.interaction.value,
 			element: event.target.name
 		})
+
+	}
+
+	onClickTryAgainButtonFunctions = (event) => {
+
+		this.setState({ initDismount: true })
 
 		this.initResetTimeout = setTimeout(() => {
 			this.setState({
@@ -177,12 +158,19 @@ export default class SubmitScore extends React.Component {
 		}, 500)
 
 		this.resetTimeout = setTimeout(() => { this.setState({ display: "game", dismounted: true }, this.props.resetGame())}, 1000 )
+
+		sendTraffic.elementUpdate({
+			user_id: localStorage.user_id,
+			interaction: event.target.attributes.interaction.value,
+			element: event.target.name
+		})
+
 	}
 
 	onDismount = () => {
+		this.props.getPlayer(this.state.player)
 		this.setState({ initDismount: true, updatedDisplay: true })
 		this.dismountedTimeout = setTimeout(() => { this.setState({ dismounted: true, display: "scoreboard" })}, 500)
-		this.props.getPlayer(this.state.player)
 	}
 
 	componentWillUnmount(){
@@ -215,6 +203,7 @@ export default class SubmitScore extends React.Component {
 				>
 					<h1>OUTTA TIME!</h1>
 				</div>
+
 				<div className={{
 							false: "blank",
 							true: this.state.initDismount ? "dismount_submit_score_counter" : "submit_score_counter"
@@ -223,6 +212,7 @@ export default class SubmitScore extends React.Component {
 					<h2>SMASHES</h2>
 					{ this.state.showScore ? score : blank }
 				</div>
+
 				<div className={{
 							false: "blank",
 							true: this.state.initDismount ? "dismount_submit_score_rank" : "submit_score_rank"
@@ -231,23 +221,28 @@ export default class SubmitScore extends React.Component {
 					<h2>RANK</h2>
 					{ this.state.showRank ? rank : blank }
 				</div>
+
 				<div className={{
 							false: "blank",
 							true: this.state.initDismount ? "dismount_submit_score_power" : "submit_score_power"
 						}[this.state.showPower]}
 				>
 					<h2>POWER</h2>
+
 					<div className={this.state.showPower ? "game_power_bar": "blank"}>
 						<meter value={this.props.power} min="0.0" low="0.5" optimum="1.0" high="2.0" max="3.0">
 						</meter>
 					</div>
+
 				</div>
+
 				<div className={{
 							false: "blank",
 							true: this.state.initDismount ? "dismount_submit_score_form" : "submit_score_form"
 						}[this.state.showForm]}
 				>
 					<h2>Submit Score</h2>
+
 					<form
 						name="submit_score_form"
 						interaction="submit"
@@ -269,7 +264,9 @@ export default class SubmitScore extends React.Component {
 							value="Confirm"
 						/>
 					</form>
+
 				</div>
+
 				<div className={{
 							false: "blank",
 							true: this.state.initDismount ? "dismount_submit_score_bottom_buttons_container" : "submit_score_bottom_buttons_container"
@@ -296,6 +293,7 @@ export default class SubmitScore extends React.Component {
 						Try Again
 					</Link>
 				</div>
+
 			</div>
 
 		return(

@@ -23,7 +23,6 @@ export default class Game extends React.Component {
 		showPower: false,
 		spacebar_pressed: false,
 		updated_rank: false,
-		mounted: false,
 		initDismount: false,
 		dismounted: false
 	}
@@ -37,16 +36,14 @@ export default class Game extends React.Component {
 	}
 
 	componentDidMount(){
-		this.setState({
-			mounted: true
-		})
+
+		this.startGame()
 
 		sendTraffic.pageUpdate({
 			user_id: localStorage.user_id,
-			page_name: "game_start",
+			page_name: "game_start"
 		})
 
-		this.startGame()
 	}
 
 	startGame = () => {
@@ -92,13 +89,9 @@ export default class Game extends React.Component {
 
 	timerFunctions = () => {
 		if (this.state.time <= 0) {
-			this.setState({
-				time: 0.0,
-			}, this.onDismount())
+			this.setState({ time: 0.0 }, this.onDismount())
 		} else {
-			this.setState({
-				time: (this.state.time - 0.01).toFixed(2),
-			})
+			this.setState({ time: (this.state.time - 0.01).toFixed(2) })
 		}
 	}
 
@@ -132,19 +125,13 @@ export default class Game extends React.Component {
 
 	powerFunctions = () => {
 		if (this.state.power <= 0){
-			this.setState({
-				power: 0
-			})
+			this.setState({ power: 0 })
 		} else {
-			this.setState({
-				power: this.state.power - 0.003
-			})
+			this.setState({ power: this.state.power - 0.003 })
 		}
 
 		if (this.state.time === 0){
-			this.setState({
-				power: this.state.power
-			}, clearInterval(this.powerInterval))
+			this.setState({ power: this.state.power }, clearInterval(this.powerInterval))
 		}
 	}
 
@@ -202,6 +189,7 @@ export default class Game extends React.Component {
 
 		const game =
 			<div className="game_wrapper">
+
 				<div className={{
 							false: "blank",
 							true: this.state.initDismount ? "dismount_game_timer" : "game_timer"
@@ -210,6 +198,7 @@ export default class Game extends React.Component {
 					<h2>TIME</h2>
 					{ this.state.showTimer ? time : blank }
 				</div>
+
 				<div className={{
 							false: "blank",
 							true: this.state.initDismount ? "dismount_game_counter" : "game_counter"
@@ -218,6 +207,7 @@ export default class Game extends React.Component {
 					<h2>SMASHES</h2>
 					{ this.state.showCounter ? counter : blank }
 				</div>
+
 				<div className={{
 							false: "blank",
 							true: this.state.initDismount ? "dismount_game_rank" : "game_rank"
@@ -226,6 +216,7 @@ export default class Game extends React.Component {
 					<h2>RANK</h2>
 					{ this.state.showRank ? rank : blank }
 				</div>
+
 				<div className={{
 							false: "blank",
 							true: this.state.initDismount ? "dismount_game_power" : "game_power"
@@ -233,11 +224,14 @@ export default class Game extends React.Component {
 				>
 					<h2>POWER</h2>
 					{ this.state.showPower ? power : blank }
+
 					<div className={this.state.showPower ? "game_power_bar": "blank"}>
 						<meter value={this.state.power} min="0.0" low="0.5" optimum="1.0" high="2.0" max="3.0">
 						</meter>
 					</div>
+
 				</div>
+
 			</div>
 
 		return(
