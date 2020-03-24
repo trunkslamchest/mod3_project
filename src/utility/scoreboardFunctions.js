@@ -1,11 +1,11 @@
 ;(function(env) {
 
-	var scoreboardFunctions = function(method, url, userObj){
+	var scoreboardFunctions = function(method, url, obj){
 		var init = new scoreboardFunctions.init(method, url, userObj)
 		return init[method]
 	}
 
-	scoreboardFunctions.init = function(method, url, userObj){
+	scoreboardFunctions.init = function(method, url, obj){
 		this[method] = this[method](url, userObj)
 	}
 
