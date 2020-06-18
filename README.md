@@ -13,7 +13,7 @@
 
 <p align="center">
   <a href="https://github.com/trunkslamchest/mod3_project/tree/frontend-0.32"><img align="center" src="https://img.shields.io/badge/Latest%20Frontend%20Repository-0.32-000000"></a>
-  <a href="https://github.com/trunkslamchest/mod3_project/tree/backend-0.31"><img align="center" src="https://img.shields.io/badge/Latest%20Backend%20Repository-0.31-000000"></a>
+  <a href="https://github.com/trunkslamchest/mod3_project_backend/tree/backend-0.31"><img align="center" src="https://img.shields.io/badge/Latest%20Backend%20Repository-0.31-000000"></a>
 </p>
 
 <p align="center">
