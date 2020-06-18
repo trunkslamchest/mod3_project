@@ -1,0 +1,33 @@
+@font-face {
+font-family: "Helvetica";
+src: url("../assets/Helvetica.otf") format("opentype"),
+url("../assets/Helvetica.otf") format("opentype"),
+}
+
+@font-face {
+	font-family: 'Conv_digital-7.mono';
+	src: url('../assets/digital-7.mono.eot');
+	src: local('☺'), 
+	url('../assets/digital-7.mono.woff') format('woff'),
+	url('../assets/digital-7.mono.ttf') format('truetype'),
+	url('../assets/digital-7.mono.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/* Helvetica: 100,400,600 */
+
+@import url('https://fonts.googleapis.com/css?family=Baloo&display=swap&subset=devanagari,latin-ext');
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=devanagari,latin-ext');
+
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap&subset=latin-ext');
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Saira+Stencil+One&display=swap&subset=latin-ext,vietnamese');
+
+@import url('https://fonts.googleapis.com/css?family=Alata|Cabin:400,400i,500,500i,600,600i,700,700i|Lexend+Deca|Racing+Sans+One|Staatliches&display=swap&subset=latin-ext,vietnamese');
+
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap&subset=latin-ext,vietnamese');

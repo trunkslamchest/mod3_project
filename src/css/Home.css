@@ -1,0 +1,78 @@
+.home_wrapper {
+	padding-bottom: 50px;
+	padding-top: calc(5px + (10 - 5) * ((100vh - 434px) / (779 - 434)));
+}
+
+.home_header {
+	animation: mount_home_header .5s ease-in-out 1;
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 0.75) 90%);
+	border: 2px solid white;
+	border-radius: 30px 30px;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.8), 0 15px 15px 0 rgba(0, 0, 0, 0.8);
+	margin: 0px auto 0px auto;
+	padding: 0 0 0 0;
+	text-align: center;
+	transform: matrix3d(
+		1,0,0,0.00025,
+		0,1,0,0,
+		0,0,1,0,
+		0,0,0,1
+		) translateX(10px);
+	width: calc(375px + (1000 - 375) * ((100vw - 500px) / (1920 - 500)));
+}
+
+.home_wrapper h3, .dismount_home_wrapper h3 {
+	animation: fade_in 1s ease-in-out 1, slide_in_from_left_title_text .5s ease-in-out 1;
+	color: yellow;
+	font: 300 calc(35px + (80 - 35) * ((100vw - 500px) / (1920 - 500))) 'Saira Stencil One';
+	margin: 0 auto 0 auto;
+	padding: 0px calc(15px + (10 - 15) * ((100vw - 500px) / (1920 - 500))) 0px calc(0px + (60 - 0) * ((100vw - 500px) / (1920 - 500)));
+	text-align: center;
+	 transform: matrix3d(
+		1,0,0,0.00025,
+		0,1,0,0,
+		0,0,1,0,
+		0,0,0,1
+	  ) translateX(15px);
+}
+
+.start_button_container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: baseline;
+	margin: 0 auto 0 auto;
+	padding: 10px;
+	animation: fade_in .5s ease-in-out 1, slide_in_from_bottom_start_button .5s ease-in-out 1;
+}
+
+.home_scoreboard_header {
+	animation: fade_in .5s ease-in-out 1, slide_in_from_bottom_home_scoreboard_header .5s ease-in-out 1;
+	background-image: linear-gradient( rgb(50, 50, 50, 1) 10%,rgb(0, 0, 0, 1) 100%);
+	border-radius: 30px 30px 5px 5px;
+	border: 2px solid grey;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.0), 0 0 10px 0 rgba(0, 0, 0, 0.8);
+	color: white;
+	margin: 0 auto 0 auto;
+	transform: matrix3d(
+		1,0,0,0.0,
+		0,1,0,-0.001,
+		0,0,1,0,
+		0,0,0,1
+		);
+	width: calc(336px + (871 - 336) * ((100vw - 500px) / (1920 - 500)));
+	z-index: 2;
+}
+
+.home_wrapper h4 {
+	text-align: center;
+	font: 300 calc(20px + (30 - 20) * ((100vw - 500px) / (1920 - 500))) 'Audiowide';
+	padding: 5px 0px 5px 0px;
+	margin: 0px;
+	transform: matrix3d(
+		1,0,0,0.0,
+		0,1,0,-0.001,
+		0,0,1,0,
+		0,0,0,1
+	);
+}

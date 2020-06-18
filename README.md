@@ -6,19 +6,19 @@
   <img align="center" src="https://img.shields.io/badge/HTML-5.2-E34F26">
   <img align="center" src="https://img.shields.io/badge/Javascript-1.8.5-F7DF1E">
   <img align="center" src="https://img.shields.io/badge/Postgresql-12.1-336791">
-  <img align="center" src="https://img.shields.io/badge/React.JS-16.12.0-61DAFB">
+  <img align="center" src="https://img.shields.io/badge/React.JS-16.13.1-61DAFB">
   <img align="center" src="https://img.shields.io/badge/Ruby-2.6.5-CC342D">
-  <img align="center" src="https://img.shields.io/badge/Ruby%20On%20Rails-6.0.2.1-cc0600">
-</p>  
+  <img align="center" src="https://img.shields.io/badge/Ruby%20On%20Rails-6.0.3.2-cc0600">
+</p>
 
 <p align="center">
-  <a href="https://github.com/trunkslamchest/mod3_project/tree/frontend-0.31"><img align="center" src="https://img.shields.io/badge/Latest%20Frontend%20Repository-0.31-000000"></a>
-  <a href="https://github.com/trunkslamchest/mod3_project/tree/backend-0.3"><img align="center" src="https://img.shields.io/badge/Latest%20Backend%20Repository-0.3-000000"></a>
-</p> 
+  <a href="https://github.com/trunkslamchest/mod3_project/tree/frontend-0.32"><img align="center" src="https://img.shields.io/badge/Latest%20Frontend%20Repository-0.32-000000"></a>
+  <a href="https://github.com/trunkslamchest/mod3_project/tree/backend-0.31"><img align="center" src="https://img.shields.io/badge/Latest%20Backend%20Repository-0.31-000000"></a>
+</p>
 
 <p align="center">
   <img align="center" src="https://img.shields.io/badge/Status-Work%20In%20Progress-000000">
-</p>  
+</p>
 
 # Contents
 - [Introduction](#introduction)
